@@ -1,5 +1,6 @@
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const { CheckerPlugin } = require("awesome-typescript-loader");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const { UglifyJsPlugin } = require("webpack").optimize;
 
 const settings = {
@@ -10,6 +11,7 @@ const settings = {
       "node_modules/react-dom/dist/react-dom.js"
     ]
   },
+  style: "main.css",
   distribution: "dist"
 }
 
@@ -27,6 +29,16 @@ const webpack = {
       {
         test: /\.tsx?$/,
         loader: "awesome-typescript-loader"
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          use: [{
+            loader: "css-loader"
+          }, {
+            loader: "sass-loader"
+          }]
+        })
       }
     ]
   },
@@ -39,10 +51,11 @@ const webpack = {
 const webpack_watch = {
   watch: true,
   plugins: [
+    new ExtractTextPlugin(settings.style),
     new BrowserSyncPlugin({
       host: "localhost",
       port: 3000,
-      server: { baseDir: ["./"] }
+      server: { baseDir: [`./${settings.distribution}`] }
     }),
     new CheckerPlugin()
   ]
@@ -50,8 +63,9 @@ const webpack_watch = {
 
 const webpack_build = {
   plugins: [
+    new ExtractTextPlugin(settings.style),
     new UglifyJsPlugin(),
-    new CheckerPlugin
+    new CheckerPlugin()
   ]
 }
 

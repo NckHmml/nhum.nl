@@ -13,7 +13,6 @@ export class Hello extends React.Component<HelloProps, HelloState> {
   state: HelloState = {
     count: 1
   };
-
   /**
    * Increases the counter
    */
@@ -25,7 +24,7 @@ export class Hello extends React.Component<HelloProps, HelloState> {
 
   render() {
     return (
-      <div>
+      <div className="test">
         <h1>Hello from {this.props.compiler} and {this.props.framework}!</h1>
         <h2>{this.state.count}</h2>
         <button onClick={() => this.incrementCount()}>Increase</button>

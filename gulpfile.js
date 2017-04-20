@@ -9,7 +9,7 @@ gulp.task("assets:dev", () => {
   return gulp
     .src(config.settings.assets.files)
     .pipe(concat(`${config.settings.assets.name}.js`))
-    .pipe(gulp.dest(config.settings.distribution))
+    .pipe(gulp.dest(config.settings.distribution));
 });
 
 gulp.task("assets", () => {
@@ -17,10 +17,24 @@ gulp.task("assets", () => {
     .src(config.settings.assets.files)
     .pipe(concat(`${config.settings.assets.name}.js`))
     .pipe(uglify())
-    .pipe(gulp.dest(config.settings.distribution))
+    .pipe(gulp.dest(config.settings.distribution));
 });
 
-gulp.task("watch", ["assets:dev"], () => {
+// gulp.task("sass", () => {
+//   return gulp
+//     .src("style/main.scss")
+//     .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
+//     .pipe(cssmin())
+//     .pipe(gulp.dest(config.settings.distribution));
+// });
+
+gulp.task("html", () => {
+  return gulp
+    .src("index.html")
+    .pipe(gulp.dest(config.settings.distribution));
+});
+
+gulp.task("watch", ["assets:dev", "html"], () => {
   return webpack(config.webpack_watch, (error, stats) => {
     if (error) {
       console.error(error);
@@ -28,7 +42,7 @@ gulp.task("watch", ["assets:dev"], () => {
   });
 });
 
-gulp.task("build", ["assets"], () => {
+gulp.task("build", ["assets", "html"], () => {
   return webpack(config.webpack_build, (error, stats) => {
     if (error) {
       console.error(error);
