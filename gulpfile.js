@@ -20,14 +20,6 @@ gulp.task("assets", () => {
     .pipe(gulp.dest(config.settings.distribution));
 });
 
-// gulp.task("sass", () => {
-//   return gulp
-//     .src("style/main.scss")
-//     .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
-//     .pipe(cssmin())
-//     .pipe(gulp.dest(config.settings.distribution));
-// });
-
 gulp.task("html", () => {
   return gulp
     .src("index.html")
