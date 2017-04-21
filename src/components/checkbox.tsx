@@ -6,20 +6,18 @@ interface CheckboxProps {
   checked: boolean;
 }
 
-export class Checkbox extends React.Component<CheckboxProps, void> {
-  public render() {
-    return (
-      <span className="checkbox">
-        <input
-          type="checkbox"          
-          checked={this.props.checked}
-          readOnly
-        />
-        <label onClick={() => this.props.onChange(!this.props.checked)}>
-          <span>{this.props.title}</span>
-          <span className="checkbox-toggle"></span>
-        </label>
-      </span>
-    );
-  }
-}
+export const Checkbox: React.StatelessComponent<CheckboxProps> = (props) => {
+  return (
+    <span className="checkbox">
+      <input
+        type="checkbox"
+        checked={props.checked}
+        readOnly
+      />
+      <label onClick={() => props.onChange(!props.checked)}>
+        <span>{props.title}</span>
+        <span className="checkbox-toggle"></span>
+      </label>
+    </span>
+  );
+};

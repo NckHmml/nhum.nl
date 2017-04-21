@@ -5,6 +5,7 @@ const { CheckerPlugin } = require("awesome-typescript-loader");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const { UglifyJsPlugin } = require("webpack").optimize;
 
+// Generic settings
 const settings = {
   assets: {
     name: "assets",
@@ -18,6 +19,13 @@ const settings = {
   distribution: "dist"
 }
 
+// Shared webpack plugins
+const plugins = [
+    new ExtractTextPlugin(settings.style),
+    new CheckerPlugin()
+];
+
+// Shared webpack settings
 const webpack = {
   entry: "./src/main.tsx",
   output: {
@@ -52,10 +60,11 @@ const webpack = {
   }
 }
 
+// Webpack settings for watch / develop mode
 const webpack_watch = {
   watch: true,
   plugins: [
-    new ExtractTextPlugin(settings.style),
+    ...plugins,
     new BrowserSyncPlugin({
       host: "localhost",
       port: 3000,
@@ -70,16 +79,15 @@ const webpack_watch = {
           return next();
         }
       }
-    }),
-    new CheckerPlugin()
+    })
   ]
 };
 
+// Webpack settings for building / release
 const webpack_build = {
   plugins: [
-    new ExtractTextPlugin(settings.style),
-    new UglifyJsPlugin(),
-    new CheckerPlugin()
+    ...plugins,
+    new UglifyJsPlugin()
   ]
 }
 
