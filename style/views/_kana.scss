@@ -1,0 +1,131 @@
+/// <reference path="../core/colors"/>
+/// <reference path="../core/mixins"/>
+/// <reference path="../core/sizes"/>
+.kana {
+  &-container {
+    border: 1px dotted $cl-primary;
+    padding: 20px;
+  }
+
+  &-selection,
+  &-container {
+    .checkbox {
+      float: right;
+      font-size: $fz-primary;
+      font-weight: normal;
+    }
+  }
+
+  &-selection {
+    line-height: $fz-h1;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      list-style: none;
+
+      li {
+        $size: 23px;
+
+        display: inline-block;
+        height: $size;
+        width: $size;
+        line-height: $size;
+        border-radius: 3px;
+        background-color: lighten($cl-grey, $cl-shade-1);
+        text-align: center;
+
+        &:nth-child(n+2) {
+          margin-left: 4px;
+        }
+
+        span {
+          &:last-child {
+            display: none;
+          }
+        }
+
+        &:hover span {
+          &:first-child {
+            display: none;
+          }
+
+          &:last-child {
+            display: initial;
+          }
+        }
+      }
+    }
+  }
+
+  &-group {
+    @include media-sm {
+      &:nth-child(even) {
+        padding-right: 10px;
+      }
+
+      &:nth-child(odd) {
+        padding-left: 10px;
+      }
+    }
+  }
+
+  &-button {
+    margin: 10px auto 0;
+    text-align: center;
+  }
+
+  &-preview {
+    padding: 0;
+    margin: 20px 0;
+    display: block;
+
+    &,
+    & li {
+      list-style: none;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    li {
+      display: inline-block;
+      height: 100px;
+      width: 100px;
+      font-size: $fz-h1;
+      border: 1px solid $cl-primary;
+      line-height: 100px;
+    }
+
+    li.valid,
+    &.valid li {
+      border: 1px solid $cl-tertiary;
+      color: $cl-tertiary;
+    }
+
+    li.invalid,
+    &.invalid li {
+      border: 1px solid $cl-secondary;
+      color: $cl-secondary;
+    }
+
+    &.click li {
+      cursor: pointer;
+
+      &:hover {
+        background: lighten($cl-grey, $cl-shade-3);
+      }
+    }
+  }
+
+  &-settings {
+    border-collapse: separate;
+    border-spacing: 5px;
+  }
+
+  &-guess {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+  }
+}

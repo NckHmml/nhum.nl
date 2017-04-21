@@ -1,11 +1,12 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 
 import { Footer } from "./components/footer";
 import { Navigation } from "./components/navigation";
 
 import { Index } from "./views/index";
+import { Kana } from "./views/kana";
 
 import "../style/main.scss";
 
@@ -14,9 +15,8 @@ ReactDOM.render(
     <div>
       <Navigation />
       <main className="container main">
-        {/* Routing */}
         <Route exact path="/" component={Index} />
-
+        <Route path="/kana" component={Kana} />
       </main>
       <Footer />
     </div>

@@ -1,0 +1,35 @@
+/// <reference path="../core/colors"/>
+/// <reference path="../core/mixins"/>
+/// <reference path="../core/sizes"/>
+button,
+.button {
+  display: block;
+  width: 200px;
+  height: 40px;
+  border: 1px solid $cl-grey;
+  border-radius: 10px;
+  background-color: $cl-grey;
+  font-size: $fz-h5;
+  color: #FFF;
+  @include box-sizing(border-box);
+
+  &.primary {
+    border: 1px solid $cl-primary;
+    background-color: $cl-primary;
+
+    &:hover {
+      background: lighten($cl-primary, $cl-shade-1);
+    }
+  }
+
+  &:hover {
+    background: lighten($cl-grey, $cl-shade-1);
+  }
+
+  &,
+  &:hover:active,
+  &:hover,
+  &:active {
+    padding: 0;
+  }
+}

@@ -12,8 +12,11 @@
 @import "global/text";
 
 /* Components */
+@import "components/button";
+@import "components/checkbox";
 @import "components/footer";
 @import "components/navigation";
 
 /* Views */
 @import "views/main";
+@import "views/kana";
