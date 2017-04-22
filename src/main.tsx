@@ -15,7 +15,7 @@ ReactDOM.render(
     <div>
       <Navigation />
       <main className="container main">
-        <Route exact path="/" component={Index} />
+        <Route path="/" component={Index} exact={true} />
         <Route path="/kana" component={Kana} />
       </main>
       <Footer />

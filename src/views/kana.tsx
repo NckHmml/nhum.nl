@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, Route, RouteComponentProps } from "react-router-dom";
 
-import { KanaIndex } from "./kana.index"; 
+import { KanaIndex } from "./kana.index";
 
 export class Kana extends React.Component<RouteComponentProps<void>, void> {
   render() {
@@ -13,10 +13,10 @@ export class Kana extends React.Component<RouteComponentProps<void>, void> {
               <h2>Kana learning tool</h2>
             </div>
           </header>
-          <Route 
-            exact 
-            path={this.props.match.url} 
-            render={(props) => <KanaIndex {...props} test="hello" />} 
+          <Route
+            path={this.props.match.url}
+            render={(props) => <KanaIndex {...props} test="hello" />}
+            exact={true}
           />
         </section>
       </div>

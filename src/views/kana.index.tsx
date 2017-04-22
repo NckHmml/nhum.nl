@@ -3,16 +3,16 @@ import { RouteComponentProps } from "react-router-dom";
 
 import { Checkbox } from "../components/checkbox";
 
-interface KanaIndexProps extends RouteComponentProps<void> {
+interface IKanaIndexProps extends RouteComponentProps<void> {
   test: string
 }
 
-interface KanaIndexState {
+interface IKanaIndexState {
   kana: Array<Kana>
 }
 
-export class KanaIndex extends React.Component<KanaIndexProps, KanaIndexState> {
-  public state: KanaIndexState = {
+export class KanaIndex extends React.Component<IKanaIndexProps, IKanaIndexState> {
+  public state: IKanaIndexState = {
     kana: KanaBuffer.slice()
   }
 
@@ -35,6 +35,13 @@ export class KanaIndex extends React.Component<KanaIndexProps, KanaIndexState> {
     const allKana = this.state.kana.filter(kana => kana.group === group && kana.hiragana === hiragana);
     const selected = allKana.some(kana => kana.selected);
 
+    const kanaListItems = allKana.map(item => (
+      <li key={item.kana}>
+        <span>{item.kana}</span>
+        <span>{item.romaji}</span>
+      </li>
+    ));
+
     return (
       <div className="g-24 g-sm-12 kana-group" key={group}>
         <div className="kana-selection">
@@ -44,12 +51,7 @@ export class KanaIndex extends React.Component<KanaIndexProps, KanaIndexState> {
             onChange={(checked) => this.checkKana(checked, true)}
           />
           <ul>
-            {allKana.map(item =>
-              <li key={item.kana}>
-                <span>{item.kana}</span>
-                <span>{item.romaji}</span>
-              </li>
-            )}
+            {kanaListItems}
           </ul>
         </div>
       </div>
@@ -95,14 +97,14 @@ export class KanaIndex extends React.Component<KanaIndexProps, KanaIndexState> {
 }
 
 class Kana {
+  public selected = false;
+
   constructor(
     public romaji: string,
     public kana: string,
     public hiragana: boolean,
     public group: number
   ) { }
-
-  public selected = false;
 }
 
 const KanaBuffer: Array<Kana> = [

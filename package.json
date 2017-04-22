@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Personal website of Nick Hummel",
   "scripts": {
-    "test": "gulp eslint"
+    "test": "gulp tslint"
   },
   "repository": {
     "type": "git",
@@ -25,12 +25,15 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
+    "gulp-tslint": "^8.0.0",
     "gulp-uglify": "^2.1.2",
     "node-sass": "^4.5.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1",
     "sass-loader": "^6.0.3",
+    "tslint": "^5.1.0",
+    "tslint-react": "^2.6.0",
     "typescript": "^2.2.2",
     "webpack": "^2.4.1"
   }

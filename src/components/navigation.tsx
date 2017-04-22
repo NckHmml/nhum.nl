@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 import { ClassNames } from "../helpers/classnames";
 
-interface NavigationState {
+interface INavigationState {
   open: boolean;
 }
 
-export class Navigation extends React.Component<void, NavigationState> {
-  public state: NavigationState = {
+export class Navigation extends React.Component<void, INavigationState> {
+  public state: INavigationState = {
     open: false
   };
 
