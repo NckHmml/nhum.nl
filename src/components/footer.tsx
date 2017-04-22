@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-const description = "A small portofolio app in Angular2 and Jekyll";
+const description = "A small portofolio app in TypeScript and React";
 
 export const Footer: React.StatelessComponent<void> = () => (
   <footer className="footer">

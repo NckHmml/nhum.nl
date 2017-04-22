@@ -10,6 +10,10 @@ interface IKanaState {
 }
 
 export class Kana extends React.Component<RouteComponentProps<void>, IKanaState> {
+  public state: IKanaState = {
+    settings: undefined
+  };
+
   private startTest(settings: IKanaTest) {
     const { history, match } = this.props;
     this.setState({

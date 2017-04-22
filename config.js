@@ -45,7 +45,10 @@ const webpack = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           use: [{
-            loader: "css-loader"
+            loader: "css-loader",
+            options: {
+              minimize: true
+            }
           }, {
             loader: "sass-loader"
           }]
