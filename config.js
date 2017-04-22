@@ -87,7 +87,7 @@ const webpack_watch = {
 const webpack_build = {
   plugins: [
     ...plugins,
-    // new UglifyJsPlugin()
+    new UglifyJsPlugin()
   ]
 }
 

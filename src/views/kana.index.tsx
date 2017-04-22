@@ -2,43 +2,79 @@ import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 
 import { Checkbox } from "../components/checkbox";
+import { Kana } from "../models/kana";
+import { IKanaTest } from "../models/kana.test";
 
 interface IKanaIndexProps extends RouteComponentProps<void> {
-  test: string
+  startTest: (settings: IKanaIndexState) => void;
 }
 
-interface IKanaIndexState {
-  kana: Array<Kana>
-}
+interface IKanaIndexState extends IKanaTest
+{ }
 
 export class KanaIndex extends React.Component<IKanaIndexProps, IKanaIndexState> {
   public state: IKanaIndexState = {
-    kana: KanaBuffer.slice()
-  }
+    kana: KanaBuffer.slice(),
+    reverse: false,
+    repeat: 1,
+    delay: 500
+  };
 
+  /**
+   * Checks or unchecks all kana
+   * @param checked check switch
+   * @param hiragana katakana if false
+   */
   private checkAllKana(checked: boolean, hiragana: boolean) {
+    // Copy buffer
     const kana = this.state.kana.slice();
+    // Try check
     kana.forEach(kana => {
       if (kana.hiragana === hiragana)
         kana.selected = checked;
     });
+    // Update buffer
     this.setState({
       kana: kana
     });
   }
 
-  private checkKana(checked: boolean, hiragana: boolean) {
-
+  /**
+   * Checks or unchecks a certain kana group
+   * @param group group to (un)check
+   * @param checked check switch
+   * @param hiragana katakana if false
+   */
+  private checkKana(group: number, checked: boolean, hiragana: boolean) {
+    // Copy buffer
+    const kana = this.state.kana.slice();
+    // Try check
+    kana.forEach(kana => {
+      if (kana.group == group && kana.hiragana === hiragana)
+        kana.selected = checked;
+    });
+    // Update buffer
+    this.setState({
+      kana: kana
+    });
   }
 
+  /**
+   * Renders a group of kana
+   * @param group group to render
+   * @param hiragana katakana if false
+   */
   private renderKanaGroup(group: number, hiragana: boolean) {
+    const { reverse } = this.state;
+    // Get all kana for current group
     const allKana = this.state.kana.filter(kana => kana.group === group && kana.hiragana === hiragana);
+    // Check if selected
     const selected = allKana.some(kana => kana.selected);
-
+    // Parse to html
     const kanaListItems = allKana.map(item => (
       <li key={item.kana}>
-        <span>{item.kana}</span>
-        <span>{item.romaji}</span>
+        <span>{reverse ? item.romaji : item.kana}</span>
+        <span>{reverse ? item.kana : item.romaji}</span>
       </li>
     ));
 
@@ -46,9 +82,9 @@ export class KanaIndex extends React.Component<IKanaIndexProps, IKanaIndexState>
       <div className="g-24 g-sm-12 kana-group" key={group}>
         <div className="kana-selection">
           <Checkbox
-            checked={selected}
+            defaultValue={selected}
             title="add"
-            onChange={(checked) => this.checkKana(checked, true)}
+            onChange={(checked) => this.checkKana(group, checked, hiragana)}
           />
           <ul>
             {kanaListItems}
@@ -58,16 +94,38 @@ export class KanaIndex extends React.Component<IKanaIndexProps, IKanaIndexState>
     );
   }
 
+  /**
+   * Tries to start the test
+   */
+  private startTest() {
+    const selected = this.state.kana.some(kana => kana.selected);
+    if (!selected) {
+      alert("Select some options first");
+      return;
+    }
+    this.props.startTest(this.state);
+  }
+
+  /**
+   * React render
+   */
   public render() {
+    // Check if all hiragana is selected
     const allHiraganaSelected = this.state.kana.every(kana => !kana.hiragana || kana.selected);
+    // Check if all hiragana is selected
+    const allKatakanaSelected = this.state.kana.every(kana => kana.hiragana || kana.selected);
+
+    // Get all hiragana groups
     const hiraganaGroups = this.state.kana.reduce((buffer, kana) => {
       if (kana.hiragana && buffer.indexOf(kana.group) === -1)
-        buffer.push(kana.group)
+        buffer.push(kana.group);
       return buffer;
     }, new Array<number>());
+
+    // Get all katakana groups
     const katakanaGroups = this.state.kana.reduce((buffer, kana) => {
       if (!kana.hiragana && buffer.indexOf(kana.group) === -1)
-        buffer.push(kana.group)
+        buffer.push(kana.group);
       return buffer;
     }, new Array<number>());
 
@@ -78,7 +136,7 @@ export class KanaIndex extends React.Component<IKanaIndexProps, IKanaIndexState>
             <h3>
               Hiragana sets
               <Checkbox
-                checked={allHiraganaSelected}
+                defaultValue={allHiraganaSelected}
                 title="add all"
                 onChange={(checked) => this.checkAllKana(checked, true)}
               />
@@ -86,25 +144,77 @@ export class KanaIndex extends React.Component<IKanaIndexProps, IKanaIndexState>
           </div>
           {hiraganaGroups.map(group => this.renderKanaGroup(group, true))}
         </section>
+        <section className="group">
+          <div className="g-24">
+            <h3>
+              Katakana sets
+              <Checkbox
+                defaultValue={allKatakanaSelected}
+                title="add all"
+                onChange={(checked) => this.checkAllKana(checked, false)}
+              />
+            </h3>
+          </div>
+          {katakanaGroups.map(group => this.renderKanaGroup(group, false))}
+        </section>
+        <section>
+          <div className="g-24">
+            <h3>Other settings</h3>
+            <table className="kana-settings">
+              <tbody>
+                <tr>
+                  <td>repeat</td>
+                  <td>
+                    <input
+                      type="number"
+                      min="1"
+                      max="10"
+                      value={this.state.repeat}
+                      onChange={(event) => this.setState({ repeat: parseInt(event.target.value) })}
+                    />
+                    <span>{this.state.repeat == 1 ? "time" : "times"}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>delay between answers</td>
+                  <td>
+                    <input
+                      type="number"
+                      min="100"
+                      max="2000"
+                      step="100"
+                      value={this.state.delay}
+                      onChange={(event) => this.setState({ delay: parseInt(event.target.value) })}
+                    />
+                    <span>ms</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>reverse mode</td>
+                  <td>
+                    <Checkbox
+                      defaultValue={this.state.reverse}
+                      onChange={(checked) => this.setState({ reverse: checked })}
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
         <footer className="group">
           <div className="g-24">
-            <button className="kana-button button primary">Start</button>
+            <button
+              className="kana-button button primary"
+              onClick={() => this.startTest()}
+            >
+              Start
+            </button>
           </div>
         </footer>
       </div>
     );
   }
-}
-
-class Kana {
-  public selected = false;
-
-  constructor(
-    public romaji: string,
-    public kana: string,
-    public hiragana: boolean,
-    public group: number
-  ) { }
 }
 
 const KanaBuffer: Array<Kana> = [

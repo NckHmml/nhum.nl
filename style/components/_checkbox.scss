@@ -7,6 +7,10 @@
 
   span {
     vertical-align: middle;
+
+    &:first-child {
+      margin-right: 4px;
+    }
   }
 
   &-toggle {
@@ -20,7 +24,6 @@
     height: $height;
     width: $height * 2;
     position: relative;
-    margin-left: 5px;
 
     &:after {
       content: ' ';
