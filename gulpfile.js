@@ -1,6 +1,7 @@
 const gulp = require("gulp");
 const concat = require("gulp-concat");
 const tslint = require("gulp-tslint");
+const sassLint = require("gulp-sass-lint");
 const uglify = require("gulp-uglify")
 const webpack = require("webpack");
 
@@ -35,6 +36,14 @@ gulp.task("tslint", () => {
       summarizeFailureOutput: true
     }));
 });
+
+gulp.task("sass-lint", () => {
+  return gulp
+    .src("style/**/*.s+(a|c)ss")
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
+})
 
 gulp.task("watch", ["tslint", "assets:dev", "html"], () => {
   gulp.watch("src/**/*.+(ts|tsx)", ["tslint"]);

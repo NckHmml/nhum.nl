@@ -5,12 +5,12 @@ body {
 }
 
 .footer {
+  background: lighten($cl-grey, $cl-shade-3);
+  border-top: 1px solid $cl-primary;
+  bottom: 0;
   min-width: $sz-xs;
   position: absolute;
-  bottom: 0;
   width: 100%;
-  border-top: 1px solid $cl-primary;
-  background: lighten($cl-grey, $cl-shade-3);
 
   &-header,
   &-description,

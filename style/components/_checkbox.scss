@@ -17,30 +17,30 @@
     $height: 20px;
     $spacing: 4px;
 
-    cursor: pointer;
-    display: inline-block;
     border: 1px solid $cl-primary;
     border-radius: $height / 2;
+    cursor: pointer;
+    display: inline-block;
     height: $height;
-    width: $height * 2;
     position: relative;
+    width: $height * 2;
 
     &:after {
-      content: ' ';
-      position: absolute;
-      left: $spacing;
-      top: 0;
-      bottom: 0;
-      height: $height - $spacing;
-      width: $height - $spacing;
-      border-radius: $height - $spacing;
       background-color: $cl-primary;
+      border-radius: $height - $spacing;
+      bottom: 0;
+      content: ' ';
+      height: $height - $spacing;
+      left: $spacing;
       margin: auto;
+      position: absolute;
+      top: 0;
+      width: $height - $spacing;
 
       input:checked+label & {
+        background-color: $cl-tertiary;
         left: initial;
         right: $spacing;
-        background-color: $cl-tertiary;
       }
     }
 

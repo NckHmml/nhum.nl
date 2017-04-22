@@ -9,12 +9,12 @@
   }
 
   &-article {
-    position: relative;
-    display: block;
-    padding: 20px;
     border: 1px dotted $cl-primary;
+    display: block;
     min-height: 100%;
     overflow: auto;
+    padding: 20px;
+    position: relative;
 
     @include box-sizing(border-box);
 
@@ -23,21 +23,21 @@
     }
 
     footer {
-      position: absolute;
+      border-top: 1px dotted lighten($cl-grey, $cl-shade-1);
       bottom: 10px;
       left: 0;
       line-height: 30px;
-      width: 100%;
       padding: 0 20px;
-      border-top: 1px dotted lighten($cl-grey, $cl-shade-1);
+      position: absolute;
+      width: 100%;
 
       @include box-sizing(border-box);
     }
 
     &:after {
       content: ' ';
-      height: 30px;
       display: inline-block;
+      height: 30px;
     }
 
     &:nth-child(n+2) {
@@ -45,18 +45,18 @@
     }
 
     @include media-md {
-      margin: 0;
       display: table-cell;
+      margin: 0;
     }
   }
 
   &-articles {
-    display: table;
-    table-layout: fixed;
-    height: 100%;
-    width: 100%;
     border-collapse: separate;
     border-spacing: 10px;
+    display: table;
+    height: 100%;
+    table-layout: fixed;
+    width: 100%;
 
     .group {
       display: table-row;

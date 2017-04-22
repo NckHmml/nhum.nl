@@ -20,21 +20,21 @@
     line-height: $fz-h1;
 
     ul {
-      padding: 0;
-      margin: 0;
       display: inline-block;
       list-style: none;
+      margin: 0;
+      padding: 0;
 
       li {
         $size: 23px;
 
+        background-color: lighten($cl-grey, $cl-shade-1);
+        border-radius: 3px;
         display: inline-block;
         height: $size;
-        width: $size;
         line-height: $size;
-        border-radius: 3px;
-        background-color: lighten($cl-grey, $cl-shade-1);
         text-align: center;
+        width: $size;
 
         &:nth-child(n+2) {
           margin-left: 4px;
@@ -77,9 +77,9 @@
   }
 
   &-preview {
-    padding: 0;
-    margin: 20px 0;
     display: block;
+    margin: 20px 0;
+    padding: 0;
 
     &,
     & li {
@@ -89,12 +89,12 @@
     }
 
     li {
-      display: inline-block;
-      height: 100px;
-      width: 100px;
-      font-size: $fz-h1;
       border: 1px solid $cl-primary;
+      display: inline-block;
+      font-size: $fz-h1;
+      height: 100px;
       line-height: 100px;
+      width: 100px;
     }
 
     li.valid,
@@ -122,9 +122,9 @@
     border-collapse: separate;
     border-spacing: 5px;
 
-    input[type="number"] {
-      width: 50px;
+    input[type='number'] {
       margin-right: 4px;
+      width: 50px;
     }
 
     .checkbox {
@@ -134,7 +134,7 @@
 
   &-guess {
     display: block;
-    width: 200px;
     margin: 0 auto;
+    width: 200px;
   }
 }

@@ -31,8 +31,8 @@ h6 {
 }
 
 .ellipsis {
-  white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
   @include text-overflow(ellipsis);
 }
 

@@ -31,8 +31,8 @@
 }
 
 @mixin box-sizing($rules) {
-  -webkit-box-sizing: $rules;
   -moz-box-sizing: $rules;
+  -webkit-box-sizing: $rules;
   box-sizing: $rules;
 }
 

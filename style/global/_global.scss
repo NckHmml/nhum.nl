@@ -11,19 +11,19 @@ html, body {
 }
 
 body {
-  position: initial;
   color: $cl-text;
   height: 100%;
+  position: initial;
   width: 100%;
   @include box-sizing(border-box);
 }
 
 a {
-  text-decoration: underline;
   color: $cl-text;
+  text-decoration: underline;
 
   &:hover {
-    cursor: pointer;
     color: $cl-link;
+    cursor: pointer;
   }
 }

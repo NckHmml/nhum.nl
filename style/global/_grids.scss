@@ -4,9 +4,9 @@ $grids: 24;
 
 .group,
 .container {
+  font-size: 0;
   margin: 0 auto;
   text-align: justify;
-  font-size: 0;
 
   @include box-sizing(border-box);
 }
@@ -19,9 +19,9 @@ $grids: 24;
 }
 
 .group-content {
+  display: inline-block;
   font-size: $fz-primary;
   text-align: left;
-  display: inline-block;
   vertical-align: top;
 
   @include box-sizing(border-box);
@@ -61,9 +61,9 @@ $grids: 24;
 
 @for $i from 1 through 5 {
   .g-#{$i}-5 {
+    display: inline-block;
     font-size: $fz-primary;
     text-align: left;
-    display: inline-block;
     vertical-align: top;
 
     @include box-sizing(border-box);
