@@ -1,3 +1,8 @@
+general:
+  branches:
+    only:
+      - master
+      - develop
 machine:
   node:
     version: 6.10.0
@@ -7,6 +12,13 @@ dependencies:
     - npm install
   cache_directories:
     - node_modules
+    - NckHmml.github.io
 test:
   override:
     - npm test
+deployment:
+  master:
+    branch: master
+    commands:
+      - gulp build
+      - sh ./github.io.sh
