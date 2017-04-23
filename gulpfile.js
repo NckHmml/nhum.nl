@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const concat = require("gulp-concat");
 const tslint = require("gulp-tslint");
 const sassLint = require("gulp-sass-lint");
-const uglify = require("gulp-uglify")
+const uglify = require("gulp-uglify");
 const webpack = require("webpack");
 
 const config = require("./config.js");
@@ -16,7 +16,7 @@ gulp.task("assets:dev", () => {
 
 gulp.task("assets", () => {
   return gulp
-    .src(config.settings.assets.files)
+    .src(config.settings.assets.files_build)
     .pipe(concat(`${config.settings.assets.name}.js`))
     .pipe(uglify())
     .pipe(gulp.dest(config.settings.distribution));
@@ -45,8 +45,9 @@ gulp.task("sass-lint", () => {
     .pipe(sassLint.failOnError())
 })
 
-gulp.task("watch", ["tslint", "assets:dev", "html"], () => {
+gulp.task("watch", ["sass-lint", "tslint", "assets:dev", "html"], () => {
   gulp.watch("src/**/*.+(ts|tsx)", ["tslint"]);
+  gulp.watch("style/**/*.s+(a|c)ss", ["sass-lint"]);
 
   return webpack(config.webpack_watch, (error, stats) => {
     if (error) {
@@ -55,7 +56,7 @@ gulp.task("watch", ["tslint", "assets:dev", "html"], () => {
   });
 });
 
-gulp.task("build", ["tslint", "assets", "html"], (callback) => {
+gulp.task("build", ["sass-lint", "tslint", "assets", "html"], (callback) => {
   return webpack(config.webpack_build, (error, stats) => {
     if (error) {
       console.error(error);

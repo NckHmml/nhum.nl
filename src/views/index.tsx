@@ -25,7 +25,7 @@ export class Index extends React.Component<RouteComponentProps<void>, void> {
             <article className="g-md-12 g-24 main-article">
               <header>
                 <h1>
-                  <a href="#">Sudoku solver</a>
+                  <Link to="/sudoku">Sudoku solver</Link>
                 </h1>
               </header>
               <section>
@@ -33,7 +33,7 @@ export class Index extends React.Component<RouteComponentProps<void>, void> {
                 <p>Ut ullamcorper, massa vitae rhoncus pretium, sem metus auctor enim, vitae ornare arcu lorem vitae nisl.</p>
               </section>
               <footer>
-                <a href="#">Read more..</a>
+                <Link to="/sudoku">Read more..</Link>
               </footer>
             </article>
           </div>

@@ -75,7 +75,7 @@ export class Navigation extends React.Component<void, INavigationState> {
           <section className="g-12">
             <ul>
               <li><a href="#">Project Euler</a></li>
-              <li><a href="#">Sudoku solver</a></li>
+              <li><Link to="/sudoku">Sudoku solver</Link></li>
             </ul>
           </section>
         </div>

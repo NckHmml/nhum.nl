@@ -13,6 +13,11 @@ const settings = {
       "node_modules/react/dist/react.js",
       "node_modules/react-dom/dist/react-dom.js",
       "node_modules/react-router-dom/umd/react-router-dom.js"
+    ],
+    files_build: [
+      "node_modules/react/dist/react.min.js",
+      "node_modules/react-dom/dist/react-dom.min.js",
+      "node_modules/react-router-dom/umd/react-router-dom.min.js"
     ]
   },
   style: "main.css",

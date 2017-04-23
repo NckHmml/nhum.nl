@@ -7,6 +7,7 @@ import { Navigation } from "./components/navigation";
 
 import { Index } from "./views/index";
 import { Kana } from "./views/kana";
+import { Sudoku } from "./views/sudoku";
 
 import "../style/main.scss";
 
@@ -17,6 +18,7 @@ ReactDOM.render(
       <main className="container main">
         <Route path="/" component={Index} exact={true} />
         <Route path="/kana" component={Kana} />
+        <Route path="/sudoku" component={Sudoku} />
       </main>
       <Footer />
     </div>
