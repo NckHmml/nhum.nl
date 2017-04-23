@@ -1,0 +1,29 @@
+/// <reference path="../core/colors"/>
+/// <reference path="../core/mixins"/>
+
+html {
+  position: relative;
+}
+
+html, body {
+  font-family: 'Roboto Condensed', sans-serif;
+  min-height: 100%;
+}
+
+body {
+  color: $cl-text;
+  height: 100%;
+  position: initial;
+  width: 100%;
+  @include box-sizing(border-box);
+}
+
+a {
+  color: $cl-text;
+  text-decoration: underline;
+
+  &:hover {
+    color: $cl-link;
+    cursor: pointer;
+  }
+}

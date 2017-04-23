@@ -1,0 +1,142 @@
+/// <reference path="../core/sizes">
+/// <reference path="../core/mixins">
+$grids: 24;
+
+.group,
+.container {
+  font-size: 0;
+  margin: 0 auto;
+  text-align: justify;
+
+  @include box-sizing(border-box);
+}
+
+.container {
+  display: block;
+  min-height: 100%;
+  min-width: $sz-xs;
+  padding: 0 20px;
+}
+
+.group-content {
+  display: inline-block;
+  font-size: $fz-primary;
+  text-align: left;
+  vertical-align: top;
+
+  @include box-sizing(border-box);
+  @include word-wrap(break-word);
+}
+
+.g-reset {
+  font-size: $fz-primary;
+  text-align: left;
+  vertical-align: top;
+
+  @include word-wrap(break-word);
+}
+
+@function g-width($n, $m: $grids) {
+  @return (100% / $m) * $n;
+}
+
+@for $i from 1 through $grids {
+  .g-#{$i},
+  .g-sm-#{$i},
+  .g-md-#{$i},
+  .g-lg-#{$i} {
+    @extend .group-content;
+  }
+}
+
+@for $i from 1 through $grids {
+  .g-#{$i} {
+    width: g-width($i);
+  }
+
+  .g-p-#{$i} {
+    margin-left: g-width($i);
+  }
+}
+
+@for $i from 1 through 5 {
+  .g-#{$i}-5 {
+    display: inline-block;
+    font-size: $fz-primary;
+    text-align: left;
+    vertical-align: top;
+
+    @include box-sizing(border-box);
+    @include word-wrap(break-word);
+  }
+}
+
+@for $i from 1 through 5 {
+  .g-#{$i}-5 {
+    width: g-width($i, 5);
+  }
+}
+
+@include media-sm {
+  .container {
+    width: $sz-sm;
+  }
+
+  @for $i from 0 through $grids {
+    .g-sm-#{$i} {
+      width: g-width($i);
+    }
+
+    .g-sm-p-#{$i} {
+      margin-left: g-width($i);
+    }
+  }
+}
+
+@include media-md {
+  .container {
+    width: $sz-md;
+  }
+
+  @for $i from 0 through $grids {
+    .g-md-#{$i} {
+      width: g-width($i);
+    }
+
+    .g-md-p-#{$i} {
+      margin-left: g-width($i);
+    }
+  }
+}
+
+@include media-lg {
+  .container {
+    width: $sz-lg;
+  }
+
+  @for $i from 0 through $grids {
+    .g-lg-#{$i} {
+      width: g-width($i);
+    }
+
+    .g-lg-p-#{$i} {
+      margin-left: g-width($i);
+    }
+  }
+}
+
+@include media-xl {
+  .container {
+    width: $sz-xl;
+  }
+
+  @for $i from 0 through $grids {
+    .g-xl-#{$i} {
+      width: g-width($i);
+    }
+
+    .g-xl-p-#{$i} {
+      margin-left: g-width($i);
+    }
+  }
+}

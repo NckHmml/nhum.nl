@@ -1,0 +1,36 @@
+/// <reference path="../core/colors"/>
+/// <reference path="../core/sizes"/>
+body {
+  padding-bottom: $sz-footer;
+}
+
+.footer {
+  background: lighten($cl-grey, $cl-shade-3);
+  border-top: 1px solid $cl-primary;
+  bottom: 0;
+  min-width: $sz-xs;
+  position: absolute;
+  width: 100%;
+
+  &-header,
+  &-description,
+  &-github {
+    line-height: $sz-footer;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-header {
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &-github {
+    text-align: center;
+  }
+
+  &-description {
+    text-align: right;
+  }
+}

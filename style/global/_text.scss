@@ -1,0 +1,59 @@
+/// <reference path="../core/colors"/>
+/// <reference path="../core/mixins"/>
+/// <reference path="../core/sizes"/>
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: $fz-h1;
+}
+
+h2 {
+  font-size: $fz-h2;
+}
+
+h3 {
+  font-size: $fz-h3;
+}
+
+h4 {
+  font-size: $fz-h4;
+}
+
+h5 {
+  font-size: $fz-h5;
+}
+
+h6 {
+  font-size: $fz-h6;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  @include text-overflow(ellipsis);
+}
+
+.text {
+  &.center {
+    text-align: center;
+  }
+
+  &.middle {
+    vertical-align: middle;
+  }
+
+  &.right {
+    text-align: right;
+  }
+
+  &.primary {
+    color: $cl-primary;
+  }
+
+  &.default {
+    color: $cl-text;
+  }
+}

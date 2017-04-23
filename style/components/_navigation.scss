@@ -1,0 +1,81 @@
+/// <reference path="../core/colors"/>
+/// <reference path="../core/mixins"/>
+/// <reference path="../core/sizes"/>
+body {
+  padding-top: $sz-navigation-after;
+}
+
+.navigation {
+  background: lighten($cl-grey, $cl-shade-3);
+  box-shadow: 0 0 10px 2px $cl-shadow;
+  min-width: $sz-xs;
+  padding-top: $sz-navigation-after;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  >.container {
+    height: 0;
+    margin: -$sz-navigation-after auto $sz-navigation-after;
+    overflow: hidden;
+    @include transition(height 1000ms);
+  }
+
+  &.open>.container {
+    height: $sz-navigation;
+    @include transition(height 1000ms);
+  }
+
+  header>h1 {
+    text-align: center;
+  }
+
+  section {
+    ul {
+      display: inline-block;
+      text-align: left;
+    }
+  }
+
+  &,
+  &-slide {
+    display: block;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  &-slide {
+    background: lighten($cl-grey, $cl-shade-3);
+    border-bottom: 1px solid $cl-primary;
+    border-top: 1px solid lighten($cl-grey, $cl-shade-2);
+    cursor: pointer;
+    height: $sz-navigation-after;
+    margin-top: -($sz-navigation-after + 1px);
+
+    ul {
+      display: block;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+
+      li {
+        background: $cl-tertiary;
+        border-radius: $sz-navigation-list;
+        display: inline-block;
+        height: $sz-navigation-list;
+        margin: 10px 5px;
+        width: $sz-navigation-list;
+      }
+    }
+
+    &:hover {
+      background: lighten($cl-grey, $cl-shade-2);
+
+      ul li {
+        background: $cl-secondary;
+      }
+    }
+  }
+}

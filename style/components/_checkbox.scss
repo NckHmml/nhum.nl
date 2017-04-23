@@ -1,0 +1,54 @@
+/// <reference path="../core/colors"/>
+/// <reference path="../core/sizes"/>
+.checkbox {
+  input {
+    display: none;
+  }
+
+  span {
+    vertical-align: middle;
+
+    &:first-child {
+      margin-right: 4px;
+    }
+  }
+
+  &-toggle {
+    $height: 20px;
+    $spacing: 4px;
+
+    border: 1px solid $cl-primary;
+    border-radius: $height / 2;
+    cursor: pointer;
+    display: inline-block;
+    height: $height;
+    position: relative;
+    width: $height * 2;
+
+    &:after {
+      background-color: $cl-primary;
+      border-radius: $height - $spacing;
+      bottom: 0;
+      content: ' ';
+      height: $height - $spacing;
+      left: $spacing;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      width: $height - $spacing;
+
+      input:checked+label & {
+        background-color: $cl-tertiary;
+        left: initial;
+        right: $spacing;
+      }
+    }
+
+    &:hover:after {
+      &,
+      input:checked+label & {
+        background-color: $cl-secondary;
+      }
+    }
+  }
+}

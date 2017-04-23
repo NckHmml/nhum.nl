@@ -1,0 +1,141 @@
+/// <reference path="../core/colors"/>
+/// <reference path="../core/mixins"/>
+/// <reference path="../core/sizes"/>
+.kana {
+  &-container {
+    border: 1px dotted $cl-primary;
+    padding: 20px;
+  }
+
+  &-selection,
+  &-container {
+    .checkbox {
+      float: right;
+      font-size: $fz-primary;
+      font-weight: normal;
+    }
+  }
+
+  &-selection {
+    line-height: $fz-h1;
+
+    ul {
+      display: inline-block;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        $size: 23px;
+
+        background-color: lighten($cl-grey, $cl-shade-1);
+        border-radius: 3px;
+        display: inline-block;
+        height: $size;
+        line-height: $size;
+        text-align: center;
+        width: $size;
+
+        &:nth-child(n+2) {
+          margin-left: 4px;
+        }
+
+        span {
+          &:last-child {
+            display: none;
+          }
+        }
+
+        &:hover span {
+          &:first-child {
+            display: none;
+          }
+
+          &:last-child {
+            display: initial;
+          }
+        }
+      }
+    }
+  }
+
+  &-group {
+    @include media-sm {
+      &:nth-child(even) {
+        padding-right: 10px;
+      }
+
+      &:nth-child(odd) {
+        padding-left: 10px;
+      }
+    }
+  }
+
+  &-button {
+    margin: 10px auto 0;
+    text-align: center;
+  }
+
+  &-preview {
+    display: block;
+    margin: 20px 0;
+    padding: 0;
+
+    &,
+    & li {
+      list-style: none;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    li {
+      border: 1px solid $cl-primary;
+      display: inline-block;
+      font-size: $fz-h1;
+      height: 100px;
+      line-height: 100px;
+      margin: 2px;
+      width: 100px;
+    }
+
+    li.valid,
+    &.valid li {
+      border: 1px solid $cl-tertiary;
+      color: $cl-tertiary;
+    }
+
+    li.invalid,
+    &.invalid li {
+      border: 1px solid $cl-secondary;
+      color: $cl-secondary;
+    }
+
+    &.click li {
+      cursor: pointer;
+
+      &:hover {
+        background: lighten($cl-grey, $cl-shade-3);
+      }
+    }
+  }
+
+  &-settings {
+    border-collapse: separate;
+    border-spacing: 5px;
+
+    input[type='number'] {
+      margin-right: 4px;
+      width: 50px;
+    }
+
+    .checkbox {
+      float: left;
+    }
+  }
+
+  &-guess {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+  }
+}

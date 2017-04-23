@@ -1,0 +1,65 @@
+/// <reference path="../core/colors"/>
+/// <reference path="../core/mixins"/>
+/// <reference path="../core/sizes"/>
+.main {
+  box-shadow: 0 0 10px 2px $cl-shadow;
+
+  &.container {
+    padding: 20px;
+  }
+
+  &-article {
+    border: 1px dotted $cl-primary;
+    display: block;
+    min-height: 100%;
+    overflow: auto;
+    padding: 20px;
+    position: relative;
+
+    @include box-sizing(border-box);
+
+    header a {
+      text-decoration: none;
+    }
+
+    footer {
+      border-top: 1px dotted lighten($cl-grey, $cl-shade-1);
+      bottom: 10px;
+      left: 0;
+      line-height: 30px;
+      padding: 0 20px;
+      position: absolute;
+      width: 100%;
+
+      @include box-sizing(border-box);
+    }
+
+    &:after {
+      content: ' ';
+      display: inline-block;
+      height: 30px;
+    }
+
+    &:nth-child(n+2) {
+      margin-top: 10px;
+    }
+
+    @include media-md {
+      display: table-cell;
+      margin: 0;
+    }
+  }
+
+  &-articles {
+    border-collapse: separate;
+    border-spacing: 10px;
+    display: table;
+    height: 100%;
+    table-layout: fixed;
+    width: 100%;
+
+    .group {
+      display: table-row;
+    }
+  }
+}
