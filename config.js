@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const { CheckerPlugin } = require("awesome-typescript-loader");
@@ -26,8 +27,8 @@ const settings = {
 
 // Shared webpack plugins
 const plugins = [
-    new ExtractTextPlugin(settings.style),
-    new CheckerPlugin()
+  new ExtractTextPlugin(settings.style),
+  new CheckerPlugin()
 ];
 
 // Shared webpack settings
@@ -38,7 +39,8 @@ const webpack = {
     path: `${__dirname}/${settings.distribution}`
   },
   resolve: {
-    extensions: [".ts", ".tsx"]
+    extensions: [".ts", ".tsx"],
+    modules: ["./src", "node_modules"]
   },
   module: {
     loaders: [

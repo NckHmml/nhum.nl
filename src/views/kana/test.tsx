@@ -1,9 +1,8 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 
-import { ClassNames } from "../helpers/classnames";
-import { IKanaTest } from "../models/kana.test";
-import { Kana } from "../models/kana";
+import { ClassNames } from "helpers/classnames";
+import { KanaItem, IKanaTest } from "models/kana";
 
 interface IKanaTestProps extends RouteComponentProps<void> {
   reverse: boolean;
@@ -12,11 +11,11 @@ interface IKanaTestProps extends RouteComponentProps<void> {
 
 interface IKanaTestState {
   guess: string;
-  current: Kana;
+  current: KanaItem;
   options: Array<KanaOption>;
 }
 
-class KanaOption extends Kana {
+class KanaOption extends KanaItem {
   public clicked: boolean = false;
 }
 
@@ -29,7 +28,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
 
   public state: IKanaTestState = {
     guess: "",
-    current: new Kana("", "", false, 0),
+    current: new KanaItem("", "", false, 0),
     options: []
   };
 

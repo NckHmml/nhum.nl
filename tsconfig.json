@@ -4,8 +4,13 @@
     "target": "es5",
     "noImplicitAny": true,
     "removeComments": true,
-    "jsx": "react"
+    "jsx": "react",
+    "rootDir": "./src",
+    "baseUrl": "./src"
   },
+  "include": [
+    "./src/**/*"
+  ],
   "exclude": [
     "node_modules"
   ]

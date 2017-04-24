@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Link, Route, RouteComponentProps } from "react-router-dom";
 
-import { KanaIndex } from "./kana.index";
-import { KanaTest } from "./kana.test";
-import { IKanaTest } from "../models/kana.test";
+import { IKanaTest } from "models/kana";
+import { KanaSelect } from "./select";
+import { KanaTest } from "./test";
 
 interface IKanaState {
   settings: IKanaTest;
@@ -39,7 +39,7 @@ export class Kana extends React.Component<RouteComponentProps<void>, IKanaState>
           </header>
           <Route
             path={match.url}
-            render={(props) => <KanaIndex {...props} startTest={(settings) => this.startTest(settings)} />}
+            render={(props) => <KanaSelect {...props} startTest={(settings) => this.startTest(settings)} />}
             exact={true}
           />
           <Route
