@@ -33,9 +33,26 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
   };
 
   /**
+   * Handles option click event
+   */
+  private clickOption(option: KanaOption) {
+    return () => {
+      option.clicked = true;
+      this.setGuess(option.romaji);
+    };
+  }
+
+  /**
+   * Handles the guess event
+   */
+  private doGuess = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setGuess(event.target.value);
+  }
+
+  /**
    * Cancels the test
    */
-  private cancel() {
+  private cancel = () => {
     this.props.history.push("/kana");
   }
 
@@ -103,7 +120,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
    * Checks and sets the guess value
    * @param guess the new guess value
    */
-  private doGuess(guess: string) {
+  private setGuess(guess: string) {
     this.setState({
       guess: guess
     }, () => {
@@ -147,20 +164,11 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
       <li
         className={className}
         key={option.kana}
-        onClick={() => this.clickOption(option)}
+        onClick={this.clickOption(option)}
       >
         {option.kana}
       </li>
     );
-  }
-
-  /**
-   * Handles option click event
-   * @param option option that is being click
-   */
-  private clickOption(option: KanaOption) {
-    option.clicked = true;
-    this.doGuess(option.romaji);
   }
 
   /**
@@ -184,7 +192,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
           <div className="g-24">
             <button
               className="kana-button button"
-              onClick={() => this.cancel()}
+              onClick={this.cancel}
             >
               Cancel
             </button>
@@ -223,7 +231,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
                 type="test"
                 className="kana-guess"
                 maxLength={4}
-                onChange={(event) => this.doGuess(event.target.value)}
+                onChange={this.doGuess}
                 value={this.state.guess}
               />
             </fieldset>
@@ -233,7 +241,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
           <div className="g-24">
             <button
               className="kana-button button"
-              onClick={() => this.cancel()}
+              onClick={this.cancel}
             >
               Cancel
             </button>

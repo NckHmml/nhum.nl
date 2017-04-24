@@ -20,42 +20,83 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
   };
 
   /**
+   * Updates 'repeat' in the state
+   */
+  private setRepeat = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({
+      repeat: parseInt(event.target.value)
+    });
+  }
+
+  /**
+   * Updates 'delay' in the state
+   */
+  private setDelay = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({
+      delay: parseInt(event.target.value)
+    });
+  }
+
+  /**
+   * Updates 'reverse' in the state
+   */
+  private setReverse = (reverse: boolean) => {
+    this.setState({
+      reverse: reverse
+    });
+  }
+
+  /**
+   * Tries to start the test
+   */
+  private startTest = () => {
+    const selected = this.state.kana.some(kana => kana.selected);
+    if (!selected) {
+      alert("Select some options first");
+      return;
+    }
+    this.props.startTest(this.state);
+  }
+
+  /**
    * Checks or unchecks all kana
-   * @param checked check switch
    * @param hiragana katakana if false
    */
-  private checkAllKana(checked: boolean, hiragana: boolean) {
-    // Copy buffer
-    const kana = this.state.kana.slice();
-    // Try check
-    kana.forEach(kana => {
-      if (kana.hiragana === hiragana)
-        kana.selected = checked;
-    });
-    // Update buffer
-    this.setState({
-      kana: kana
-    });
+  private checkAllKana(hiragana: boolean): (checked: boolean) => void {
+    return (checked: boolean) => {
+      // Copy buffer
+      const kana = this.state.kana.slice();
+      // Try check
+      kana.forEach(kana => {
+        if (kana.hiragana === hiragana)
+          kana.selected = checked;
+      });
+      // Update buffer
+      this.setState({
+        kana: kana
+      });
+    };
   }
 
   /**
    * Checks or unchecks a certain kana group
    * @param group group to (un)check
-   * @param checked check switch
    * @param hiragana katakana if false
    */
-  private checkKana(group: number, checked: boolean, hiragana: boolean) {
-    // Copy buffer
-    const kana = this.state.kana.slice();
-    // Try check
-    kana.forEach(kana => {
-      if (kana.group == group && kana.hiragana === hiragana)
-        kana.selected = checked;
-    });
-    // Update buffer
-    this.setState({
-      kana: kana
-    });
+  private checkKana(group: number, hiragana: boolean): (checked: boolean) => void {
+    return (checked: boolean) => {
+      // Copy buffer
+      const kana = this.state.kana.slice();
+      // Try check
+      kana.forEach(kana => {
+        if (kana.group == group && kana.hiragana === hiragana)
+          kana.selected = checked;
+      });
+      // Update buffer
+      this.setState({
+        kana: kana
+      });
+    };
   }
 
   /**
@@ -83,7 +124,7 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
           <Checkbox
             defaultValue={selected}
             title="add"
-            onChange={(checked) => this.checkKana(group, checked, hiragana)}
+            onChange={this.checkKana(group, hiragana)}
           />
           <ul>
             {kanaListItems}
@@ -91,18 +132,6 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
         </div>
       </div>
     );
-  }
-
-  /**
-   * Tries to start the test
-   */
-  private startTest() {
-    const selected = this.state.kana.some(kana => kana.selected);
-    if (!selected) {
-      alert("Select some options first");
-      return;
-    }
-    this.props.startTest(this.state);
   }
 
   /**
@@ -137,7 +166,7 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
               <Checkbox
                 defaultValue={allHiraganaSelected}
                 title="add all"
-                onChange={(checked) => this.checkAllKana(checked, true)}
+                onChange={this.checkAllKana(true)}
               />
             </h3>
           </div>
@@ -150,7 +179,7 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
               <Checkbox
                 defaultValue={allKatakanaSelected}
                 title="add all"
-                onChange={(checked) => this.checkAllKana(checked, false)}
+                onChange={this.checkAllKana(false)}
               />
             </h3>
           </div>
@@ -169,7 +198,7 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
                       min="1"
                       max="10"
                       value={this.state.repeat}
-                      onChange={(event) => this.setState({ repeat: parseInt(event.target.value) })}
+                      onChange={this.setRepeat}
                     />
                     <span>{this.state.repeat == 1 ? "time" : "times"}</span>
                   </td>
@@ -183,7 +212,7 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
                       max="2000"
                       step="100"
                       value={this.state.delay}
-                      onChange={(event) => this.setState({ delay: parseInt(event.target.value) })}
+                      onChange={this.setDelay}
                     />
                     <span>ms</span>
                   </td>
@@ -193,7 +222,7 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
                   <td>
                     <Checkbox
                       defaultValue={this.state.reverse}
-                      onChange={(checked) => this.setState({ reverse: checked })}
+                      onChange={this.setReverse}
                     />
                   </td>
                 </tr>
@@ -205,7 +234,7 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
           <div className="g-24">
             <button
               className="kana-button button primary"
-              onClick={() => this.startTest()}
+              onClick={this.startTest}
             >
               Start
             </button>

@@ -18,7 +18,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
   /**
    * Switch checked state
    */
-  private switch() {
+  private switch = () => {
     this.setState({
       checked: !this.state.checked
     }, () => {
@@ -51,7 +51,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
           checked={this.state.checked}
           readOnly={true}
         />
-        <label onClick={() => this.switch()}>
+        <label onClick={this.switch}>
           {title}
           <span className="checkbox-toggle" />
         </label>

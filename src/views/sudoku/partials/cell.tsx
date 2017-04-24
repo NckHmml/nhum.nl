@@ -28,12 +28,16 @@ export class SudokuCell extends React.Component<ISudokuCellProps, ISudokuCellSta
   /**
    * Click trigger
    */
-  private click() {
+  private click = () => {
     this.input.focus();
   }
 
-  private change(value: string) {
-    const newValue = parseInt(value) || 0;
+  /**
+   * Handles the change event
+   * @param event onKeyPress event
+   */
+  private change = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const newValue = parseInt(event.key) || 0;
     if (newValue === this.state.value)
       return;
     this.setState({
@@ -41,6 +45,25 @@ export class SudokuCell extends React.Component<ISudokuCellProps, ISudokuCellSta
     }, () => {
       this.props.onChange(newValue);
     });
+  }
+
+  /**
+   * Sets the ref to the input element
+   */
+  private setInput = (input: HTMLInputElement) => {
+    this.input = input;
+  }
+
+  /**
+   * Sets the focused state
+   * @param focused new focus state
+   */
+  private setFocus(focused: boolean) {
+    return () => {
+      this.setState({
+        focused: focused
+      });
+    };
   }
 
   /**
@@ -69,15 +92,15 @@ export class SudokuCell extends React.Component<ISudokuCellProps, ISudokuCellSta
     return (
       <fieldset
         className={className}
-        onClick={() => this.click()}
+        onClick={this.click}
       >
         <div className="sudoku-cell-input">
           <input
             value={value}
-            ref={(ref) => this.input = ref}
-            onKeyPress={event => this.change(event.key)}
-            onFocus={() => this.setState({ focused: true })}
-            onBlur={() => this.setState({ focused: false })}
+            ref={this.setInput}
+            onKeyPress={this.change}
+            onFocus={this.setFocus(true)}
+            onBlur={this.setFocus(false)}
           />
         </div>
         <label>{value}</label>

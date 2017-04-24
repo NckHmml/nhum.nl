@@ -14,7 +14,7 @@ export class Kana extends React.Component<RouteComponentProps<void>, IKanaState>
     settings: undefined
   };
 
-  private startTest(settings: IKanaTest) {
+  private startTest = (settings: IKanaTest) => {
     const { history, match } = this.props;
     this.setState({
       settings: settings
@@ -24,6 +24,18 @@ export class Kana extends React.Component<RouteComponentProps<void>, IKanaState>
       else
         history.push(`${match.url}/test`);
     });
+  }
+
+  private renderSelect = (props: RouteComponentProps<void>) => {
+    return <KanaSelect {...props} startTest={this.startTest} />;
+  }
+
+  private renderTest = (props: RouteComponentProps<void>) => {
+    return <KanaTest {...props} settings={this.state.settings} reverse={false} />;
+  }
+
+  private renderReverseTest = (props: RouteComponentProps<void>) => {
+    return <KanaTest {...props} settings={this.state.settings} reverse={true} />;
   }
 
   render() {
@@ -39,17 +51,17 @@ export class Kana extends React.Component<RouteComponentProps<void>, IKanaState>
           </header>
           <Route
             path={match.url}
-            render={(props) => <KanaSelect {...props} startTest={(settings) => this.startTest(settings)} />}
+            render={this.renderSelect}
             exact={true}
           />
           <Route
             path={`${match.url}/test`}
-            render={(props) => <KanaTest {...props} settings={this.state.settings} reverse={false} />}
+            render={this.renderTest}
             exact={true}
           />
           <Route
             path={`${match.url}/test/reverse`}
-            render={(props) => <KanaTest {...props} settings={this.state.settings} reverse={true} />}
+            render={this.renderReverseTest}
             exact={true}
           />
         </section>

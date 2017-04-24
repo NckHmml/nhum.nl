@@ -15,7 +15,7 @@ export class Navigation extends React.Component<void, INavigationState> {
   /**
    * Navigation slide onClick
    */
-  private trigger(event: React.MouseEvent<HTMLDivElement>) {
+  private trigger = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
 
     this.setState({
@@ -79,7 +79,7 @@ export class Navigation extends React.Component<void, INavigationState> {
             </ul>
           </section>
         </div>
-        <div className="navigation-slide" onClick={(event) => this.trigger(event)}>
+        <div className="navigation-slide" onClick={this.trigger}>
           <ul>
             <li />
             <li />

@@ -20,19 +20,21 @@ export class Sudoku extends React.Component<RouteComponentProps<void>, ISudokuSt
         <SudokuCell
           valid={this.state.valids[y][x]}
           value={value}
-          onChange={(val) => this.setCell(val, x, y)}
+          onChange={this.setCell(x, y)}
         />
       </td>
     );
   }
 
-  private setCell(value: number, x: number, y: number) {
-    this.field[y][x] = value;
-    SudokuSolver.checkValids(this.field, this.state.valids);
+  private setCell(x: number, y: number) {
+    return (value: number) => {
+      this.field[y][x] = value;
+      SudokuSolver.checkValids(this.field, this.state.valids);
 
-    this.setState({
-      valids: this.state.valids
-    });
+      this.setState({
+        valids: this.state.valids
+      });
+    };
   }
 
   private generateField() {
