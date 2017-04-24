@@ -19,8 +19,14 @@ class KanaOption extends KanaItem {
   public clicked: boolean = false;
 }
 
+/**
+ * Display character for unknown kana
+ */
 const UNKNOWN_KANA: string = "?";
 
+/**
+ * Kana test page
+ */
 export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
   private indices: Array<number>;
   private step: number;

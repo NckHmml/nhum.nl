@@ -1,8 +1,14 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * Footer description
+ */
 const description = "A small portofolio app in TypeScript and React";
 
+/**
+ * Page footer
+ */
 export const Footer: React.StatelessComponent<void> = () => (
   <footer className="footer">
     <div className="container">

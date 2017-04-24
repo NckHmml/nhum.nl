@@ -7,6 +7,9 @@ interface INavigationState {
   open: boolean;
 }
 
+/**
+ * Page navigation
+ */
 export class Navigation extends React.Component<void, INavigationState> {
   public state: INavigationState = {
     open: false

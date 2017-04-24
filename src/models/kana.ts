@@ -1,3 +1,6 @@
+/**
+ * Kana items container
+ */
 export class KanaItem {
   public selected = false;
 
@@ -9,6 +12,9 @@ export class KanaItem {
   ) { }
 }
 
+/**
+ * Kana test configuration / state
+ */
 export interface IKanaTest {
   kana: Array<KanaItem>;
   reverse: boolean;

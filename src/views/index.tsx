@@ -1,6 +1,9 @@
 import * as React from "react";
 import { RouteComponentProps, Link } from "react-router-dom";
 
+/**
+ * Site index page
+ */
 export class Index extends React.Component<RouteComponentProps<void>, void> {
   render() {
     return (

@@ -9,8 +9,10 @@ import { Index } from "views/index";
 import { Kana } from "views/kana";
 import { Sudoku } from "views/sudoku";
 
+// Import styling
 import "../style/main.scss";
 
+// React entry point
 ReactDOM.render(
   <BrowserRouter>
     <div>

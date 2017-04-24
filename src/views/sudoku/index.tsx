@@ -14,6 +14,12 @@ export class Sudoku extends React.Component<RouteComponentProps<void>, ISudokuSt
     valids: new Array<Array<boolean>>()
   };
 
+  /**
+   * Renders a cell with a value
+   * @param value value of the cell
+   * @param x column number
+   * @param y row number
+   */
   private renderCell(value: number, x: number, y: number) {
     return (
       <td key={x}>
@@ -26,6 +32,11 @@ export class Sudoku extends React.Component<RouteComponentProps<void>, ISudokuSt
     );
   }
 
+  /**
+   * Provides a callback to set the value of a cell
+   * @param x column number
+   * @param y row number
+   */
   private setCell(x: number, y: number) {
     return (value: number) => {
       this.field[y][x] = value;
@@ -37,9 +48,13 @@ export class Sudoku extends React.Component<RouteComponentProps<void>, ISudokuSt
     };
   }
 
+  /**
+   * Generates the initial field data
+   */
   private generateField() {
     this.field = new Array<Array<number>>();
     const valids = new Array<Array<boolean>>();
+
     for (let y = 0; y < 9; y++) {
       this.field.push([]);
       valids.push([]);
@@ -54,11 +69,18 @@ export class Sudoku extends React.Component<RouteComponentProps<void>, ISudokuSt
     });
   }
 
+  /**
+   * React component mounting
+   */
   public componentWillMount() {
     this.generateField();
   }
 
+  /**
+   * React render
+   */
   public render() {
+    // Generate and fill cell buffer to render
     const cells = [];
     for (let y = 0; y < 9; y++) {
       cells.push([]);

@@ -11,6 +11,9 @@ interface IKanaSelectProps extends RouteComponentProps<void> {
 interface IKanaSelectState extends IKanaTest
 { }
 
+/**
+ * Kana select page
+ */
 export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectState> {
   public state: IKanaSelectState = {
     kana: KanaBuffer.slice(),

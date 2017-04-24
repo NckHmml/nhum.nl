@@ -14,6 +14,9 @@ interface ISudokuCellState {
   focused: boolean;
 }
 
+/**
+ * Sudoku cell partial
+ */
 export class SudokuCell extends React.Component<ISudokuCellProps, ISudokuCellState> {
   public state: ISudokuCellState = {
     value: this.props.value,

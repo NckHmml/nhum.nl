@@ -9,16 +9,24 @@ interface IKanaState {
   settings: IKanaTest;
 }
 
+/**
+ * Kana index page
+ */
 export class Kana extends React.Component<RouteComponentProps<void>, IKanaState> {
   public state: IKanaState = {
     settings: undefined
   };
 
+  /**
+   * Starts the kana test
+   */
   private startTest = (settings: IKanaTest) => {
     const { history, match } = this.props;
+    // Push settings
     this.setState({
       settings: settings
     }, () => {
+      // Check if reverse, then navigate
       if (settings.reverse)
         history.push(`${match.url}/test/reverse`);
       else
@@ -26,18 +34,30 @@ export class Kana extends React.Component<RouteComponentProps<void>, IKanaState>
     });
   }
 
+  /**
+   * Renders the kana select page
+   */
   private renderSelect = (props: RouteComponentProps<void>) => {
     return <KanaSelect {...props} startTest={this.startTest} />;
   }
 
+  /**
+   * Renders the kana test page
+   */
   private renderTest = (props: RouteComponentProps<void>) => {
     return <KanaTest {...props} settings={this.state.settings} reverse={false} />;
   }
 
+  /**
+   * Renders the kana reversed test page
+   */
   private renderReverseTest = (props: RouteComponentProps<void>) => {
     return <KanaTest {...props} settings={this.state.settings} reverse={true} />;
   }
 
+  /**
+   * React render
+   */
   render() {
     const { match } = this.props;
 
