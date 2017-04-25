@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { ClassNames } from "~/helpers/classnames";
+
 export interface ICheckboxProps {
   /** Checked state callback */
   onChange?: (checked: boolean) => void;
@@ -7,6 +9,8 @@ export interface ICheckboxProps {
   title?: string;
   /** Default checked state */
   defaultValue?: boolean;
+  /** Optional class names */
+  className?: string;
 }
 
 interface ICheckboxState {
@@ -14,7 +18,7 @@ interface ICheckboxState {
 }
 
 /**
- * Checkbox component styled as switch button
+ * Checkbox styled as a toggle element
  * @example readme.md
  */
 export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
@@ -50,17 +54,22 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
    * React render
    */
   public render() {
-    const title = this.props.title ? <span>{this.props.title}</span> : undefined;
+    const { className, title } = this.props;
+
+    const rootClass = ClassNames({
+      "checkbox": true,
+      [`${className}`]: Boolean(className)
+    });
 
     return (
-      <span className="checkbox">
+      <span className={rootClass}>
         <input
           type="checkbox"
           checked={this.state.checked}
           readOnly={true}
         />
         <label onClick={this.switch}>
-          {title}
+          {title ? <span>{title}</span> : undefined}
           <span className="checkbox-toggle" />
         </label>
       </span>

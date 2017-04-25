@@ -1,6 +1,7 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 
+import { Button } from "~/components/button";
 import { ClassNames } from "~/helpers/classnames";
 import { KanaItem, IKanaTest } from "~/models/kana";
 
@@ -196,12 +197,12 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
         </section>
         <footer className="group">
           <div className="g-24">
-            <button
-              className="kana-button button"
+            <Button
+              className="kana-button"
               onClick={this.cancel}
             >
               Cancel
-            </button>
+            </Button>
           </div>
         </footer>
       </div>
@@ -245,12 +246,12 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
         </section>
         <footer className="group">
           <div className="g-24">
-            <button
-              className="kana-button button"
+            <Button
+              className="kana-button"
               onClick={this.cancel}
             >
               Cancel
-            </button>
+            </Button>
           </div>
         </footer>
       </div>

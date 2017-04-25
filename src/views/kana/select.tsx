@@ -1,6 +1,7 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 
+import { Button } from "~/components/button";
 import { Checkbox } from "~/components/checkbox";
 import { KanaItem, IKanaTest } from "~/models/kana";
 
@@ -235,12 +236,12 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
         </section>
         <footer className="group">
           <div className="g-24">
-            <button
-              className="kana-button button primary"
+            <Button
+              className="kana-button"
               onClick={this.startTest}
             >
               Start
-            </button>
+            </Button>
           </div>
         </footer>
       </div>
