@@ -2,12 +2,12 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 
-import { Footer } from "partials/footer";
-import { Navigation } from "partials/navigation";
+import { Footer } from "~/partials/footer";
+import { Navigation } from "~/partials/navigation";
 
-import { Index } from "views/index";
-import { Kana } from "views/kana";
-import { Sudoku } from "views/sudoku";
+import { Index } from "~/views";
+import { Kana } from "~/views/kana";
+import { Sudoku } from "~/views/sudoku";
 
 // Import styling
 import "../style/main.scss";

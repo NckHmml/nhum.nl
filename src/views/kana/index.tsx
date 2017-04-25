@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, Route, RouteComponentProps } from "react-router-dom";
 
-import { IKanaTest } from "models/kana";
+import { IKanaTest } from "~/models/kana";
 import { KanaSelect } from "./select";
 import { KanaTest } from "./test";
 

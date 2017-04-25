@@ -1,8 +1,8 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 
-import { ClassNames } from "helpers/classnames";
-import { KanaItem, IKanaTest } from "models/kana";
+import { ClassNames } from "~/helpers/classnames";
+import { KanaItem, IKanaTest } from "~/models/kana";
 
 interface IKanaTestProps extends RouteComponentProps<void> {
   reverse: boolean;

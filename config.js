@@ -40,7 +40,10 @@ const webpack = {
   },
   resolve: {
     extensions: [".ts", ".tsx"],
-    modules: ["./src", "node_modules"]
+    modules: ["./src", "node_modules"],
+    alias: {
+      "~": `${__dirname}/src`
+    }
   },
   module: {
     loaders: [

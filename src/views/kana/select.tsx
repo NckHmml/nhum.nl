@@ -1,8 +1,8 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 
-import { Checkbox } from "components/checkbox";
-import { KanaItem, IKanaTest } from "models/kana";
+import { Checkbox } from "~/components/checkbox";
+import { KanaItem, IKanaTest } from "~/models/kana";
 
 interface IKanaSelectProps extends RouteComponentProps<void> {
   startTest: (settings: IKanaSelectState) => void;

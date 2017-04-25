@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { ClassNames } from "helpers/classnames";
+import { ClassNames } from "~/helpers/classnames";
 
 interface ISudokuCellProps {
   value: number;

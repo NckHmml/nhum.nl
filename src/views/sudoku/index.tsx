@@ -2,7 +2,7 @@ import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 
 import { SudokuCell } from "./partials/cell";
-import { SudokuSolver } from "helpers/sudoku.solver";
+import { SudokuSolver } from "~/helpers/sudoku.solver";
 
 interface ISudokuState {
   valids: Array<Array<boolean>>;

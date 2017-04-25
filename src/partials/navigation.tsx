@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import { ClassNames } from "helpers/classnames";
+import { ClassNames } from "~/helpers/classnames";
 
 interface INavigationState {
   open: boolean;
