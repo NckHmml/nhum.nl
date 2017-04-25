@@ -4,6 +4,7 @@ const tslint = require("gulp-tslint");
 const sassLint = require("gulp-sass-lint");
 const uglify = require("gulp-uglify");
 const webpack = require("webpack");
+const styleguidist = require("react-styleguidist");
 
 const config = require("./config.js");
 
@@ -43,7 +44,21 @@ gulp.task("sass-lint", () => {
     .pipe(sassLint())
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError())
-})
+});
+
+gulp.task("styleguidist", ["build"], () => {
+  gulp.watch("src/**/*.+(ts|tsx)", ["tslint"]);
+  gulp.watch("style/**/*.s+(a|c)ss", ["sass-lint"]);
+  
+  styleguidist(config.styleguidist).server((err, config) => {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      console.log('Listening at http://' + config.serverHost + ':' + config.serverPort);
+    }
+  });
+});
 
 gulp.task("watch", ["sass-lint", "tslint", "assets:dev", "html"], () => {
   gulp.watch("src/**/*.+(ts|tsx)", ["tslint"]);

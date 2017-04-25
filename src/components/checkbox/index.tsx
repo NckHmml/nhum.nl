@@ -1,8 +1,11 @@
 import * as React from "react";
 
-interface ICheckboxProps {
+export interface ICheckboxProps {
+  /** Checked state callback */
   onChange?: (checked: boolean) => void;
+  /** Title label */
   title?: string;
+  /** Default checked state */
   defaultValue?: boolean;
 }
 
@@ -10,6 +13,10 @@ interface ICheckboxState {
   checked: boolean;
 }
 
+/**
+ * Checkbox component styled as switch button
+ * @example readme.md
+ */
 export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
   public state: ICheckboxState = {
     checked: this.props.defaultValue || false
@@ -22,7 +29,8 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     this.setState({
       checked: !this.state.checked
     }, () => {
-      this.props.onChange(this.state.checked);
+      if (this.props.onChange)
+        this.props.onChange(this.state.checked);
     });
   }
 
@@ -59,3 +67,6 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     );
   }
 }
+
+// Needed for styleguidist
+export default Checkbox;

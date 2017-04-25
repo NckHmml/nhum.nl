@@ -40,7 +40,10 @@ const webpack = {
   },
   resolve: {
     extensions: [".ts", ".tsx"],
-    modules: ["./src", "node_modules"],
+    modules: [
+      path.resolve(__dirname, "src"),
+      "node_modules"
+    ],
     alias: {
       "~": `${__dirname}/src`
     }
@@ -104,11 +107,28 @@ const webpack_build = {
   ]
 }
 
+// styleguidist settings
+const styleguidist = {
+  title: "nhum.nl",
+  template: "./styleguidist.html",
+  components: "src/components/**/*.tsx",
+  webpackConfig: {
+    watch: true,
+    plugins: plugins
+  },
+  resolver: require("react-docgen").resolver.findAllComponentDefinitions,
+  propsParser: require("react-docgen-typescript").parse
+}
+Object.assign(styleguidist.webpackConfig, webpack);
+// Remove externals
+styleguidist.webpackConfig.externals = {};
+
 Object.assign(webpack_watch, webpack);
 Object.assign(webpack_build, webpack);
 
 module.exports = {
   webpack_watch: webpack_watch,
   webpack_build: webpack_build,
-  settings: settings
+  settings: settings,
+  styleguidist: styleguidist
 };
