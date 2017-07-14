@@ -10,7 +10,7 @@ interface INavigationState {
 /**
  * Page navigation
  */
-export class Navigation extends React.Component<void, INavigationState> {
+export class Navigation extends React.Component<{}, INavigationState> {
   public state: INavigationState = {
     open: false
   };
@@ -60,7 +60,7 @@ export class Navigation extends React.Component<void, INavigationState> {
   public render() {
     const className = ClassNames({
       "open": this.state.open,
-      "navigation": true
+      "c-navigation": true
     });
 
     return (
@@ -73,6 +73,7 @@ export class Navigation extends React.Component<void, INavigationState> {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/kana">Kana learning tool</Link></li>
+              <li><Link to="/password">Password evaluation</Link></li>
             </ul>
           </section>
           <section className="g-12">
@@ -82,7 +83,7 @@ export class Navigation extends React.Component<void, INavigationState> {
             </ul>
           </section>
         </div>
-        <div className="navigation-slide" onClick={this.trigger}>
+        <div className="c-navigation-slide" onClick={this.trigger}>
           <ul>
             <li />
             <li />

@@ -10,15 +10,18 @@ const { UglifyJsPlugin } = require("webpack").optimize;
 const settings = {
   assets: {
     name: "assets",
+    freqlist: "node_modules/zxcvbn-typescript/frequency_list.json",
     files: [
       "node_modules/react/dist/react.js",
       "node_modules/react-dom/dist/react-dom.js",
-      "node_modules/react-router-dom/umd/react-router-dom.js"
+      "node_modules/react-router-dom/umd/react-router-dom.js",
+      "node_modules/zxcvbn-typescript/dist/zxcvbn-typescript.external.js"
     ],
     files_build: [
       "node_modules/react/dist/react.min.js",
       "node_modules/react-dom/dist/react-dom.min.js",
-      "node_modules/react-router-dom/umd/react-router-dom.min.js"
+      "node_modules/react-router-dom/umd/react-router-dom.min.js",
+      "node_modules/zxcvbn-typescript/dist/zxcvbn-typescript.external.js"
     ]
   },
   style: "main.css",
@@ -67,12 +70,13 @@ const webpack = {
           }]
         })
       }
-    ]
+    ],
   },
   externals: {
     "react": "React",
     "react-dom": "ReactDOM",
-    "react-router-dom": "ReactRouterDOM"
+    "react-router-dom": "ReactRouterDOM",
+    "zxcvbn-typescript": "Zxcvbn"
   }
 }
 
@@ -119,10 +123,8 @@ const styleguidist = {
   resolver: require("react-docgen").resolver.findAllComponentDefinitions,
   propsParser: require("react-docgen-typescript").parse
 }
-Object.assign(styleguidist.webpackConfig, webpack);
-// Remove externals
-styleguidist.webpackConfig.externals = {};
 
+Object.assign(styleguidist.webpackConfig, webpack);
 Object.assign(webpack_watch, webpack);
 Object.assign(webpack_build, webpack);
 

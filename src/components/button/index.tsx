@@ -35,7 +35,7 @@ export class Button extends React.Component<IButtonProps, void> {
   public render() {
     const { className, children, type } = this.props;
     const rootClass = ClassNames({
-      "button": true,
+      "c-button": true,
       [`${type}`]: Boolean(type),
       [`${className}`]: Boolean(className)
     });

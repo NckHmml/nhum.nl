@@ -7,6 +7,7 @@ import { Navigation } from "~/partials/navigation";
 
 import { Index } from "~/views";
 import { Kana } from "~/views/kana";
+import { Password } from "~/views/password";
 import { Sudoku } from "~/views/sudoku";
 
 // Import styling
@@ -18,8 +19,10 @@ ReactDOM.render(
     <div>
       <Navigation />
       <main className="container main">
+        {/* Routes */}
         <Route path="/" component={Index} exact={true} />
         <Route path="/kana" component={Kana} />
+        <Route path="/password" component={Password} />
         <Route path="/sudoku" component={Sudoku} />
       </main>
       <Footer />

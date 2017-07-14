@@ -8,18 +8,24 @@ const styleguidist = require("react-styleguidist");
 
 const config = require("./config.js");
 
-gulp.task("assets:dev", () => {
+gulp.task("assets:dev", ["freqlist"], () => {
   return gulp
     .src(config.settings.assets.files)
     .pipe(concat(`${config.settings.assets.name}.js`))
     .pipe(gulp.dest(config.settings.distribution));
 });
 
-gulp.task("assets", () => {
+gulp.task("assets", ["freqlist"], () => {
   return gulp
     .src(config.settings.assets.files_build)
     .pipe(concat(`${config.settings.assets.name}.js`))
     .pipe(uglify())
+    .pipe(gulp.dest(config.settings.distribution));
+});
+
+gulp.task("freqlist", () => {
+  return gulp
+    .src(config.settings.assets.freqlist)
     .pipe(gulp.dest(config.settings.distribution));
 });
 

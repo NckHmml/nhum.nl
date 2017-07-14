@@ -55,6 +55,20 @@ export class Index extends React.Component<RouteComponentProps<void>, void> {
                 <a href="#">Read more..</a>
               </footer>
             </article>
+            <article className="g-md-12 g-24 main-article">
+              <header>
+                <h1>
+                  <a href="#">Password Strength Evaluation</a>
+                </h1>
+              </header>
+              <section>
+                <p>Over the years, people have trained themselves to use passwords that are hard to remember for humans, but easy to guess for computers.</p>
+                <p>A library called Zxcvbn addresses this issue by estimating how long it would take to crack a password, thus determening the strength of it.</p>
+              </section>
+              <footer>
+                <Link to="/password">Read more..</Link>
+              </footer>
+            </article>
           </div>
         </div>
       </div>

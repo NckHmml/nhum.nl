@@ -37,8 +37,9 @@
     "sass-loader": "^6.0.3",
     "tslint": "^5.1.0",
     "tslint-react": "^2.6.0",
-    "typescript": "^2.2.2",
-    "webpack": "^2.4.1"
+    "typescript": "^2.4.1",
+    "webpack": "^2.4.1",
+    "zcvbn-typescript": "git+https://github.com/NckHmml/zxcvbn-typescript.git#develop"
   },
   "devDependencies": {
     "jss": "^7.1.0",

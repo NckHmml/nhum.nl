@@ -57,7 +57,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     const { className, title } = this.props;
 
     const rootClass = ClassNames({
-      "checkbox": true,
+      "c-checkbox": true,
       [`${className}`]: Boolean(className)
     });
 
@@ -70,7 +70,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
         />
         <label onClick={this.switch}>
           {title ? <span>{title}</span> : undefined}
-          <span className="checkbox-toggle" />
+          <span className="c-checkbox-toggle" />
         </label>
       </span>
     );

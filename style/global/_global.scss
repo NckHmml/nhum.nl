@@ -1,11 +1,11 @@
 /// <reference path="../core/colors"/>
 /// <reference path="../core/mixins"/>
-
 html {
   position: relative;
 }
 
-html, body {
+html,
+body {
   font-family: 'Roboto Condensed', sans-serif;
   min-height: 100%;
 }
@@ -16,6 +16,17 @@ body {
   position: initial;
   width: 100%;
   @include box-sizing(border-box);
+}
+
+input {
+  border: 1px solid $cl-primary;
+  border-radius: 2px;
+  box-sizing: border-box;
+  padding: 3px;
+}
+
+fieldset {
+  margin: 0 0 10px;
 }
 
 a {
