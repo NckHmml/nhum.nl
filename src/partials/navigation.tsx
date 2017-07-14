@@ -1,13 +1,16 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import { ClassNames } from "../helpers/classnames";
+import { ClassNames } from "~/helpers/classnames";
 
 interface INavigationState {
   open: boolean;
 }
 
-export class Navigation extends React.Component<void, INavigationState> {
+/**
+ * Page navigation
+ */
+export class Navigation extends React.Component<{}, INavigationState> {
   public state: INavigationState = {
     open: false
   };
@@ -15,7 +18,7 @@ export class Navigation extends React.Component<void, INavigationState> {
   /**
    * Navigation slide onClick
    */
-  private trigger(event: React.MouseEvent<HTMLDivElement>) {
+  private trigger = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
 
     this.setState({
@@ -57,7 +60,7 @@ export class Navigation extends React.Component<void, INavigationState> {
   public render() {
     const className = ClassNames({
       "open": this.state.open,
-      "navigation": true
+      "c-navigation": true
     });
 
     return (
@@ -70,16 +73,17 @@ export class Navigation extends React.Component<void, INavigationState> {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/kana">Kana learning tool</Link></li>
+              <li><Link to="/password">Password evaluation</Link></li>
             </ul>
           </section>
           <section className="g-12">
             <ul>
               <li><a href="#">Project Euler</a></li>
-              <li><a href="#">Sudoku solver</a></li>
+              <li><Link to="/sudoku">Sudoku solver</Link></li>
             </ul>
           </section>
         </div>
-        <div className="navigation-slide" onClick={(event) => this.trigger(event)}>
+        <div className="c-navigation-slide" onClick={this.trigger}>
           <ul>
             <li />
             <li />

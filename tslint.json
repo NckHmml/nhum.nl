@@ -48,7 +48,6 @@
       true,
       "always-prefix"
     ],
-    "jsx-no-lambda": false,
     "member-ordering": [
       true,
       {

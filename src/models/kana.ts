@@ -1,4 +1,7 @@
-export class Kana {
+/**
+ * Kana items container
+ */
+export class KanaItem {
   public selected = false;
 
   constructor(
@@ -7,4 +10,14 @@ export class Kana {
     public hiragana: boolean,
     public group: number
   ) { }
+}
+
+/**
+ * Kana test configuration / state
+ */
+export interface IKanaTest {
+  kana: Array<KanaItem>;
+  reverse: boolean;
+  repeat: number;
+  delay: number;
 }

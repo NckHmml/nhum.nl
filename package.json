@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Personal website of Nick Hummel",
   "scripts": {
-    "test": "gulp tslint sass-lint"
+    "test": "gulp tslint sass-lint",
+    "styleguide": "gulp styleguidist"
   },
   "repository": {
     "type": "git",
@@ -36,7 +37,14 @@
     "sass-loader": "^6.0.3",
     "tslint": "^5.1.0",
     "tslint-react": "^2.6.0",
-    "typescript": "^2.2.2",
-    "webpack": "^2.4.1"
+    "typescript": "^2.4.1",
+    "webpack": "^2.4.1",
+    "zcvbn-typescript": "git+https://github.com/NckHmml/zxcvbn-typescript.git#develop"
+  },
+  "devDependencies": {
+    "jss": "^7.1.0",
+    "react-docgen": "^2.14.1",
+    "react-docgen-typescript": "0.0.5",
+    "react-styleguidist": "^5.1.2"
   }
 }

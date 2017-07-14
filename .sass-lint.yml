@@ -1,7 +1,6 @@
 options:
   merge-default-rules: false
 rules:
-  border-zero: 2
   class-name-format:
     - 2
     -

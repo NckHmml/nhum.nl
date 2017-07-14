@@ -1,9 +1,9 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 
-import { ClassNames } from "../helpers/classnames";
-import { IKanaTest } from "../models/kana.test";
-import { Kana } from "../models/kana";
+import { Button } from "~/components/button";
+import { ClassNames } from "~/helpers/classnames";
+import { KanaItem, IKanaTest } from "~/models/kana";
 
 interface IKanaTestProps extends RouteComponentProps<void> {
   reverse: boolean;
@@ -12,16 +12,22 @@ interface IKanaTestProps extends RouteComponentProps<void> {
 
 interface IKanaTestState {
   guess: string;
-  current: Kana;
+  current: KanaItem;
   options: Array<KanaOption>;
 }
 
-class KanaOption extends Kana {
+class KanaOption extends KanaItem {
   public clicked: boolean = false;
 }
 
+/**
+ * Display character for unknown kana
+ */
 const UNKNOWN_KANA: string = "?";
 
+/**
+ * Kana test page
+ */
 export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
   private indices: Array<number>;
   private step: number;
@@ -29,14 +35,31 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
 
   public state: IKanaTestState = {
     guess: "",
-    current: new Kana("", "", false, 0),
+    current: new KanaItem("", "", false, 0),
     options: []
   };
 
   /**
+   * Handles option click event
+   */
+  private clickOption(option: KanaOption) {
+    return () => {
+      option.clicked = true;
+      this.setGuess(option.romaji);
+    };
+  }
+
+  /**
+   * Handles the guess event
+   */
+  private doGuess = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setGuess(event.target.value);
+  }
+
+  /**
    * Cancels the test
    */
-  private cancel() {
+  private cancel = () => {
     this.props.history.push("/kana");
   }
 
@@ -104,7 +127,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
    * Checks and sets the guess value
    * @param guess the new guess value
    */
-  private doGuess(guess: string) {
+  private setGuess(guess: string) {
     this.setState({
       guess: guess
     }, () => {
@@ -148,20 +171,11 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
       <li
         className={className}
         key={option.kana}
-        onClick={() => this.clickOption(option)}
+        onClick={this.clickOption(option)}
       >
         {option.kana}
       </li>
     );
-  }
-
-  /**
-   * Handles option click event
-   * @param option option that is being click
-   */
-  private clickOption(option: KanaOption) {
-    option.clicked = true;
-    this.doGuess(option.romaji);
   }
 
   /**
@@ -183,12 +197,12 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
         </section>
         <footer className="group">
           <div className="g-24">
-            <button
-              className="kana-button button"
-              onClick={() => this.cancel()}
+            <Button
+              className="kana-button"
+              onClick={this.cancel}
             >
               Cancel
-            </button>
+            </Button>
           </div>
         </footer>
       </div>
@@ -224,7 +238,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
                 type="test"
                 className="kana-guess"
                 maxLength={4}
-                onChange={(event) => this.doGuess(event.target.value)}
+                onChange={this.doGuess}
                 value={this.state.guess}
               />
             </fieldset>
@@ -232,12 +246,12 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
         </section>
         <footer className="group">
           <div className="g-24">
-            <button
-              className="kana-button button"
-              onClick={() => this.cancel()}
+            <Button
+              className="kana-button"
+              onClick={this.cancel}
             >
               Cancel
-            </button>
+            </Button>
           </div>
         </footer>
       </div>

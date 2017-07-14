@@ -1,6 +1,9 @@
 import * as React from "react";
 import { RouteComponentProps, Link } from "react-router-dom";
 
+/**
+ * Site index page
+ */
 export class Index extends React.Component<RouteComponentProps<void>, void> {
   render() {
     return (
@@ -25,7 +28,7 @@ export class Index extends React.Component<RouteComponentProps<void>, void> {
             <article className="g-md-12 g-24 main-article">
               <header>
                 <h1>
-                  <a href="#">Sudoku solver</a>
+                  <Link to="/sudoku">Sudoku solver</Link>
                 </h1>
               </header>
               <section>
@@ -33,7 +36,7 @@ export class Index extends React.Component<RouteComponentProps<void>, void> {
                 <p>Ut ullamcorper, massa vitae rhoncus pretium, sem metus auctor enim, vitae ornare arcu lorem vitae nisl.</p>
               </section>
               <footer>
-                <a href="#">Read more..</a>
+                <Link to="/sudoku">Read more..</Link>
               </footer>
             </article>
           </div>
@@ -50,6 +53,20 @@ export class Index extends React.Component<RouteComponentProps<void>, void> {
               </section>
               <footer>
                 <a href="#">Read more..</a>
+              </footer>
+            </article>
+            <article className="g-md-12 g-24 main-article">
+              <header>
+                <h1>
+                  <a href="#">Password Strength Evaluation</a>
+                </h1>
+              </header>
+              <section>
+                <p>Over the years, people have trained themselves to use passwords that are hard to remember for humans, but easy to guess for computers.</p>
+                <p>A library called Zxcvbn addresses this issue by estimating how long it would take to crack a password, thus determening the strength of it.</p>
+              </section>
+              <footer>
+                <Link to="/password">Read more..</Link>
               </footer>
             </article>
           </div>

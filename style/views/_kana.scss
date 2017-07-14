@@ -9,7 +9,7 @@
 
   &-selection,
   &-container {
-    .checkbox {
+    .c-checkbox {
       float: right;
       font-size: $fz-primary;
       font-weight: normal;
@@ -128,7 +128,7 @@
       width: 50px;
     }
 
-    .checkbox {
+    .c-checkbox {
       float: left;
     }
   }

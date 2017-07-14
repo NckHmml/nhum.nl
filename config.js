@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const { CheckerPlugin } = require("awesome-typescript-loader");
@@ -9,10 +10,18 @@ const { UglifyJsPlugin } = require("webpack").optimize;
 const settings = {
   assets: {
     name: "assets",
+    freqlist: "node_modules/zxcvbn-typescript/frequency_list.json",
     files: [
       "node_modules/react/dist/react.js",
       "node_modules/react-dom/dist/react-dom.js",
-      "node_modules/react-router-dom/umd/react-router-dom.js"
+      "node_modules/react-router-dom/umd/react-router-dom.js",
+      "node_modules/zxcvbn-typescript/dist/zxcvbn-typescript.external.js"
+    ],
+    files_build: [
+      "node_modules/react/dist/react.min.js",
+      "node_modules/react-dom/dist/react-dom.min.js",
+      "node_modules/react-router-dom/umd/react-router-dom.min.js",
+      "node_modules/zxcvbn-typescript/dist/zxcvbn-typescript.external.js"
     ]
   },
   style: "main.css",
@@ -21,8 +30,8 @@ const settings = {
 
 // Shared webpack plugins
 const plugins = [
-    new ExtractTextPlugin(settings.style),
-    new CheckerPlugin()
+  new ExtractTextPlugin(settings.style),
+  new CheckerPlugin()
 ];
 
 // Shared webpack settings
@@ -33,7 +42,14 @@ const webpack = {
     path: `${__dirname}/${settings.distribution}`
   },
   resolve: {
-    extensions: [".ts", ".tsx"]
+    extensions: [".ts", ".tsx"],
+    modules: [
+      path.resolve(__dirname, "src"),
+      "node_modules"
+    ],
+    alias: {
+      "~": `${__dirname}/src`
+    }
   },
   module: {
     loaders: [
@@ -54,12 +70,13 @@ const webpack = {
           }]
         })
       }
-    ]
+    ],
   },
   externals: {
     "react": "React",
     "react-dom": "ReactDOM",
-    "react-router-dom": "ReactRouterDOM"
+    "react-router-dom": "ReactRouterDOM",
+    "zxcvbn-typescript": "Zxcvbn"
   }
 }
 
@@ -94,11 +111,26 @@ const webpack_build = {
   ]
 }
 
+// styleguidist settings
+const styleguidist = {
+  title: "nhum.nl",
+  template: "./styleguidist.html",
+  components: "src/components/**/*.tsx",
+  webpackConfig: {
+    watch: true,
+    plugins: plugins
+  },
+  resolver: require("react-docgen").resolver.findAllComponentDefinitions,
+  propsParser: require("react-docgen-typescript").parse
+}
+
+Object.assign(styleguidist.webpackConfig, webpack);
 Object.assign(webpack_watch, webpack);
 Object.assign(webpack_build, webpack);
 
 module.exports = {
   webpack_watch: webpack_watch,
   webpack_build: webpack_build,
-  settings: settings
+  settings: settings,
+  styleguidist: styleguidist
 };

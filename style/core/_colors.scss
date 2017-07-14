@@ -13,5 +13,11 @@ $cl-shade-3: 20%;
 $cl-text: #333;
 $cl-link: $cl-secondary;
 
+/* Password strength */
+$cl-password-weak: $cl-secondary;
+$cl-password-medium: lighten($cl-secondary, $cl-shade-2);
+$cl-password-good: lighten($cl-primary, $cl-shade-1);
+$cl-password-excellent: $cl-tertiary;
+
 /* Etc */
 $cl-shadow: rgba(0, 0, 0, 0.1);

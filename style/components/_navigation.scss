@@ -5,7 +5,7 @@ body {
   padding-top: $sz-navigation-after;
 }
 
-.navigation {
+.c-navigation {
   background: lighten($cl-grey, $cl-shade-3);
   box-shadow: 0 0 10px 2px $cl-shadow;
   min-width: $sz-xs;
