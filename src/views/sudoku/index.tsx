@@ -4,6 +4,8 @@ import { RouteComponentProps } from "react-router-dom";
 import { SudokuCell } from "./partials/cell";
 import { SudokuSolver } from "~/helpers/sudoku.solver";
 
+import { Button } from "~/components/button";
+
 interface ISudokuState {
   valids: Array<Array<boolean>>;
 }
@@ -51,7 +53,7 @@ export class Sudoku extends React.Component<RouteComponentProps<void>, ISudokuSt
   /**
    * Generates the initial field data
    */
-  private generateField() {
+  private generateField = () => {
     this.field = new Array<Array<number>>();
     const valids = new Array<Array<boolean>>();
 
@@ -66,6 +68,19 @@ export class Sudoku extends React.Component<RouteComponentProps<void>, ISudokuSt
 
     this.setState({
       valids: valids
+    });
+  }
+
+  /**
+   * Starts the solving algorithm
+   */
+  private solve = () => {
+    const result = SudokuSolver.solve(this.field);
+
+    // We don't really need to do this, but it helps debugging and triggers a state update
+    SudokuSolver.checkValids(this.field, this.state.valids);
+    this.setState({
+      valids: this.state.valids
     });
   }
 
@@ -105,6 +120,17 @@ export class Sudoku extends React.Component<RouteComponentProps<void>, ISudokuSt
               </tbody>
             </table>
           </section>
+          <footer>
+            <Button onClick={this.solve}>
+              Solve puzzle
+            </Button>
+            <Button
+              type="secondary"
+              onClick={this.generateField}
+            >
+              Clear puzzle
+            </Button>
+          </footer>
         </section>
       </div>
     );

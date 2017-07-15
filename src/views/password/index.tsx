@@ -16,6 +16,9 @@ export class Password extends React.Component<RouteComponentProps<void>, IPasswo
     lastName: "",
   };
 
+  /**
+   * Callback for the password component
+   */
   private onValidPassword = (password: string) => {
     if (password === this.state.password)
       return;
@@ -25,11 +28,15 @@ export class Password extends React.Component<RouteComponentProps<void>, IPasswo
     });
   }
 
-  private onChange(field: string) {
+  /**
+   * Generic field change callback
+   * @param field Key of the field that has been changed
+   */
+  private onChange(field: keyof IPasswordState) {
     return (event: React.ChangeEvent<HTMLInputElement>) => {
       const addState = {
         [field]: event.target.value
-      } as Pick<IPasswordState, "firstName" | "lastName">;
+      } as Pick<IPasswordState, keyof IPasswordState>;
       this.setState(addState);
     };
   }

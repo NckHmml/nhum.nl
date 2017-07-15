@@ -83,6 +83,7 @@ const webpack = {
 // Webpack settings for watch / develop mode
 const webpack_watch = {
   watch: true,
+  devtool: "source-map",
   plugins: [
     ...plugins,
     new BrowserSyncPlugin({

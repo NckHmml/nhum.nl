@@ -245,11 +245,8 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
           </div>
         </section>
         <footer className="group">
-          <div className="g-24">
-            <Button
-              className="kana-button"
-              onClick={this.cancel}
-            >
+          <div className="g-24 kana-button">
+            <Button onClick={this.cancel} >
               Cancel
             </Button>
           </div>

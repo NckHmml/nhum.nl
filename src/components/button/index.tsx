@@ -6,7 +6,7 @@ export interface IButtonProps {
   /** OnClick callback */
   onClick: () => void;
   /** Type of the button */
-  type?: "primary";
+  type?: "primary" | "secondary";
   /** Child elements */
   children?: React.ReactChild;
   /** Optional class names */

@@ -81,6 +81,7 @@ body {
       display: inline-block;
       margin: 0;
       padding: 0 20px;
+      vertical-align: top;
 
       @include media-xs {
         display: block;
@@ -95,9 +96,9 @@ body {
       width: 250px;
 
       a {
-        display: inline-block;
+        display: block;
+        line-height: 30px;
         overflow: hidden;
-        padding: 5px;
         text-decoration: none;
         white-space: nowrap;
         width: 100%;

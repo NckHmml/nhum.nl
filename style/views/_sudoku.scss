@@ -5,6 +5,14 @@
   border: 1px dotted $cl-primary;
   padding: 20px;
 
+  footer {
+    text-align: center;
+
+    .c-button {
+      margin: 5px;
+    }
+  }
+
   &-table {
     border-spacing: 0;
     width: 100%;
