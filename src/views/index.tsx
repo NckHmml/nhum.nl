@@ -58,7 +58,7 @@ export class Index extends React.Component<RouteComponentProps<void>, void> {
             <article className="g-md-12 g-24 main-article">
               <header>
                 <h1>
-                  <a href="#">Password Strength Evaluation</a>
+                  <Link to="/password">Password Strength Evaluation</Link>
                 </h1>
               </header>
               <section>

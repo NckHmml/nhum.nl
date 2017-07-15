@@ -17,12 +17,7 @@ export const Footer: React.StatelessComponent<{}> = () => (
           <Link to="/">nhum.nl</Link>
         </h2>
       </div>
-      <div className="g-6">
-        <p className="c-footer-github">
-          {/*By {% include icon-github.html username=site.github_username %}*/}
-        </p>
-      </div>
-      <div className="g-9">
+      <div className="g-15">
         <p
           className="c-footer-description ellipsis"
           title={description}

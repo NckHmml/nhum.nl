@@ -25,7 +25,7 @@
     position: relative;
     width: $height * 2;
 
-    &:after {
+    &::after {
       background-color: $cl-primary;
       border-radius: $height - $spacing;
       bottom: 0;
