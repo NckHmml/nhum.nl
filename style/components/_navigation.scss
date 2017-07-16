@@ -8,7 +8,6 @@ body {
 .c-navigation {
   background: lighten($cl-grey, $cl-shade-3);
   box-shadow: 0 0 10px 2px $cl-shadow;
-  min-width: $sz-xs;
   padding-top: $sz-navigation-after;
   position: absolute;
   top: 0;
@@ -24,17 +23,13 @@ body {
   &.open>.container {
     height: $sz-navigation;
     @include transition(height 1000ms);
+    @include media-xs {
+      height: $sz-navigation-xs;
+    }
   }
 
   header>h1 {
     text-align: center;
-  }
-
-  section {
-    ul {
-      display: inline-block;
-      text-align: left;
-    }
   }
 
   &,
@@ -75,6 +70,43 @@ body {
 
       ul li {
         background: $cl-secondary;
+      }
+    }
+  }
+
+  &-blocks {
+    text-align: center;
+
+    ul {
+      display: inline-block;
+      margin: 0;
+      padding: 0 20px;
+      vertical-align: top;
+
+      @include media-xs {
+        display: block;
+      }
+    }
+
+    li {
+      border: 1px solid $cl-primary;
+      box-sizing: border-box;
+      display: block;
+      margin: 4px auto 0;
+      width: 250px;
+
+      a {
+        display: block;
+        line-height: 30px;
+        overflow: hidden;
+        text-decoration: none;
+        white-space: nowrap;
+        width: 100%;
+        @include text-overflow(ellipsis);
+      }
+
+      &:hover {
+        background: lighten($cl-grey, $cl-shade-2);
       }
     }
   }

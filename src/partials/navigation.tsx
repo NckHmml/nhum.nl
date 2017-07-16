@@ -69,16 +69,14 @@ export class Navigation extends React.Component<{}, INavigationState> {
           <header className="g-24">
             <h1>Navigation</h1>
           </header>
-          <section className="g-12 text right">
+          <section className="c-navigation-blocks g-24">
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/kana">Kana learning tool</Link></li>
               <li><Link to="/password">Password evaluation</Link></li>
             </ul>
-          </section>
-          <section className="g-12">
             <ul>
-              <li><a href="#">Project Euler</a></li>
+              <li><Link to="/euler">Project Euler</Link></li>
               <li><Link to="/sudoku">Sudoku solver</Link></li>
             </ul>
           </section>

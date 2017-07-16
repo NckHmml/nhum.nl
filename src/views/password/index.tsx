@@ -16,6 +16,9 @@ export class Password extends React.Component<RouteComponentProps<void>, IPasswo
     lastName: "",
   };
 
+  /**
+   * Callback for the password component
+   */
   private onValidPassword = (password: string) => {
     if (password === this.state.password)
       return;
@@ -25,11 +28,15 @@ export class Password extends React.Component<RouteComponentProps<void>, IPasswo
     });
   }
 
-  private onChange(field: string) {
+  /**
+   * Generic field change callback
+   * @param field Key of the field that has been changed
+   */
+  private onChange(field: keyof IPasswordState) {
     return (event: React.ChangeEvent<HTMLInputElement>) => {
       const addState = {
         [field]: event.target.value
-      } as Pick<IPasswordState, "firstName" | "lastName">;
+      } as Pick<IPasswordState, keyof IPasswordState>;
       this.setState(addState);
     };
   }
@@ -39,7 +46,7 @@ export class Password extends React.Component<RouteComponentProps<void>, IPasswo
 
     return (
       <div className="group">
-        <section className="g-24 g-md-16 g-md-p-4 sudoku">
+        <section className="g-24 g-md-16 g-md-p-4 password">
           <header>
             <h2>Password Strength Evaluation</h2>
           </header>
@@ -54,12 +61,12 @@ export class Password extends React.Component<RouteComponentProps<void>, IPasswo
               <ul>
                 <li>Re-using user fields, in this case, first name and / or last name.</li>
                 <li>Common English words.</li>
-                <li>Patterns, such as '123321'.</li>
+                <li>Patterns, such as '123321' or 'qwerty'.</li>
                 <li>Commonly used passwords such as 'test123' or 'password123'.</li>
               </ul>
             </div>
           </section>
-          <section className="password">
+          <section>
             <div className="g-24 g-lg-12 g-lg-p-6 g-md-16 g-md-p-4">
               <fieldset>
                 <label>First Name</label>
@@ -84,6 +91,12 @@ export class Password extends React.Component<RouteComponentProps<void>, IPasswo
             </div>
           </section>
         </section>
+        <div className="password-img">
+          <img className="g-24" src="https://imgs.xkcd.com/comics/password_strength.png" />
+          <a href="https://xkcd.com/936/">
+            <p>Visit xkcd.com</p>
+          </a>
+        </div>
       </div>
     );
   }

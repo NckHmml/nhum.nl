@@ -6,6 +6,7 @@ import { Footer } from "~/partials/footer";
 import { Navigation } from "~/partials/navigation";
 
 import { Index } from "~/views";
+import { Euler } from "~/views/euler";
 import { Kana } from "~/views/kana";
 import { Password } from "~/views/password";
 import { Sudoku } from "~/views/sudoku";
@@ -21,6 +22,7 @@ ReactDOM.render(
       <main className="container main">
         {/* Routes */}
         <Route path="/" component={Index} exact={true} />
+        <Route path="/euler" component={Euler} />
         <Route path="/kana" component={Kana} />
         <Route path="/password" component={Password} />
         <Route path="/sudoku" component={Sudoku} />

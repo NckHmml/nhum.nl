@@ -16,7 +16,6 @@ export class KanaItem {
  * Kana test configuration / state
  */
 export interface IKanaTest {
-  kana: Array<KanaItem>;
   reverse: boolean;
   repeat: number;
   delay: number;

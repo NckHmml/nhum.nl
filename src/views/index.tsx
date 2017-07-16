@@ -17,9 +17,8 @@ export class Index extends React.Component<RouteComponentProps<void>, void> {
                 </h1>
               </header>
               <section>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tristique velit lectus, sit amet mattis libero fermentum id. </p>
-                <p>Pellentesque auctor aliquam erat, vitae luctus enim. Nulla posuere commodo ornare. Nullam id vehicula sapien. Vestibulum tempor metus nec libero imperdiet, non euismod orci maximus. </p>
-                <p>Ut ullamcorper, massa vitae rhoncus pretium, sem metus auctor enim, vitae ornare arcu lorem vitae nisl.</p>
+                <p>During the time I spent living in Japan, I wanted to at least be able to read the basic character (kana) sets called "Hiragana" and "Katakana" respectively.</p>
+                <p>Sadly, in my quest to learn these sets, I was not able to find a tool to aid me in the process. So I ended up writing my own tool.</p>
               </section>
               <footer>
                 <Link to="/kana">Read more..</Link>
@@ -32,8 +31,12 @@ export class Index extends React.Component<RouteComponentProps<void>, void> {
                 </h1>
               </header>
               <section>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tristique velit lectus, sit amet mattis libero fermentum id. </p>
-                <p>Ut ullamcorper, massa vitae rhoncus pretium, sem metus auctor enim, vitae ornare arcu lorem vitae nisl.</p>
+                <p>
+                  Sudoku is a logic-based, combinatorial number-placement puzzle.
+                  The objective is to fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid contains all of the digits from 1 to 9.
+                  The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.
+                </p>
+                <p>I was solving puzzles while travelling, when I thought to myself "I wonder how hard it would be to solve these puzzles programmatically" and this resolver tool is the answer to that question.</p>
               </section>
               <footer>
                 <Link to="/sudoku">Read more..</Link>
@@ -44,21 +47,21 @@ export class Index extends React.Component<RouteComponentProps<void>, void> {
             <article className="g-md-12 g-24 main-article">
               <header>
                 <h1>
-                  <a href="#">Project Euler</a>
+                  <Link to="/euler">Project Euler</Link>
                 </h1>
               </header>
               <section>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tristique velit lectus, sit amet mattis libero fermentum id. </p>
-                <p>Pellentesque auctor aliquam erat, vitae luctus enim. Nulla posuere commodo ornare. Nullam id vehicula sapien. Vestibulum tempor metus nec libero imperdiet, non euismod orci maximus. </p>
+                <p>Project Euler is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve.</p>
+                <p>Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems.</p>
               </section>
               <footer>
-                <a href="#">Read more..</a>
+                <Link to="/euler">Read more..</Link>
               </footer>
             </article>
             <article className="g-md-12 g-24 main-article">
               <header>
                 <h1>
-                  <a href="#">Password Strength Evaluation</a>
+                  <Link to="/password">Password Strength Evaluation</Link>
                 </h1>
               </header>
               <section>
