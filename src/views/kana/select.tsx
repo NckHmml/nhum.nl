@@ -168,6 +168,25 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
 
     return (
       <div>
+        <section>
+          <p>
+            During the time I spent living in Japan, I wanted to at least be able to read the basic character (kana) sets called "Hiragana" and "Katakana" respectively.<br />
+            Sadly, in my quest to learn these sets, I was not able to find a tool to my liking. So I ended up writing my own tool.
+          </p>
+        </section>
+        <section>
+          <h3>Instructions</h3>
+          <p>
+            This tool works by repeating a selected sets of characters, with the idea that after repeating it enough they will be stored in the long term memory.<br />
+            The following options are available;
+          </p>
+          <ul>
+            <li>repeat: the number of times to repeat each set in a single session</li>
+            <li>reverse mode: this will switch the tool from "kana to latin" to "latin to kana"</li>
+            <li>delay between answers: this will change the time it takes between characters</li>
+          </ul>
+          <p>Select the characters by clicking the checkbox to their right, after which you can press the button to start.</p>
+        </section>
         <section className="group">
           <div className="g-24">
             <h3>
@@ -213,6 +232,15 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
                   </td>
                 </tr>
                 <tr>
+                  <td>reverse mode</td>
+                  <td>
+                    <Checkbox
+                      defaultValue={reverse}
+                      onChange={this.setReverse}
+                    />
+                  </td>
+                </tr>
+                <tr>
                   <td>delay between answers</td>
                   <td>
                     <input
@@ -224,15 +252,6 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
                       onChange={this.setDelay}
                     />
                     <span>ms</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>reverse mode</td>
-                  <td>
-                    <Checkbox
-                      defaultValue={reverse}
-                      onChange={this.setReverse}
-                    />
                   </td>
                 </tr>
               </tbody>
