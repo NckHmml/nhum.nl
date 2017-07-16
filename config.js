@@ -15,13 +15,15 @@ const settings = {
       "node_modules/react/dist/react.js",
       "node_modules/react-dom/dist/react-dom.js",
       "node_modules/react-router-dom/umd/react-router-dom.js",
-      "node_modules/zxcvbn-typescript/dist/zxcvbn-typescript.external.js"
+      "node_modules/zxcvbn-typescript/dist/zxcvbn-typescript.external.js",
+      "node_modules/highlight.js/lib/highlight.js",
     ],
     files_build: [
       "node_modules/react/dist/react.min.js",
       "node_modules/react-dom/dist/react-dom.min.js",
       "node_modules/react-router-dom/umd/react-router-dom.min.js",
-      "node_modules/zxcvbn-typescript/dist/zxcvbn-typescript.external.js"
+      "node_modules/zxcvbn-typescript/dist/zxcvbn-typescript.external.js",
+      "node_modules/highlight.js/lib/highlight.js",
     ]
   },
   style: "main.css",
@@ -76,7 +78,8 @@ const webpack = {
     "react": "React",
     "react-dom": "ReactDOM",
     "react-router-dom": "ReactRouterDOM",
-    "zxcvbn-typescript": "Zxcvbn"
+    "zxcvbn-typescript": "Zxcvbn",
+    "highlight.js": "hljs",
   }
 }
 

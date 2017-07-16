@@ -6,6 +6,7 @@
 /* Global */
 @import 'global/global';
 @import 'global/grids';
+@import 'global/highlight';
 @import 'global/normalize';
 @import 'global/text';
 
@@ -18,6 +19,7 @@
 
 /* Views */
 @import 'views/main';
+@import 'views/euler';
 @import 'views/kana';
 @import 'views/password';
 @import 'views/sudoku';
