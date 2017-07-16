@@ -76,7 +76,7 @@ export class Navigation extends React.Component<{}, INavigationState> {
               <li><Link to="/password">Password evaluation</Link></li>
             </ul>
             <ul>
-              <li><a href="#">Project Euler</a></li>
+              <li><Link to="/euler">Project Euler</Link></li>
               <li><Link to="/sudoku">Sudoku solver</Link></li>
             </ul>
           </section>

@@ -8,6 +8,7 @@ import { KanaItem, IKanaTest } from "~/models/kana";
 interface IKanaTestProps extends RouteComponentProps<void> {
   reverse: boolean;
   settings: IKanaTest;
+  buffer: Array<KanaItem>;
 }
 
 interface IKanaTestState {
@@ -82,17 +83,17 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
    * Set next kana in test
    */
   private next() {
-    const { reverse, kana } = this.props.settings;
+    const { buffer, settings } = this.props;
     const { current } = this.state;
 
-    const next = this.props.settings.kana[this.indices[this.step++]];
+    const next = buffer[this.indices[this.step++]];
     const options = new Array<KanaOption>();
 
-    if (this.props.settings.reverse) {
+    if (settings.reverse) {
       // Push the valid option
       options.push(next as KanaOption);
       // Get kana in the same group
-      const group = this.props.settings.kana.filter(item => item.group === next.group && item.hiragana === next.hiragana && item !== next);
+      const group = buffer.filter(item => item.group === next.group && item.hiragana === next.hiragana && item !== next);
       // Randomize
       this.randomize(group);
       // Pop 2 (smallest group is 3)
@@ -115,9 +116,10 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
    * Tries to get a kana equivelent of the current guess
    */
   private getKanaForGuess(): string {
+    const { buffer } = this.props;
     const { guess, current } = this.state;
 
-    const result = this.props.settings.kana.filter(kana => kana.romaji === guess && kana.hiragana === current.hiragana);
+    const result = buffer.filter(kana => kana.romaji === guess && kana.hiragana === current.hiragana);
     if (result.length > 0)
       return result[0].kana;
     return UNKNOWN_KANA;
@@ -179,6 +181,21 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
   }
 
   /**
+   * Renders the footer with the cancel button
+   */
+  private renderFooter() {
+    return (
+      <footer className="group">
+        <div className="g-24 kana-button">
+          <Button onClick={this.cancel} >
+            Cancel
+          </Button>
+        </div>
+      </footer>
+    );
+  }
+
+  /**
    * Renders reverse test
    */
   private renderReverse() {
@@ -195,16 +212,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
             </ul>
           </div>
         </section>
-        <footer className="group">
-          <div className="g-24">
-            <Button
-              className="kana-button"
-              onClick={this.cancel}
-            >
-              Cancel
-            </Button>
-          </div>
-        </footer>
+        {this.renderFooter()}
       </div>
     );
   }
@@ -244,13 +252,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
             </fieldset>
           </div>
         </section>
-        <footer className="group">
-          <div className="g-24 kana-button">
-            <Button onClick={this.cancel} >
-              Cancel
-            </Button>
-          </div>
-        </footer>
+        {this.renderFooter()}
       </div>
     );
   }
@@ -272,7 +274,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
    * React component mounting
    */
   public componentWillMount() {
-    const { history, location, settings, reverse } = this.props;
+    const { buffer, history, location, settings, reverse } = this.props;
 
     if (!settings) {
       history.push("/kana");
@@ -280,7 +282,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
     }
 
     // Get all selected kana * amount of repeat
-    this.indices = settings.kana.reduce((array, cur, index) => {
+    this.indices = buffer.reduce((array, cur, index) => {
       if (cur.selected)
         for (let i = 0; i < settings.repeat; i++)
           array.push(index);

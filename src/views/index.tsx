@@ -44,15 +44,15 @@ export class Index extends React.Component<RouteComponentProps<void>, void> {
             <article className="g-md-12 g-24 main-article">
               <header>
                 <h1>
-                  <a href="#">Project Euler</a>
+                  <Link to="/euler">Project Euler</Link>
                 </h1>
               </header>
               <section>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tristique velit lectus, sit amet mattis libero fermentum id. </p>
-                <p>Pellentesque auctor aliquam erat, vitae luctus enim. Nulla posuere commodo ornare. Nullam id vehicula sapien. Vestibulum tempor metus nec libero imperdiet, non euismod orci maximus. </p>
+                <p>Project Euler is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve.</p>
+                <p> Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems.</p>
               </section>
               <footer>
-                <a href="#">Read more..</a>
+                <Link to="/euler">Read more..</Link>
               </footer>
             </article>
             <article className="g-md-12 g-24 main-article">
