@@ -53,7 +53,7 @@ export class Password extends React.Component<RouteComponentProps<void>, IPasswo
           <section>
             <p>Over the years, people have trained themselves to use passwords that are hard to remember for humans, but easy to guess for computers.</p>
             <p>
-              A library called Zxcvbn addresses this issue by estimating how long it would take to crack a password, thus determening the strength of it. <br />
+              A library called Zxcvbn addresses this issue by estimating how long it would take to crack a password, thus determining the strength of it. <br />
               The example below uses a TypeScript version of the Zxcvbn library, which I converted to TypeScript myself.
             </p>
             <div>
