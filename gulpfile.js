@@ -31,7 +31,7 @@ gulp.task("freqlist", () => {
 
 gulp.task("html", () => {
   return gulp
-    .src("index.html")
+    .src(["index.html", "bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg"])
     .pipe(gulp.dest(config.settings.distribution));
 });
 

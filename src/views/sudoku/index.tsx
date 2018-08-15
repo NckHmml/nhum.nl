@@ -10,7 +10,7 @@ interface ISudokuState {
   valids: Array<Array<boolean>>;
 }
 
-export class Sudoku extends React.Component<RouteComponentProps<void>, ISudokuState> {
+export class Sudoku extends React.Component<RouteComponentProps<{}>, ISudokuState> {
   public field = new Array<Array<number>>();
   public state: ISudokuState = {
     valids: new Array<Array<boolean>>()

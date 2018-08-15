@@ -14,7 +14,7 @@ $grids: 24;
 .container {
   display: block;
   min-height: 100%;
-  padding: 0 20px;
+  padding: 0;
 }
 
 .group-content {
@@ -77,10 +77,6 @@ $grids: 24;
 }
 
 @include media-sm {
-  .container {
-    width: $sz-sm;
-  }
-
   @for $i from 0 through $grids {
     .g-sm-#{$i} {
       width: g-width($i);
@@ -93,10 +89,6 @@ $grids: 24;
 }
 
 @include media-md {
-  .container {
-    width: $sz-md;
-  }
-
   @for $i from 0 through $grids {
     .g-md-#{$i} {
       width: g-width($i);
@@ -109,10 +101,6 @@ $grids: 24;
 }
 
 @include media-lg {
-  .container {
-    width: $sz-lg;
-  }
-
   @for $i from 0 through $grids {
     .g-lg-#{$i} {
       width: g-width($i);
@@ -125,10 +113,6 @@ $grids: 24;
 }
 
 @include media-xl {
-  .container {
-    width: $sz-xl;
-  }
-
   @for $i from 0 through $grids {
     .g-xl-#{$i} {
       width: g-width($i);

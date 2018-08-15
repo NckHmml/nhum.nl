@@ -12,24 +12,16 @@ body {
   width: 100%;
 
   &-header,
-  &-description,
-  &-github {
-    line-height: $sz-footer;
+  &-description {
+    line-height: $sz-footer / 2;
     margin: 0;
     padding: 0;
+    text-align: center;
   }
 
   &-header {
     a {
       text-decoration: none;
     }
-  }
-
-  &-github {
-    text-align: center;
-  }
-
-  &-description {
-    text-align: right;
   }
 }

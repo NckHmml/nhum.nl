@@ -27,11 +27,10 @@ rules:
   no-important: 2
   no-invalid-hex: 2
   no-mergeable-selectors: 2
-  no-misspelled-properties: 2
+  no-misspelled-properties: 1
   no-trailing-whitespace: 2
   no-universal-selectors: 2
   one-declaration-per-line: 2
-  property-sort-order: 1
   quotes: 1
   shorthand-values: 2
   space-after-colon: 1

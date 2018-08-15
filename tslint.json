@@ -4,6 +4,7 @@
     "tslint-react"
   ],
   "rules": {
+    "jsx-alignment": false,
     "align": [
       true,
       "statements"

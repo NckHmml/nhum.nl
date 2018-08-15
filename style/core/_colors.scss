@@ -21,3 +21,10 @@ $cl-password-excellent: $cl-tertiary;
 
 /* Etc */
 $cl-shadow: rgba(0, 0, 0, 0.1);
+
+/* Navigation */
+$cl-nav-bg: #333;
+$cl-nav-text: lighten($cl-grey, $cl-shade-2);
+
+/* Footer */
+$cl-footer-bg: #333;

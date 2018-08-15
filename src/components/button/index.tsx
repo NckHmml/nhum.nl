@@ -17,7 +17,7 @@ export interface IButtonProps {
  * Styled button
  * @example readme.md
  */
-export class Button extends React.Component<IButtonProps, void> {
+export class Button extends React.Component<IButtonProps> {
   public static defaultProps: Partial<IButtonProps> = {
     type: "primary"
   };
