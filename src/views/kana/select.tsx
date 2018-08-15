@@ -29,18 +29,42 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
   /**
    * Updates 'repeat' in the state
    */
-  private setRepeat = (event: React.ChangeEvent<HTMLInputElement>) => {
+  private addRepeat = () => {
+    const { repeat } = this.state;
     this.setState({
-      repeat: parseInt(event.target.value)
+      repeat: repeat + 1
+    });
+  }
+
+  /**
+   * Updates 'repeat' in the state
+   */
+  private decRepeat = () => {
+    const { repeat } = this.state;
+    if (repeat <= 1) return;
+    this.setState({
+      repeat: repeat - 1
     });
   }
 
   /**
    * Updates 'delay' in the state
    */
-  private setDelay = (event: React.ChangeEvent<HTMLInputElement>) => {
+  private addDelay = () => {
+    const { delay } = this.state;
     this.setState({
-      delay: parseInt(event.target.value)
+      delay: delay + 100
+    });
+  }
+
+  /**
+   * Updates 'delay' in the state
+   */
+  private decDelay = () => {
+    const { delay } = this.state;
+    if (delay <= 200) return;
+    this.setState({
+      delay: delay - 100
     });
   }
 
@@ -167,28 +191,30 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
     }, new Array<number>());
 
     return (
-      <div>
-        <section>
-          <p>
+      <React.Fragment>
+        <section className="group">
+          <p className="g-20 g-p-2">
             During the time I spent living in Japan, I wanted to at least be able to read the basic character (kana) sets called "Hiragana" and "Katakana" respectively.<br />
             Sadly, in my quest to learn these sets, I was not able to find a tool to my liking. So I ended up writing my own tool.
           </p>
         </section>
-        <section>
-          <h3>Instructions</h3>
-          <p>
-            This tool works by repeating a selected sets of characters, with the idea that after repeating it enough they will be stored in the long term memory.<br />
-            The following options are available;
-          </p>
-          <ul>
-            <li>repeat: the number of times to repeat each set in a single session</li>
-            <li>reverse mode: this will switch the tool from "kana to latin" to "latin to kana"</li>
-            <li>delay between answers: this will change the time it takes between characters</li>
-          </ul>
-          <p>Select the characters by clicking the checkbox to their right, after which you can press the button to start.</p>
+        <section className="group">
+          <div className="g-20 g-p-2">
+            <h3>Instructions</h3>
+            <p>
+              This tool works by repeating a selected sets of characters, with the idea that after repeating it enough they will be stored in the long term memory.<br />
+              The following options are available;
+            </p>
+            <ul>
+              <li>repeat: the number of times to repeat each set in a single session</li>
+              <li>reverse mode: this will switch the tool from "kana to latin" to "latin to kana"</li>
+              <li>delay between answers: this will change the time it takes between characters</li>
+            </ul>
+            <p>Select the characters by clicking the checkbox to their right, after which you can press the button to start.</p>
+          </div>
         </section>
         <section className="group">
-          <div className="g-24">
+          <div className="g-20 g-p-2">
             <h3>
               Hiragana sets
               <Checkbox
@@ -197,11 +223,11 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
                 onChange={this.checkAllKana(true)}
               />
             </h3>
+            {hiraganaGroups.map(group => this.renderKanaGroup(group, true))}
           </div>
-          {hiraganaGroups.map(group => this.renderKanaGroup(group, true))}
         </section>
         <section className="group">
-          <div className="g-24">
+          <div className="g-20 g-p-2">
             <h3>
               Katakana sets
               <Checkbox
@@ -210,29 +236,28 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
                 onChange={this.checkAllKana(false)}
               />
             </h3>
+            {katakanaGroups.map(group => this.renderKanaGroup(group, false))}
           </div>
-          {katakanaGroups.map(group => this.renderKanaGroup(group, false))}
         </section>
-        <section>
-          <div className="g-24">
-            <h3>Other settings</h3>
+        <section className="group">
+          <div className="g-20 g-p-2">
+            <h3>Settings</h3>
             <table className="kana-settings">
               <tbody>
                 <tr>
                   <td>repeat</td>
                   <td>
-                    <input
-                      type="number"
-                      min="1"
-                      max="10"
-                      value={repeat}
-                      onChange={this.setRepeat}
-                    />
-                    <span>{repeat == 1 ? "time" : "times"}</span>
+                    <span>{repeat} {repeat == 1 ? "time" : "times"}</span>
+                  </td>
+                  <td>
+                    <div className="c-adder secondary" onClick={this.addRepeat}>+</div>
+                    &nbsp;
+                    <div className="c-adder" onClick={this.decRepeat}>-</div>
                   </td>
                 </tr>
                 <tr>
                   <td>reverse mode</td>
+                  <td>&nbsp;</td>
                   <td>
                     <Checkbox
                       defaultValue={reverse}
@@ -243,23 +268,18 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
                 <tr>
                   <td>delay between answers</td>
                   <td>
-                    <input
-                      type="number"
-                      min="100"
-                      max="2000"
-                      step="100"
-                      value={delay}
-                      onChange={this.setDelay}
-                    />
-                    <span>ms</span>
+                    <span>{delay} ms</span>
+                  </td>
+                  <td>
+                    <div className="c-adder secondary" onClick={this.addDelay}>+</div>
+                    &nbsp;
+                    <div className="c-adder" onClick={this.decDelay}>-</div>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </section>
-        <footer className="group">
-          <div className="g-24">
+          <div className="g-20 g-p-2">
             <Button
               className="kana-button"
               onClick={this.startTest}
@@ -267,8 +287,8 @@ export class KanaSelect extends React.Component<IKanaSelectProps, IKanaSelectSta
               Start
             </Button>
           </div>
-        </footer>
-      </div>
+        </section>
+      </React.Fragment>
     );
   }
 }

@@ -1,0 +1,32 @@
+.c-adder {
+  $size: 20px;
+  display: inline-block;
+  line-height: $size;
+  width: $size;
+  border-radius: $size / 2;
+  background-color: $cl-primary;
+  text-align: center;
+  vertical-align: middle;
+  color: #FFF;
+
+  @include user-select(none);
+  @include transition(background-color 300ms ease-in-out);
+
+  &, &.primary {
+
+    &:hover {
+      cursor: pointer;
+      background-color: $cl-secondary;
+    }
+
+  }
+
+  &.secondary {
+
+    &:hover {
+      cursor: pointer;
+      background-color: $cl-tertiary;
+    }
+
+  }
+}

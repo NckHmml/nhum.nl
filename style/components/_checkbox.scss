@@ -37,10 +37,11 @@
       top: 0;
       width: $height - $spacing;
 
+      @include transition(left 300ms ease-in-out, background-color 300ms ease-in-out);
+
       input:checked+label & {
         background-color: $cl-tertiary;
-        left: initial;
-        right: $spacing;
+        left: $height; // height * 2 - height - spacing + spacing = height
       }
     }
 

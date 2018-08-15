@@ -1,6 +1,6 @@
 import * as React from "react";
 import { RouteComponentProps, Link } from "react-router-dom";
-import { ParallaxBanner, Parallax } from "react-scroll-parallax";
+import { ParallaxBanner } from "react-scroll-parallax";
 
 /**
  * Site index page

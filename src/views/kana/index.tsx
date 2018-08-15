@@ -256,9 +256,9 @@ export class Kana extends React.Component<RouteComponentProps<void>, IKanaState>
 
     return (
       <div className="group">
-        <section className="g-24 g-md-16 g-md-p-4 kana-container">
-          <header className="group">
-            <div className="g-24">
+        <section className="kana-container">
+          <header className="group kana-container-title">
+            <div className="g-20 g-p-2">
               <h2>Kana learning tool</h2>
             </div>
           </header>

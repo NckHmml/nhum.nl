@@ -32,6 +32,7 @@ fieldset {
 a {
   color: $cl-text;
   text-decoration: underline;
+  @include transition(color 300ms ease-in-out);
 
   &:hover {
     color: $cl-link;

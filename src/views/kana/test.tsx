@@ -84,7 +84,6 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
    */
   private next() {
     const { buffer, settings } = this.props;
-    const { current } = this.state;
 
     const next = buffer[this.indices[this.step++]];
     const options = new Array<KanaOption>();
@@ -186,7 +185,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
   private renderFooter() {
     return (
       <footer className="group">
-        <div className="g-24 kana-button">
+        <div className="g-20 g-p-2 kana-button">
           <Button onClick={this.cancel} >
             Cancel
           </Button>
@@ -232,7 +231,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
     return (
       <div>
         <section className="group">
-          <div className="g-24">
+          <div className="g-20 g-p-2">
             <ul className={previewClass}>
               <li><span>{this.state.current.kana}</span></li>
               <li><span>{guessed}</span></li>
@@ -240,7 +239,7 @@ export class KanaTest extends React.Component<IKanaTestProps, IKanaTestState> {
           </div>
         </section>
         <section className="group">
-          <div className="g-24">
+          <div className="g-20 g-p-2">
             <fieldset>
               <input
                 type="test"

@@ -47,6 +47,14 @@
   text-overflow: $rules;
 }
 
+@mixin user-select($rules) {
+  user-select: $rules;
+  -moz-user-select: $rules;
+  -khtml-user-select: $rules;
+  -webkit-user-select: $rules;
+  -o-user-select: $rules;
+}
+
 @mixin transition($rules...) {
   -moz-transition: $rules;
   -o-transition: $rules;
