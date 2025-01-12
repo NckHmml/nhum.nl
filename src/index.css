@@ -1,0 +1,109 @@
+@font-face {
+  font-family: "TakaoPGothic";
+  src: url("/fonts/TakaoPGothic.ttf");
+}
+
+@font-face {
+  font-family: "TakaoPMincho";
+  src: url("/fonts/TakaoPMincho.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/RobotoCondensed-VariableFont_wght.ttf");
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/RobotoCondensed-Italic-VariableFont_wght.ttf");
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+
+  font-style: italic;
+}
+
+:root {
+  font-family: Roboto, TakaoPMincho, "sans-sarif";
+  color: var(--color-text);
+  font-size: 16px;
+
+  /* Colors */
+  --color-white: #FFFFFF;
+  --color-primary: #FF8859;
+
+  --color-text: #333;
+  --color-text-light: #777;
+  
+  --color-shadow: var(--color-text-light);
+  --color-background: #DDD;
+  --color-border: var(--color-primary);
+
+  /* Sizes */
+  --size-h1: 2em;
+  --size-h2: 1.6em;
+  --size-h3: 1.2em;
+  --size-h4: 1em;
+  --size-h5: .8em;
+}
+
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+}
+
+body { 
+  background-color: var(--color-background);
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: var(--size-h1);
+}
+
+h2 {
+  font-size: var(--size-h2);
+}
+
+h3 {
+  font-size: var(--size-h3);
+}
+
+h4 {
+  font-size: var(--size-h4);
+}
+
+h5 {
+  font-size: var(--size-h5);
+}
+
+/* Pure-css overrides */
+
+.pure-menu-item .pure-menu-link.active {
+  background-color: #EEE;
+}
+
+.pure-button.button-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.pure-button.button-primary:hover {
+  background-image: linear-gradient(transparent,rgba(255,255,255,.1) 40%,rgba(255,255,255,.1));
+}
