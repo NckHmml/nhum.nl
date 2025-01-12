@@ -1,7 +1,7 @@
 import { makeAutoObservable, observable } from "mobx";
 import { solveSudoku } from "../solver";
 
-class SudokuStore {
+export class SudokuStore {
   public field = observable.array<Array<number>>(this.cleanField(), { deep: true });
 
   public constructor() {
@@ -23,7 +23,7 @@ class SudokuStore {
       "7": true,
       "8": true,
       "9": true,
-    } as { [key: string]: boolean | T });
+    } as Dictionary<boolean | T>);
   }
 
   public get validity(): Array<Array<boolean>> {
@@ -175,4 +175,4 @@ class SudokuStore {
   }
 }
 
-export default new SudokuStore();
+export const instance = new SudokuStore();

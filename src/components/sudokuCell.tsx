@@ -1,8 +1,7 @@
 
 import { observer } from "mobx-react";
 import { KeyboardEvent } from "react";
-
-import sudokuStore from "../redux/sudoku";
+import { instance as sudokuStore } from "../redux/sudoku";
 
 interface CellProps {
   row: number;

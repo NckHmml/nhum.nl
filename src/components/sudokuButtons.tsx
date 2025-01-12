@@ -1,6 +1,7 @@
 import { observer } from "mobx-react";
 import { classNames } from "../helper";
-import sudokuStore from "../redux/sudoku";
+import { instance as sudokuStore } from "../redux/sudoku";
+
 
 const SudokuButtons: React.FC = observer(() => {
   const solveButtonClass = classNames({

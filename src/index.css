@@ -34,6 +34,8 @@
   /* Colors */
   --color-white: #FFFFFF;
   --color-primary: #FF8859;
+  --color-secondary: #E80C7A;
+  --color-tertiary: #00B270;
 
   --color-text: #333;
   --color-text-light: #777;
@@ -71,6 +73,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
+  font-family: Roboto, TakaoPGothic, "sans-sarif";
 }
 
 h1 {

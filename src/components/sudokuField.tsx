@@ -1,12 +1,13 @@
 import { observer } from "mobx-react";
 import SudokuCell from "./sudokuCell";
-import sudokuStore from "../redux/sudoku";
+import { instance as sudokuStore } from "../redux/sudoku";
 
 const SudokuField: React.FC = observer(() => {
-  return sudokuStore.field.map((rowCells, row) => (
+  const rows = sudokuStore.field.map((rowCells, row) => (
     <div key={row}>
       <style jsx>{`
         div {
+          /* Let the grid-template fall through */
           display: contents;
         }
 
@@ -26,6 +27,19 @@ const SudokuField: React.FC = observer(() => {
       {rowCells.map((value, cell) => <SudokuCell key={`${row}-${cell}`} row={row} cell={cell} value={value} />)}
     </div>
   ));
+
+  return (
+    <div>
+      <style jsx>{`
+        div {
+          display: grid;
+          grid-template-columns: repeat(9, 1fr);
+          grid-auto-rows: 1fr;
+        }
+      `}</style>
+      {rows}
+    </div>
+  );
 });
 
 export default SudokuField;
