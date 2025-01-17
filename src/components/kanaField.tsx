@@ -1,13 +1,20 @@
 import { observer } from "mobx-react";
+import { useNavigate } from "react-router";
 import { instance as kanaStore } from "../redux/kana";
 import Checkbox from "./checkbox";
 import KanaSelection from "./kanaSelection";
 
 const KanaField: React.FC = observer(() => {
+  const navigate = useNavigate();
 
-  const { allHiragana, allKatakana, toggleAll } = kanaStore;
-  const allHiraganaBlocks = allHiragana.map((agr, i) => (<KanaSelection key={`h${i}`} items={agr} />));
-  const allKatananaBlocks = allKatakana.map((agr, i) => (<KanaSelection key={`k${i}`} items={agr} />));
+  const allHiraganaBlocks = kanaStore.allHiragana.map((agr, i) => (<KanaSelection key={`h${i}`} items={agr} />));
+  const allKatananaBlocks = kanaStore.allKatakana.map((agr, i) => (<KanaSelection key={`k${i}`} items={agr} />));
+
+  const onStart = () => {
+    if (!kanaStore.canTest) return;
+    kanaStore.initTest();
+    navigate("/kana/test");
+  };
 
   return (
     <div className="root">
@@ -34,7 +41,7 @@ const KanaField: React.FC = observer(() => {
         }
 
         .double .checkbox {
-          font-size: 1.2em;
+          font-size: var(--size-h3);
           display: inline-block;
           position: absolute;
           margin: auto;
@@ -75,7 +82,7 @@ const KanaField: React.FC = observer(() => {
         <div className="checkbox">
           <Checkbox
             checked={kanaStore.allHiraganaSelected}
-            onClick={() => toggleAll(allHiragana, !kanaStore.allHiraganaSelected)}
+            onClick={() => kanaStore.toggleAll(kanaStore.allHiragana, !kanaStore.allHiraganaSelected)}
           >add all</Checkbox>
         </div>
       </div>
@@ -85,7 +92,7 @@ const KanaField: React.FC = observer(() => {
         <div className="checkbox">
           <Checkbox
             checked={kanaStore.allKatakanaSelected}
-            onClick={() => toggleAll(allKatakana, !kanaStore.allKatakanaSelected)}
+            onClick={() => kanaStore.toggleAll(kanaStore.allKatakana, !kanaStore.allKatakanaSelected)}
           >add all</Checkbox>
         </div>
       </div>
@@ -98,19 +105,24 @@ const KanaField: React.FC = observer(() => {
 
           <label>repeat</label>
           <div className="pure-form">
-            <input type="number" defaultValue={0} min={0} />
+            <input
+              type="number"
+              min={1}
+              value={kanaStore.repeat}
+              onChange={(event) => kanaStore.repeat = Number(event.target.value)}
+            />
           </div>
 
           <label>font</label>
           <div className="pure-form">
-            <select 
+            <select
               onChange={(event) => kanaStore.font = event.target.value}
               value={kanaStore.font}
             >
               <option value="default">default</option>
-              <option value="random">random</option>
               <option value="gothic">gothic</option>
               <option value="sans-serif">sans-serif</option>
+              <option value="random">random</option>
             </select>
           </div>
 
@@ -119,7 +131,11 @@ const KanaField: React.FC = observer(() => {
             <Checkbox checked={kanaStore.reverse} onClick={() => kanaStore.reverse = !kanaStore.reverse} />
           </div>
 
-          <button className="pure-button button-primary">Start</button>
+          <button
+            className="pure-button button-primary"
+            disabled={!kanaStore.canTest}
+            onClick={onStart}
+          >Start</button>
         </div>
       </div>
     </div>

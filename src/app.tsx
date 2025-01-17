@@ -2,6 +2,7 @@ import { Route, Routes, NavLink } from "react-router-dom";
 import Home from "./pages/home";
 import Sudoku from "./pages/sudoku";
 import Kana from "./pages/kana";
+import KanaTest from "./pages/kanaTest";
 
 const App: React.FC = () => {
   return (
@@ -58,6 +59,7 @@ const App: React.FC = () => {
           <Route index element={<Home />} />
           <Route path="/sudoku" element={<Sudoku />} />
           <Route path="/kana" element={<Kana />} />
+          <Route path="/kana/test" element={<KanaTest />} />
         </Routes>
       </div>
     </>
