@@ -1,0 +1,115 @@
+{
+  "en": {
+    "translation": {
+      "nav": {
+        "home": "nhum.nl",
+        "sudoku": "Sudoku",
+        "kana": "Kana",
+        "languages": {
+          "en": "English",
+          "jp": "Japanese (日本語)",
+          "nl": "Dutch (Nederlands)"
+        }
+      },
+      "home": {
+        "greeting": "nice to meet you",
+        "name": "I am Nick Hummel",
+        "description": "I have a passion for coding and solving complex problems. A creative, abstract and theoretical thinker and have the ability to turn ideas into solutions. And have extensive development experience with many web technologies."
+      },
+      "sudoku": {
+        "title": "Sudoku solver",
+        "description": "Sudoku is a logic-based, combinatorial number-placement puzzle. The objective is to fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.\n\nI was solving puzzles while travelling, when I thought to myself \"I wonder how hard it would be to solve these puzzles programmatically\" and this resolver tool is the answer to that question.",
+        "instructions": {
+          "title": "Instructions",
+          "0": "Click a cell to change its value by typing a number",
+          "1": "Fill the field according to the puzzle you want to solve",
+          "2": "Cells that are colored red, are in conflict with each other",
+          "3": "Press \"Solve puzzle\" to start solving",
+          "4": "Press \"Clear puzzle\" to set all cells back to empty",
+          "5": "Use any of the example buttons for a prefilled field"
+        },
+        "example": "Example {{n}}",
+        "solve": "Solve",
+        "clear": "Clear"
+      },
+      "kana": {
+        "title": "Kana learning tool",
+        "description": "Before I went to Japan for an internship, I wanted to at least be able to read the basic character sets, called \"Hiragana\" and \"Katakana\" respectively.\nOf course, having a developer mindset, I had to make a tool that does exactly what I would like it do.",
+        "instructions": {
+          "title": "Instructions",
+          "0": "The concept of this tool is that by repeating a selected sets of characters, that after repeating it enough they will be stored in the long term memory.\nThe following options are available;",
+          "1": "repeat: the number of times to repeat each set in a single session",
+          "2": "font: some fonts make the characters look slightly different",
+          "3": "reverse mode: this will switch the tool from \"kana to latin\" to \"latin to kana\"",
+          "4": "Select the characters by clicking the checkbox to their right, after which you can press the button to start."
+        },
+        "hiragana": "Hiragana",
+        "katakana": "Katakana",
+        "other": "Other Settings",
+        "repeat": "repeat",
+        "font": "font",
+        "reverse": "reverse mode",
+        "add": "add",
+        "addAll": "add all",
+        "start": "Start",
+        "cancel": "Cancel",
+        "completed": "Completed!"
+      }
+    }
+  },
+  "jp": {
+    "translation": {
+      "nav": {
+        "languages": {
+          "en": "英語 (English)",
+          "jp": "日本語",
+          "nl": "オランダ語 (Nederlands)"
+        }
+      },
+      "home": {
+        "greeting": "はじめまして",
+        "name": "I am Nick Hummel",
+        "description": "私はコーディングや複雑な問題を解決することに情熱を持っています。創造的で抽象的、かつ理論的な思考を得意とし、アイデアを解決策に変える能力があります。また、多くのウェブ技術に関する開発経験を持っています。"
+      },
+      "sudoku": {
+        "title": "Sudoku solver",
+        "description": "数独は、3×3のグループ（ブロック）に区切られた 9×9の正方形の枠内に1〜9までの数字を入れるペンシルパズルの一つである。\n\n旅行中にパズル解いているときに、「このようなパズルをプログラムで解くのはどれくらい難しいだろうか？」と考えました。\nこのツールはその質問に対する答えです。",
+        "instructions": {
+          "title": "説明書",
+          "0": "セルをクリックして数字を変更します",
+          "1": "解きたいパズルに応じてセルに変更してください",
+          "2": "赤色のセルは互いに競合しています",
+          "3": "パズルを解くには「解決」を押してください",
+          "4": "パズルをクリアするには「クリア」を押してください",
+          "5": "サンプルパズルを使用するには、「実例」のいずれかを押してください"
+        },
+        "example": "実例第{{n}}番",
+        "solve": "解決",
+        "clear": "クリア"
+      },
+      "kana": {
+        "title": "Kana learning tool",
+        "description": "インターンシップで日本に行く前に、少なくとも「ひらがな」と「カタカナ」が読めるようになりたいと思っていました。開発者の心構えを持って、自分が望む通りの機能を備えたツールを開発しました。",
+        "instructions": {
+          "title": "説明書",
+          "0": "このツールのコンセプトは、選択した文字セットを繰り返すことで、十分に繰り返すと長期記憶に定着させる、暗記の方法です。\n以下の設定を利用できます。",
+          "1": "繰り返し回数： 各セットを1回のセッションで繰り返す回数",
+          "2": "フォント： 一部のフォントは文字の見え方を少し変えることがあります",
+          "3": "逆モード： 「かなからローマ字」を「ローマ字からかな」に切り替えるモードです",
+          "4": "文字を選択するには、右側の「追加」チェックボックスを押してください。その後、「スタート」ボタンを押すことで練習を始めることができます。"
+        },
+        "hiragana": "ひらがな",
+        "katakana": "カタカナ",
+        "other": "他の設定",
+        "repeat": "繰り返し回数",
+        "font": "フォント",
+        "reverse": "逆モード",
+        "add": "追加",
+        "addAll": "すべて追加",
+        "start": "スタート",
+        "cancel": "キャンセル",
+        "completed": "Completed!"
+      }
+    }
+  }
+}

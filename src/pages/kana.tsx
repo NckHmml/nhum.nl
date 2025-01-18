@@ -1,17 +1,18 @@
+import I18N from "../components/i18n";
 import KanaField from "../components/kanaField";
 
 const Kana: React.FC = () => (
   <>
-    <h1>Kana learning tool</h1>
-    <p>Before I went to Japan for an internship, I wanted to at least be able to read the basic character sets, called "Hiragana" and "Katakana" respectively.<br />Of course, having a developer mindset, I had to make a tool that does exactly what I would like it do.</p>
-    <h2>Instructions</h2>
-    <p>This tool works by repeating a selected sets of characters, with the idea that after repeating it enough they will be stored in the long term memory.<br />The following options are available;</p>
+    <h1><I18N>kana.title</I18N></h1>
+    <p><I18N>kana.description</I18N></p>
+    <h2><I18N>kana.instructions.title</I18N></h2>
+    <p><I18N>kana.instructions.0</I18N></p>
     <ul>
-      <li>repeat: the number of times to repeat each set in a single session</li>
-      <li>font: some fonts make the characters look slightly different</li>
-      <li>reverse mode: this will switch the tool from "kana to latin" to "latin to kana"</li>
+      <li><I18N>kana.instructions.1</I18N></li>
+      <li><I18N>kana.instructions.2</I18N></li>
+      <li><I18N>kana.instructions.3</I18N></li>
     </ul>
-    <p>Select the characters by clicking the checkbox to their right, after which you can press the button to start.</p>
+    <p><I18N>kana.instructions.4</I18N></p>
     <KanaField />
   </>
 );

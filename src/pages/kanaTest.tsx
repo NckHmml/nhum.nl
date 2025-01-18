@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import KanaTestField from "../components/kanaTestField";
+import I18N from "../components/i18n";
 
 const KanaTest: React.FC = () => {
   const navigate = useNavigate();
@@ -16,9 +17,9 @@ const KanaTest: React.FC = () => {
           margin: 0 auto;
         }
       `}</style>
-      <h1>Kana learning tool</h1>
+      <h1><I18N>kana.title</I18N></h1>
       <KanaTestField />
-      <button className="pure-button button-primary" onClick={onCancel}>Cancel</button>
+      <button className="pure-button button-secondary" onClick={onCancel}><I18N>kana.cancel</I18N></button>
     </>
   );
 };

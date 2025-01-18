@@ -2,6 +2,7 @@ import { observer } from "mobx-react";
 import { instance as kanaStore } from "../redux/kana";
 import KanaItem from "../redux/kanaItem";
 import Checkbox from "./checkbox";
+import I18N from "./i18n";
 
 const KanaCell: React.FC<{ item: KanaItem }> = observer(({ item }) => {
   const { kana, romaji } = item;
@@ -79,7 +80,7 @@ const KanaSelection: React.FC<{ items: Array<KanaItem> }> = observer(({ items })
       `}</style>
       {options}
       <div className="checkbox">
-        <Checkbox checked={allSelected} onClick={toggle}>add</Checkbox>
+        <Checkbox checked={allSelected} onClick={toggle}><I18N>kana.add</I18N></Checkbox>
       </div>
     </div>
   );

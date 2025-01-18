@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { instance as kanaStore } from "../redux/kana";
 import Checkbox from "./checkbox";
 import KanaSelection from "./kanaSelection";
+import I18N from "./i18n";
 
 const KanaField: React.FC = observer(() => {
   const navigate = useNavigate();
@@ -78,32 +79,32 @@ const KanaField: React.FC = observer(() => {
       `}</style>
 
       <div className="double">
-        <h2>Hiragana</h2>
+        <h2><I18N>kana.hiragana</I18N></h2>
         <div className="checkbox">
           <Checkbox
             checked={kanaStore.allHiraganaSelected}
             onClick={() => kanaStore.toggleAll(kanaStore.allHiragana, !kanaStore.allHiraganaSelected)}
-          >add all</Checkbox>
+          ><I18N>kana.addAll</I18N></Checkbox>
         </div>
       </div>
       {allHiraganaBlocks}
       <div className="double">
-        <h2>Katakana</h2>
+        <h2><I18N>kana.katakana</I18N></h2>
         <div className="checkbox">
           <Checkbox
             checked={kanaStore.allKatakanaSelected}
             onClick={() => kanaStore.toggleAll(kanaStore.allKatakana, !kanaStore.allKatakanaSelected)}
-          >add all</Checkbox>
+          ><I18N>kana.addAll</I18N></Checkbox>
         </div>
       </div>
       {allKatananaBlocks}
       <div className="double">
-        <h2>Other settings</h2>
+        <h2><I18N>kana.other</I18N></h2>
       </div>
       <div className="settings">
         <div>
 
-          <label>repeat</label>
+          <label><I18N>kana.repeat</I18N></label>
           <div className="pure-form">
             <input
               type="number"
@@ -113,7 +114,7 @@ const KanaField: React.FC = observer(() => {
             />
           </div>
 
-          <label>font</label>
+          <label><I18N>kana.font</I18N></label>
           <div className="pure-form">
             <select
               onChange={(event) => kanaStore.font = event.target.value}
@@ -126,7 +127,7 @@ const KanaField: React.FC = observer(() => {
             </select>
           </div>
 
-          <label>reverse mode</label>
+          <label><I18N>kana.reverse</I18N></label>
           <div className="checkbox">
             <Checkbox checked={kanaStore.reverse} onClick={() => kanaStore.reverse = !kanaStore.reverse} />
           </div>
@@ -135,7 +136,7 @@ const KanaField: React.FC = observer(() => {
             className="pure-button button-primary"
             disabled={!kanaStore.canTest}
             onClick={onStart}
-          >Start</button>
+          ><I18N>kana.start</I18N></button>
         </div>
       </div>
     </div>

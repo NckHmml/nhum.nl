@@ -1,3 +1,5 @@
+import I18N from "../components/i18n";
+
 const Home: React.FC = () => {
   return (
     <>
@@ -41,8 +43,8 @@ const Home: React.FC = () => {
       <article>
         <div>
           <span>
-            <h2>nice to meet you</h2>
-            <h1>I am Nick Hummel</h1>
+            <h2><I18N>home.greeting</I18N></h2>
+            <h1><I18N>home.name</I18N></h1>
           </span>
         </div>
         <figure>
@@ -51,7 +53,7 @@ const Home: React.FC = () => {
       </article>
 
       <div className="experience">
-        <p>I have a passion for coding and solving complex problems. A creative, abstract and theoretical thinker and have the ability to turn ideas into solutions. And have extensive development experience with many web technologies.</p>
+        <p><I18N>home.description</I18N></p>
       </div>
     </>
   );

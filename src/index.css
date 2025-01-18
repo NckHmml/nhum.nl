@@ -71,9 +71,9 @@ body {
   grid-template-rows: auto 1fr;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, button {
   font-weight: 400;
-  font-family: Roboto, TakaoPGothic, "sans-sarif";
+  font-family: Roboto, TakaoPGothic, "sans-sarif" !important;
 }
 
 h1 {
@@ -94,6 +94,33 @@ h4 {
 
 h5 {
   font-size: var(--size-h5);
+}
+
+p {
+  white-space: pre-line;
+}
+
+
+.content,
+.container {
+  padding: 0 1em;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 21cm) {
+  .content,
+  .container {
+    max-width: 21cm;
+  }
+}
+
+.content { 
+  z-index: 0;
+  padding: 1em 2em;
+  width: 100%;
+  box-shadow: 0 0 1em var(--color-shadow);
+  background-color: var(--color-white);
 }
 
 /* Pure-css overrides */

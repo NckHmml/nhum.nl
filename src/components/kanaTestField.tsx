@@ -3,6 +3,7 @@ import { observer } from "mobx-react";
 import { instance as kanaStore } from "../redux/kana";
 import { classNames } from "../helper";
 import KanaItem from "../redux/kanaItem";
+import I18N from "./i18n";
 
 const KanaTestField: React.FC = observer(() => {
   const [wrong, setWrong] = useState(new Array<string>());
@@ -18,7 +19,7 @@ const KanaTestField: React.FC = observer(() => {
           color: var(--color-tertiary);
         }
       `}</style>
-      <h2>Completed!</h2>
+      <h2><I18N>kana.completed</I18N></h2>
     </>
   );
 

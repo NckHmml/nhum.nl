@@ -1,19 +1,19 @@
+import I18N from "../components/i18n";
 import SudokuButtons from "../components/sudokuButtons";
 import SudokuField from "../components/sudokuField";
 
 const Sudoku: React.FC = () => (
   <>
-    <h1>Sudoku solver</h1>
-    <p>Sudoku is a logic-based, combinatorial number-placement puzzle. The objective is to fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.</p>
-    <p>I was solving puzzles while travelling, when I thought to myself "I wonder how hard it would be to solve these puzzles programmatically" and this resolver tool is the answer to that question.</p>
-    <h2>Instructions</h2>
+    <h1><I18N>sudoku.title</I18N></h1>
+    <p><I18N>sudoku.description</I18N></p>
+    <h2><I18N>sudoku.instructions.title</I18N></h2>
     <ul>
-      <li>Click a cell to change its value by typing a number</li>
-      <li>Fill the field according to the puzzle you want to solve</li>
-      <li>Cells that are colored red, are in conflict with eachother</li>
-      <li>Press "Solve puzzle" to start solving</li>
-      <li>Press "Clear puzzle" to set all cells back to empty</li>
-      <li>Use any of the example buttons for a prefilled field</li>
+      <li><I18N>sudoku.instructions.0</I18N></li>
+      <li><I18N>sudoku.instructions.1</I18N></li>
+      <li><I18N>sudoku.instructions.2</I18N></li>
+      <li><I18N>sudoku.instructions.3</I18N></li>
+      <li><I18N>sudoku.instructions.4</I18N></li>
+      <li><I18N>sudoku.instructions.5</I18N></li>
     </ul>
 
     <SudokuField />
