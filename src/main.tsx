@@ -14,11 +14,14 @@ i18n
   .use(initReactI18next)
   .init({
     resources: i18nJson,
-    lng: "de",
+    lng: "en",
     fallbackLng: "en",
     interpolation: {
       escapeValue: false,
     },
+    react: { 
+      transKeepBasicHtmlNodesFor: ["ruby", "rp", "rt", "br", "strong", "i", "p"]
+    }
   });
 
 createRoot(document.getElementById("root")!).render(

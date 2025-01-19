@@ -26,7 +26,6 @@ const Footer: React.FC = () => {
           right: 0;
           top: 0;
           height: 100%;
-          font-weight: bold;
           font-size: var(--size-h5);
           text-transform: uppercase;
         }
