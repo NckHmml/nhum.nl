@@ -6,29 +6,31 @@
         "sudoku": "Sudoku",
         "kana": "Kana",
         "languages": {
+          "label": "language",
           "en": "English",
           "jp": "Japanese (日本語)",
-          "nl": "Dutch (Nederlands)"
+          "nl": "Dutch (Nederlands)",
+          "de": "German (Deutsch)"
         }
       },
       "home": {
         "greeting": "nice to meet you",
         "name": "I am Nick Hummel",
-        "description": "I have a passion for coding and solving complex problems. A creative, abstract and theoretical thinker and have the ability to turn ideas into solutions. And have extensive development experience with many web technologies."
+        "description": "I have a passion for coding and solving complex problems. A creative, abstract and theoretical thinker and have the ability to turn ideas into solutions. And have extensive development experience with Web Technologies, amongst others."
       },
       "sudoku": {
         "title": "Sudoku solver",
-        "description": "Sudoku is a logic-based, combinatorial number-placement puzzle. The objective is to fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.\n\nI was solving puzzles while travelling, when I thought to myself \"I wonder how hard it would be to solve these puzzles programmatically\" and this resolver tool is the answer to that question.",
+        "description": "Sudoku is a logic-based, combinatorial number-placement puzzle. The objective is to fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 sub grids that compose the grid contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.\n\nI was solving puzzles while traveling, when I thought to myself \"I wonder how hard it would be to solve these puzzles programmatically\" and this resolver tool is the answer to that question.",
         "instructions": {
           "title": "Instructions",
           "0": "Click a cell to change its value by typing a number",
           "1": "Fill the field according to the puzzle you want to solve",
           "2": "Cells that are colored red, are in conflict with each other",
-          "3": "Press \"Solve puzzle\" to start solving",
-          "4": "Press \"Clear puzzle\" to set all cells back to empty",
+          "3": "Press \"Solve\" to start solving",
+          "4": "Press \"Clear\" to set all cells back to empty",
           "5": "Use any of the example buttons for a prefilled field"
         },
-        "example": "Example {{n}}",
+        "example": "Example #{{n}}",
         "solve": "Solve",
         "clear": "Clear"
       },
@@ -61,9 +63,11 @@
     "translation": {
       "nav": {
         "languages": {
+          "label": "言語",
           "en": "英語 (English)",
           "jp": "日本語",
-          "nl": "オランダ語 (Nederlands)"
+          "nl": "オランダ語 (Nederlands)",
+          "de": "ドイツ語 (Deutsch)"
         }
       },
       "home": {
@@ -108,6 +112,120 @@
         "addAll": "すべて追加",
         "start": "スタート",
         "cancel": "キャンセル",
+        "completed": "Completed!"
+      }
+    }
+  },
+  "nl": {
+    "translation": {
+      "nav": {
+        "languages": {
+          "label": "taal",
+          "en": "Engels (English)",
+          "jp": "Japans (日本語)",
+          "nl": "Nederlands",
+          "de": "Duits (Deutsch)"
+        }
+      },
+      "home": {
+        "greeting": "aangenaam kennis te maken",
+        "name": "Ik ben Nick Hummel",
+        "description": "Ik heb een passie voor programmeren en het oplossen van complexe problemen. Een creatieve, abstracte en theoretische denker en heb het vermogen om ideeën om te zetten in oplossingen. En heb uitgebreide ervaring met vele webtechnologieën."
+      },
+      "sudoku": {
+        "title": "Sudoku solver",
+        "description": "Een sudoku is een puzzel bestaande uit negen bij negen vakjes die gegroepeerd zijn als negen blokken van drie bij drie vakjes. In de vakjes moeten de cijfers 1 tot en met 9 ingevuld worden op zo'n manier dat in elke horizontale lijn en in elke verticale kolom en in elk van de negen blokjes de cijfers 1 tot en met 9 één keer voorkomen. In een aantal vakjes zijn de cijfers al ingevuld.\n\nTijdens een vliegreis was ik sudoku's aan het oplossen, toen ik mezelf aanvroeg \"Hoe lastig kan het zijn om een sudoku programmatisch optelossen\" en deze tool is het antwoord daar op.",
+        "instructions": {
+          "title": "Instructies",
+          "0": "Klik in een cel, en typ een number om de waarde aan te passen",
+          "1": "Vul het veld in referentie naar de sudoku die u wilt oplossen",
+          "2": "Cellen die rood gekleurd zijn, zijn in conflict met elkaar",
+          "3": "Druk op \"Los op\" om de puzzel automatisch optelossen",
+          "4": "Druk op \"Wissen\" om het veld te legen",
+          "5": "Gebruik een van de \"voorbeeld\" knoppen voor een vooraf ingevulde sudoku"
+        },
+        "example": "Voorbeeld nr.{{n}}",
+        "solve": "Los op",
+        "clear": "Wissen"
+      },
+      "kana": {
+        "title": "Kana learning tool",
+        "description": "Voordat ik voor een stage naar Japan ging, wou ik minstens de eenvoudigste alfabetten leren, deze worden \"Hiragana\" en \"Katakana\" genoemd.\nEn aangezien ik een developer mindset heb, was de volgende logische stap natuurlijk om zelf een tool te maken.",
+        "instructions": {
+          "title": "Instructies",
+          "0": "Het concept achter deze tool is dat door het herhalen van een set aan characters, dat als je deze genoeg herhaalt, dat het in the langetermijngeheugen wordt onthouden.\nDe volgen instellingen zijn beschikbaar;",
+          "1": "herhaal: hoe vaak alles herhaalt moet worden in een enkele sessie",
+          "2": "font: sommige fonts zorgen er voor dat de characters er net iets anders uit zien",
+          "3": "reverse mode: deze modus draait de vertaal volgorde om van \"kana naar latijn\" naar \"latijn naar kana\"",
+          "4": "Selecteer characters door op de checkbox the klikken die zich rechts bevindt, daarna is het mogelijk om op de \"Begin\" button te klikken."
+        },
+        "hiragana": "Hiragana",
+        "katakana": "Katakana",
+        "other": "Overige Settings",
+        "repeat": "herhaal",
+        "font": "font",
+        "reverse": "reverse mode",
+        "add": "voeg toe",
+        "addAll": "voeg alle toe",
+        "start": "Begin",
+        "cancel": "Annuleren",
+        "completed": "Completed!"
+      }
+    }
+  },
+  "de": {
+    "translation": {
+      "nav": {
+        "languages": {
+          "label": "Sprache",
+          "en": "Englisch (English)",
+          "jp": "Japanisch (日本語)",
+          "nl": "Niederländisch (Nederlands)",
+          "de": "Deutsch"
+        }
+      },
+      "home": {
+        "greeting": "schön, sie kennenzulernen",
+        "name": "Ich bin Nick Hummel",
+        "description": "Ich hab eine Leidenschaft für das Programmieren un das Lösen komplexer Probleme. Ein kreativer, abstrakter un theoretisch denkender Mensch mit der Fähigkeit, Ideen in Lösungen umzusetzen. Und verfügen über umfangreiche Erfahrung mit vielen Arten von Webtechnologien."
+      },
+      "sudoku": {
+        "title": "Sudoku solver",
+        "description": "Sudoku ist eine Gattung von Logikrätseln, die aus den lateinischen Quadraten entstand. In der üblichen Version ist es das Ziel, ein 9×9-Gitter mit den Ziffern 1 bis 9 so zu füllen, dass jede Ziffer in jeder Einheit genau einmal vorkommt, und in jedem der 81 Felder exakt eine Ziffer vorkommt.\n\nWährend einer Flugreise löste ich Sudoku-Rätsel und fragte mich dabei: „Wie schwer kann es sein, ein Sudoku programmgesteuert zu lösen?“ Und dieses Tool ist die Antwort darauf.",
+        "instructions": {
+          "title": "Anleitung",
+          "0": "Klicken Sie in eine Zelle und geben Sie eine Zahl ein, um den Wert anzupassen",
+          "1": "Füllen Sie das Feld für das Sudoku aus, das Sie lösen möchten",
+          "2": "Rot gefärbte Zellen sind fehlerhaft",
+          "3": "Drücken Sie \"Lösen\", um das Sudoku automatisch zu lösen",
+          "4": "Drücken Sie \"Leeren\", um das Feld zu leeren",
+          "5": "Verwenden Sie eines der Beispiele für ein vorausgefülltes Sudoku"
+        },
+        "example": "Beispiel Nr.{{n}}",
+        "solve": "Lösen",
+        "clear": "Leeren"
+      },
+      "kana": {
+        "title": "Kana learning tool",
+        "description": "Vorher ich für ein Praktikum nach Japan ging, wollte ich zumindest die einfachsten Alphabete lernen, welchen „Hiragana“ und „Katakana“ heißen.\nUnd da ich eine Entwickler Mentalität habe, war der nächste logische Schritt natürlich, selber ein Tool zu erstellen.",
+        "instructions": {
+          "title": "Anleitung",
+          "0": "Die Idee hinter diesem Tool besteht darin, dass eine Reihe von Zeichen bei häufiger Wiederholung im Langzeitgedächtnis gespeichert wird.\nDie nächsten Einstellungen sind verfügbar:",
+          "1": "wiederholen: wie oft alles in einer einzigen Sitzung wiederholt werden soll",
+          "2": "font: Einige \"Fonts\" lassen die Zeichen etwas anders aussehen",
+          "3": "reverse mode: Dieser Modus kehrt die Übersetzungsreihenfolge um.",
+          "4": "Wählen Sie die Zeichen aus, indem Sie auf die Checkbox rechts klicken. Anschließend können Sie auf „Start“ klicken."
+        },
+        "hiragana": "Hiragana",
+        "katakana": "Katakana",
+        "other": "Overige Settings",
+        "repeat": "wiederholen",
+        "font": "font",
+        "reverse": "reverse mode",
+        "add": "füg hin",
+        "addAll": "alles hinzufügen",
+        "start": "Start",
+        "cancel": "Abbrechen",
         "completed": "Completed!"
       }
     }

@@ -4,6 +4,7 @@ import Sudoku from "./pages/sudoku";
 import Kana from "./pages/kana";
 import KanaTest from "./pages/kanaTest";
 import Navigation from "./components/navigation";
+import Footer from "./components/footer";
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,8 @@ const App: React.FC = () => {
           <Route path="/kana/test" element={<KanaTest />} />
         </Routes>
       </div>
+
+      <Footer />
     </>
   );
 };

@@ -121,6 +121,7 @@ p {
   width: 100%;
   box-shadow: 0 0 1em var(--color-shadow);
   background-color: var(--color-white);
+  margin-bottom: 2em;
 }
 
 /* Pure-css overrides */

@@ -38,6 +38,21 @@ const Home: React.FC = () => {
         .experience p {
           font-size: var(--size-h3);
         }
+
+        /* 600px is the min where Dutch still looks reasonable */
+        @media screen and (max-width: 600px) {
+          article {
+            grid-template-columns: 1fr;
+          }
+
+          h1, h2 {
+            text-align: center;
+          }
+
+          article div > span {
+            width: 100%;
+          }
+        }
       `}</style>
 
       <article>

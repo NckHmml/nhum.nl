@@ -69,6 +69,10 @@ const KanaField: React.FC = observer(() => {
           text-align: right;
         }
 
+        .settings .pure-form input {
+          display: initial;
+        }
+
         .pure-form {
           font-size: 16px;
         }

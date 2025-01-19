@@ -117,7 +117,7 @@ const KanaTestField: React.FC = observer(() => {
   };
 
   const onType = (event: ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value;
+    const newValue = event.target.value.toLowerCase();
     const isValid = testItem.romaji === newValue || testItem.kana === newValue;
     setTyped(newValue);
     if (isValid) 
@@ -159,6 +159,7 @@ const KanaTestField: React.FC = observer(() => {
         </div>
         <div className="pure-form">
           <input
+            autoComplete="off"
             value={typed}
             onChange={onType}
           />
