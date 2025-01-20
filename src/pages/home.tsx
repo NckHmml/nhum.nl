@@ -26,17 +26,13 @@ const Home: React.FC = () => {
           box-shadow: .5em .5em .5em var(--color-shadow);
         }
 
-        h1, h2 {
+        article h1, article h2 {
           margin: 0;
           text-transform: uppercase;
         }
 
-        h2 {
+        article h2 {
           font-weight: 300;
-        }
-
-        .experience p {
-          font-size: var(--size-h3);
         }
 
         /* 600px is the min where Dutch still looks reasonable */
@@ -45,7 +41,7 @@ const Home: React.FC = () => {
             grid-template-columns: 1fr;
           }
 
-          h1, h2 {
+          article h1, article h2 {
             text-align: center;
           }
 
@@ -53,6 +49,29 @@ const Home: React.FC = () => {
             width: 100%;
           }
         }
+
+        .experience p {
+          font-size: var(--size-h3);
+        }
+
+        .experience table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        .experience table thead {
+          font-weight: 500;
+        }
+
+        .experience table tr > td {
+          border-top: 1px solid var(--color-border);
+          padding: 5px;
+          box-sizing: border-box;
+        }
+
+        .experience table td:nth-child(3) {
+          font-size: var(--size-h5);
+        } 
       `}</style>
 
       <article>
@@ -68,7 +87,95 @@ const Home: React.FC = () => {
       </article>
 
       <div className="experience">
+        <h2><I18N>home.intro</I18N></h2>
         <p><I18N>home.description</I18N></p>
+      </div>
+
+      <div className="experience">
+        <h2><I18N>home.experience</I18N></h2>
+        <table>
+          <thead>
+            <td></td>
+            <td>Professional</td>
+            <td>Total<sup>*</sup></td>
+          </thead>
+          <tr>
+            <td>Java</td>
+            <td><I18N withHtml options={{ count: 7 }}>home.yearWithPlus</I18N></td>
+            <td><I18N withHtml options={{ count: 17 }}>home.yearWithPlus</I18N></td>
+          </tr>
+          <tr>
+            <td>Java Spring</td>
+            <td><I18N withHtml options={{ count: 6 }}>home.yearWithPlus</I18N></td>
+            <td><I18N withHtml options={{ count: 6 }}>home.yearWithPlus</I18N></td>
+          </tr>
+          <tr>
+            <td>JavaScript</td>
+            <td><I18N withHtml options={{ count: 8 }}>home.yearWithPlus</I18N></td>
+            <td><I18N withHtml options={{ count: 17 }}>home.yearWithPlus</I18N></td>
+          </tr>
+          <tr>
+            <td>TypeScript</td>
+            <td><I18N withHtml options={{ count: 7 }}>home.yearWithPlus</I18N></td>
+            <td><I18N withHtml options={{ count: 7 }}>home.yearWithPlus</I18N></td>
+          </tr>
+          <tr>
+            <td>React</td>
+            <td><I18N withHtml options={{ count: 8 }}>home.yearWithPlus</I18N></td>
+            <td><I18N withHtml options={{ count: 10 }}>home.yearWithPlus</I18N></td>
+          </tr>
+          <tr>
+            <td>NodeJS</td>
+            <td><I18N withHtml options={{ count: 8 }}>home.yearWithPlus</I18N></td>
+            <td><I18N withHtml options={{ count: 10 }}>home.yearWithPlus</I18N></td>
+          </tr>
+          <tr>
+            <td>AngularJS</td>
+            <td><I18N withHtml options={{ count: 1 }}>home.year</I18N></td>
+            <td><I18N withHtml options={{ count: 5 }}>home.year</I18N></td>
+          </tr>
+          <tr>
+            <td>CSS (Less, SCSS)</td>
+            <td><I18N withHtml options={{ count: 8 }}>home.yearWithPlus</I18N></td>
+            <td><I18N withHtml options={{ count: 15 }}>home.yearWithPlus</I18N></td>
+          </tr>
+          <tr>
+            <td>C# (.NET)</td>
+            <td><I18N withHtml options={{ count: 4 }}>home.year</I18N></td>
+            <td><I18N withHtml options={{ count: 8 }}>home.year</I18N></td>
+          </tr>
+          <tr>
+            <td>VB Classic</td>
+            <td><I18N withHtml options={{ count: 4 }}>home.year</I18N></td>
+            <td><I18N withHtml options={{ count: 8 }}>home.year</I18N></td>
+          </tr>
+          <tr>
+            <td>ASM x86</td>
+            <td><I18N withHtml options={{ count: 0 }}>home.year</I18N></td>
+            <td><I18N withHtml options={{ count: 3 }}>home.year</I18N></td>
+          </tr>
+          <tr>
+            <td>PHP</td>
+            <td><I18N withHtml options={{ count: 1 }}>home.year</I18N></td>
+            <td><I18N withHtml options={{ count: 3 }}>home.year</I18N></td>
+          </tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr>
+            <td>AWS</td>
+            <td><I18N withHtml options={{ count: 7 }}>home.year</I18N></td>
+            <td><I18N withHtml options={{ count: 7 }}>home.year</I18N></td>
+          </tr>
+          <tr>
+            <td>Azure</td>
+            <td><I18N withHtml options={{ count: 1 }}>home.year</I18N></td>
+            <td><I18N withHtml options={{ count: 4 }}>home.year</I18N></td>
+          </tr>
+        </table>
+        <p>
+          <small><I18N>home.star</I18N></small><br />
+          <small><I18N>home.plus</I18N></small><br />
+          <small><I18N>home.more</I18N></small><br />
+        </p>
       </div>
     </>
   );

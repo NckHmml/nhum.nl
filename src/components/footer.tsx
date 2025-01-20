@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
             value={i18n.language}
           >
             <option value="en"><I18N>nav.languages.en</I18N></option>
-            <option value="jp"><I18N>nav.languages.jp</I18N></option>
+            <option value="ja"><I18N>nav.languages.ja</I18N></option>
             <option value="nl"><I18N>nav.languages.nl</I18N></option>
             <option value="de"><I18N>nav.languages.de</I18N></option>
           </select>

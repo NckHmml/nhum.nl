@@ -8,7 +8,7 @@
         "languages": {
           "label": "language",
           "en": "English",
-          "jp": "Japanese (日本語)",
+          "ja": "Japanese (日本語)",
           "nl": "Dutch (Nederlands)",
           "de": "German (Deutsch)"
         }
@@ -16,7 +16,16 @@
       "home": {
         "greeting": "nice to meet you",
         "name": "I am Nick Hummel",
-        "description": "I have a passion for coding and solving complex problems. A creative, abstract and theoretical thinker and have the ability to turn ideas into solutions. And have extensive development experience with Web Technologies, amongst others."
+        "description": "I have a passion for coding and solving complex problems. A creative, abstract and theoretical thinker and have the ability to turn ideas into solutions. And have extensive development experience with Web Technologies, amongst others.",
+        "intro": "Preface",
+        "experience": "Experience",
+        "year_one": "{{count}} year",
+        "year_other": "{{count}} years",
+        "yearWithPlus_one": "{{count}}<sup>+</sup> year",
+        "yearWithPlus_other": "{{count}}<sup>+</sup> years",
+        "more": "To keep this list short and relevant, not everything has been listed",
+        "star": "* including hobby, part-time work, etc",
+        "plus": "+ relevant to my current position"
       },
       "sudoku": {
         "title": "Sudoku solver",
@@ -59,13 +68,13 @@
       }
     }
   },
-  "jp": {
+  "ja": {
     "translation": {
       "nav": {
         "languages": {
           "label": "言語",
           "en": "英語 (English)",
-          "jp": "日本語",
+          "ja": "日本語",
           "nl": "オランダ語 (Nederlands)",
           "de": "ドイツ語 (Deutsch)"
         }
@@ -73,7 +82,14 @@
       "home": {
         "greeting": "はじめまして",
         "name": "I am Nick Hummel",
-        "description": "私はコーディングや複雑な問題を解決することに情熱を持っています。創造的で抽象的、かつ理論的な思考を得意とし、アイデアを解決策に変える能力があります。また、多くのウェブ技術に関する開発経験を持っています。"
+        "description": "私はコーディングや複雑な問題を解決することに情熱を持っています。創造的で抽象的、かつ理論的な思考を得意とし、アイデアを解決策に変える能力があります。また、多くのウェブ技術に関する開発経験を持っています。",
+        "intro": "はじめに",
+        "experience": "経験",
+        "year": "{{count}}年",
+        "yearWithPlus": "{{count}}年<sup>+</sup>",
+        "more": "このリストを短くするために、すべてをリストしたわけではありません。",
+        "star": "* 趣味、アルバイト、その他",
+        "plus": "+ 現在の会社に使っているもの"
       },
       "sudoku": {
         "title": "Sudoku solver",
@@ -122,7 +138,7 @@
         "languages": {
           "label": "taal",
           "en": "Engels (English)",
-          "jp": "Japans (日本語)",
+          "ja": "Japans (日本語)",
           "nl": "Nederlands",
           "de": "Duits (Deutsch)"
         }
@@ -130,7 +146,14 @@
       "home": {
         "greeting": "aangenaam kennis te maken",
         "name": "Ik ben Nick Hummel",
-        "description": "Ik heb een passie voor programmeren en het oplossen van complexe problemen. Een creatieve, abstracte en theoretische denker en heb het vermogen om ideeën om te zetten in oplossingen. En heb uitgebreide ervaring met vele webtechnologieën."
+        "description": "Ik heb een passie voor programmeren en het oplossen van complexe problemen. Een creatieve, abstracte en theoretische denker en heb het vermogen om ideeën om te zetten in oplossingen. En heb uitgebreide ervaring met vele webtechnologieën.",
+        "intro": "Voorwoord",
+        "experience": "Ervaring",
+        "year": "{{count}} jaar",
+        "yearWithPlus": "{{count}}<sup>+</sup> jaar",
+        "more": "Om deze lijst kort en relevant te houden, staat niet alles op deze lijst",
+        "star": "* inclusief hobby, part-time, etc",
+        "plus": "+ relevant voor mijn huidige functie"
       },
       "sudoku": {
         "title": "Sudoku solver",
@@ -179,7 +202,7 @@
         "languages": {
           "label": "Sprache",
           "en": "Englisch (English)",
-          "jp": "Japanisch (日本語)",
+          "ja": "Japanisch (日本語)",
           "nl": "Niederländisch (Nederlands)",
           "de": "Deutsch"
         }
@@ -187,7 +210,14 @@
       "home": {
         "greeting": "schön, sie kennenzulernen",
         "name": "Ich bin Nick Hummel",
-        "description": "Ich hab eine Leidenschaft für das Programmieren un das Lösen komplexer Probleme. Ein kreativer, abstrakter un theoretisch denkender Mensch mit der Fähigkeit, Ideen in Lösungen umzusetzen. Und verfügen über umfangreiche Erfahrung mit vielen Arten von Webtechnologien."
+        "description": "Ich hab eine Leidenschaft für das Programmieren un das Lösen komplexer Probleme. Ein kreativer, abstrakter un theoretisch denkender Mensch mit der Fähigkeit, Ideen in Lösungen umzusetzen. Und verfügen über umfangreiche Erfahrung mit vielen Arten von Webtechnologien.",
+        "intro": "Vorwort",
+        "experience": "Erfahrung",
+        "year": "{{count}} Jahre",
+        "yearWithPlus": "{{count}}<sup>+</sup> Jahre",
+        "more": "Um diese Liste kurz und relevant zu halten, steht nicht alles auf dieser Liste",
+        "star": "* einschließlich Hobby, Teilzeit usw.",
+        "plus": "+ relevant für meine aktuelle Position"
       },
       "sudoku": {
         "title": "Sudoku solver",

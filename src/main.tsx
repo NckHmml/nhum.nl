@@ -1,4 +1,5 @@
 import i18n from "i18next";
+import languageDetector from "i18next-browser-languagedetector";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { HashRouter } from "react-router";
@@ -12,16 +13,24 @@ import App from "./app.tsx";
 
 i18n
   .use(initReactI18next)
+  .use(languageDetector)
   .init({
     resources: i18nJson,
-    lng: "en",
+    supportedLngs: ["en", "de", "nl", "ja"],
     fallbackLng: "en",
     interpolation: {
       escapeValue: false,
+      skipOnVariables: false,
     },
     react: { 
-      transKeepBasicHtmlNodesFor: ["ruby", "rp", "rt", "br", "strong", "i", "p"]
-    }
+      transKeepBasicHtmlNodesFor: ["ruby", "rp", "rt", "br", "strong", "i", "p", "sub", "sup"]
+    },
+    detection: {
+      order: ["localStorage", "navigator"],
+      lookupLocalStorage: "i18next",
+      lookupFromPathIndex: 0,
+      caches: ["localStorage"],
+    },
   });
 
 createRoot(document.getElementById("root")!).render(
