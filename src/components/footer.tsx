@@ -43,8 +43,33 @@ const Footer: React.FC = () => {
           vertical-align: middle;
           display: initial;
         }
+
+        .logo {
+          float: left;
+          max-height: 2em;
+          overflow: hidden;
+          cursor: pointer;
+        }
+
+        .logo img {
+          box-sizing: border-box;
+          padding: 4px;
+          max-height: 2em;
+        }
+
+        @media print {
+          footer {
+            display: none;
+          }
+
+          .container {
+            box-shadow: none;
+          }
+        }
       `}</style>
       <div className="container">
+        <span className="logo"><a href="https://www.linkedin.com/in/nckhmml" target="_blank" rel="noopener noreferrer"><img src="/assets/LI-In-Bug.png" alt="LinkedIn Logo" /></a></span>
+        <span className="logo"><a href="https://github.com/NckHmml" target="_blank" rel="noopener noreferrer"><img src="/assets/github-mark.svg" alt="GitHub Logo" /></a></span>
         <div className="i18n-select pure-form">
           <label><I18N>nav.languages.label</I18N></label>
           <select

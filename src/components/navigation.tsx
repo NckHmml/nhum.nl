@@ -18,6 +18,12 @@ const Navigation: React.FC = () => {
           padding: 0;
           position: relative;
         }
+
+        @media print {
+          nav {
+            display: none;
+          }
+        }
       `}</style>
       <div className="container">
         <NavLink to="/" className="pure-menu-heading pure-menu-link"><I18N>nav.home</I18N></NavLink>

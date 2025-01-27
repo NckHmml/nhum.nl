@@ -12,6 +12,7 @@
   "dependencies": {
     "@eslint/js": "^9.18.0",
     "@stylistic/eslint-plugin": "^2.13.0",
+    "@types/node": "^22.10.7",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "@types/react-router": "^5.1.20",

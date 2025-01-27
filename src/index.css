@@ -124,6 +124,22 @@ p {
   margin-bottom: 2em;
 }
 
+@media print {
+  .content,
+  .container {
+    width: 20cm;
+    padding: 0;
+  }
+
+  .content {
+    box-shadow: none;
+  }
+
+  .pagebreak {
+    page-break-before: always;
+  }
+}
+
 /* Pure-css overrides */
 
 .pure-menu-item .pure-menu-link.active {
