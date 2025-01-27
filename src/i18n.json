@@ -5,13 +5,15 @@
         "home": "nhum.nl",
         "sudoku": "Sudoku",
         "kana": "Kana",
+        "concepts": "Concepts",
         "languages": {
           "label": "language",
           "en": "English",
           "ja": "Japanese (日本語)",
           "nl": "Dutch (Nederlands)",
           "de": "German (Deutsch)"
-        }
+        },
+        "back": "Back"
       },
       "home": {
         "greeting": "nice to meet you",
@@ -65,6 +67,17 @@
         "start": "Start",
         "cancel": "Cancel",
         "completed": "Completed!"
+      },
+      "concepts": {
+        "title": "Programming Concepts",
+        "description": "Here are a few examples of concepts and challenges that I had to confront while working as a developer. I will break down my approach and show example of what I did to overcome these challenges.",
+        "goto": "Go to details",
+        "password": "What is a safe password?",
+        "password.description": "With an increasing amount of data leaks, and password policies trying to get users to use \"secure\" passwords. What really is the best approach of creating a password?",
+        "search": "Product search",
+        "search.description": "We all know that the most efficient way of storing relation data, is to store this in a relational database. But what if we want to do something that relational database are notoriously bad at? Like doing a full text search and returning all the relations as one document?",
+        "bots": "High bot traffic",
+        "bots.description": "During network analysis we noticed that one of our public search endpoints was getting a high amount of traffic. But if you block the bots, they just come back later with a different approach. How do you stop endlessly reviving bots?"
       }
     }
   },

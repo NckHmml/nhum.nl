@@ -35,6 +35,9 @@ const Navigation: React.FC = () => {
             <NavLink to="/kana" className="pure-menu-link"><I18N>nav.kana</I18N></NavLink>
           </li>
           <li className="pure-menu-item">
+            <NavLink to="/concepts" className="pure-menu-link"><I18N>nav.concepts</I18N></NavLink>
+          </li>
+          <li className="pure-menu-item">
           </li>
         </ul>
       </div>
