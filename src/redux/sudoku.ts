@@ -120,11 +120,12 @@ export class SudokuStore {
     console.time("solve");
     const result = solveSudoku(this.field);
     if (!result) {
-      // ToDo: dsiplay error?
+      // ToDo: display error?
     } else {
       this.field.replace(result);
     }
     console.timeEnd("solve");
+    umami.track("sudoku");
   }
 
   public setExample(number: 1 | 2 | 3) {
@@ -172,6 +173,7 @@ export class SudokuStore {
         break;
       }
     }
+    umami.track("sudoku.example", { number });
   }
 }
 

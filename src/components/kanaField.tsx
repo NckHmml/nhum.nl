@@ -9,11 +9,17 @@ const KanaField: React.FC = observer(() => {
   const navigate = useNavigate();
 
   const allHiraganaBlocks = kanaStore.allHiragana.map((agr, i) => (<KanaSelection key={`h${i}`} items={agr} />));
-  const allKatananaBlocks = kanaStore.allKatakana.map((agr, i) => (<KanaSelection key={`k${i}`} items={agr} />));
+  const allKatakanaBlocks = kanaStore.allKatakana.map((agr, i) => (<KanaSelection key={`k${i}`} items={agr} />));
 
   const onStart = () => {
     if (!kanaStore.canTest) return;
     kanaStore.initTest();
+    umami.track("kana", { 
+      font: kanaStore.font,
+      repeat: kanaStore.repeat,
+      reverse: kanaStore.reverse,
+      count: kanaStore.test.length,
+    });
     navigate("/kana/test");
   };
 
@@ -101,7 +107,7 @@ const KanaField: React.FC = observer(() => {
           ><I18N>kana.addAll</I18N></Checkbox>
         </div>
       </div>
-      {allKatananaBlocks}
+      {allKatakanaBlocks}
       <div className="double">
         <h2><I18N>kana.other</I18N></h2>
       </div>

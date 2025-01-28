@@ -27,7 +27,7 @@
 }
 
 :root {
-  font-family: Roboto, TakaoPMincho, "sans-sarif";
+  font-family: Roboto, TakaoPMincho, "sans-serif";
   color: var(--color-text);
   font-size: 16px;
 
@@ -46,10 +46,11 @@
   --color-border: var(--color-primary);
 
   /* Sizes */
-  --size-h1: 2em;
+  --size-fz: 16px;
+  --size-h1: round(nearest, 2em, 1px);
   --size-h2: round(nearest, 1.6em, 1px); /* Fonts act weird with decimal px sizes, so we round them */
   --size-h3: round(nearest, 1.2em, 1px);
-  --size-h4: 1em;
+  --size-h4: round(nearest, 1em, 1px);
   --size-h5: round(nearest, .8em, 1px);
 }
 
@@ -74,7 +75,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, button {
   font-weight: 400;
-  font-family: Roboto, TakaoPGothic, "sans-sarif" !important;
+  font-family: Roboto, TakaoPGothic, "sans-serif" !important;
 }
 
 h1 {

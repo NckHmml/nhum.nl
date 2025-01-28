@@ -39,10 +39,10 @@ const KanaTestField: React.FC = observer(() => {
       font = "TakaoPGothic";
       break;
     case "sans-serif":
-      font = "sans-sarif";
+      font = "sans-serif";
       break;
     case "random":
-      font = ["TakaoPMincho", "TakaoPGothic", "sans-sarif"][random];
+      font = ["TakaoPMincho", "TakaoPGothic", "sans-serif"][random];
       break;
   }
 

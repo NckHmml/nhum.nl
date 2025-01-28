@@ -12,7 +12,7 @@ const I18N: React.FC<Props> = ({ children, options, withHtml }) => {
   if (withHtml) {
     return <Trans i18nKey={children} {...options} />;
   }
-  return <>{t(children, options)}</>;
+  return t(children, options);
 };
 
 export default I18N;

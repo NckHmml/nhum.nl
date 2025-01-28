@@ -23,7 +23,7 @@ i18n
       skipOnVariables: false,
     },
     react: { 
-      transKeepBasicHtmlNodesFor: ["ruby", "rp", "rt", "br", "strong", "i", "p", "sub", "sup"]
+      transKeepBasicHtmlNodesFor: ["ruby", "rp", "rt", "br", "strong", "i", "p", "sub", "sup", "h1", "h2", "h3", "h4", "h5"]
     },
     detection: {
       order: ["localStorage", "navigator"],

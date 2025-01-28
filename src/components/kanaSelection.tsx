@@ -13,7 +13,7 @@ const KanaCell: React.FC<{ item: KanaItem }> = observer(({ item }) => {
       font = "TakaoPGothic";
       break;
     case "sans-serif":
-      font = "sans-sarif";
+      font = "sans-serif";
       break;
   }
 

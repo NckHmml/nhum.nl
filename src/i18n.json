@@ -72,12 +72,27 @@
         "title": "Programming Concepts",
         "description": "Here are a few examples of concepts and challenges that I had to confront while working as a developer. I will break down my approach and show example of what I did to overcome these challenges.",
         "goto": "Go to details",
-        "password": "What is a safe password?",
-        "password.description": "With an increasing amount of data leaks, and password policies trying to get users to use \"secure\" passwords. What really is the best approach of creating a password?",
+        "password": {
+          "title": "What is a safe password?",
+          "description": "With an increasing amount of data leaks, and password policies trying to get users to use \"secure\" passwords. What really is the best approach of creating a password?",
+          "story": "<p>We all have been in this situation, \"your password most contain at least one capital, a number, etc...\". But does this really make your password more secure? Or does it just make your password harder to remember?<br />Of course, the best solution is to have a password manager, but these are not completely foolproof either. A unique password with either a second or maybe even a third authentication step would also be the most secure.</p><p>A good example that happened to me, for an application we need the users to register a 6 digit PIN code. However, somebody made a policy for these PIN codes that what something like this: \"No dates (YYYYMM, MMYYYY, MMDDYY, DDMMYY, etc.), No sequential numbers, No keyboard patterns, No username (we used number based users)\" and some more requirements.<br />The end result? More than 60% of the numbers between 000000-999999 were not allowed.<br />So in the end not only was this a potential big nuisance to the users, it also made brute-forcing the PIN codes a lot easier because only 40% of the 6 digit PIN codes were left.</p><h3>Conclusion</h3><p>Beside educating users on what a good password or PIN is, we also need to be aware that creating difficult requirements might end up causing the opposite effect. Because when something is hard to remember, people might employ tricks to \"remember\" their password (e.g. putting it a post-it)<br />Therefore, fewer requirements might actually increase the security of a password or PIN</p>"
+        },
         "search": "Product search",
         "search.description": "We all know that the most efficient way of storing relation data, is to store this in a relational database. But what if we want to do something that relational database are notoriously bad at? Like doing a full text search and returning all the relations as one document?",
-        "bots": "High bot traffic",
-        "bots.description": "During network analysis we noticed that one of our public search endpoints was getting a high amount of traffic. But if you block the bots, they just come back later with a different approach. How do you stop endlessly reviving bots?"
+        "bots": {
+          "title": "High bot traffic",
+          "description": "During network analysis we noticed that one of our public search endpoints was getting a high amount of traffic. But if you block the bots, they just come back later with a different approach. How do you stop endlessly reviving bots?",
+          "story": [
+            "The problem",
+            "The main problem we encountered here was, we couldn't endlessly keep blocking the bots, because there's always a way for them to act like they are legits user of our public API. It will just end up being a cat and mouse game.\nBut we couldn't leave it like it was either, because now a good 90% of the load came from bots. We couldn't block the API itself either, because not only where legit users using it, our home page was using this API too.\nSo how can we reduce the amount of calls from bots, without impacting our users?",
+            "The solution",
+            "What is the easiest way to prevent the bots from using our API? Obviously you can try and block them, or use some WAF rules to filter them out. But as mentioned before, this was the first thing we tried, and it was not working as well as hoped.\nThen one day it came to us, just like insects, rather than exterminating these \"bugs\", how can we make the environment less attractive to them?\nThe answer? Hit them were it hurts, financially.",
+            "In a certain way, we created a perfect environment for these bots to run, not only provided our API data that they wanted, it was fast too, really fast.\nOf course, now you can say \"why not just slow the API down then?\", well... we tried, and the result is that they will just do more requests spread out of a large range of IP adressen, in the end, only costing us more money.\nSo how can we slow it down for them, but not incur anymore costs on our side. Because our goal is the opposite, to raise their running cost.",
+            "{\n  \"algorithm\": \"sha512-hmac\",\n  \"nonce\": \"c13223\",\n  \"challenge\": \"67e133\"\n}",
+            "At first the above example might look confusing, the idea behind this, is that every request needs solve a \"challenge\", a cryptographic one.\nThe challenge is actually relatively simple, find out what value together with the \"nonce\" (short for not once) would be the answer which is in \"challenge\". But while simple, in the above example, which is only using 6 digits, it could mean in the worst cause it has to run this algorithm 256^3 times, that is a 16777216 times!\nWhile hashing is relatively fast, doing it several million times can take quite some time. However if you know the answer, it is really fast to check whether the answer is correct. For example, the correct answer here is \"608ec2\", so if you were to try and guess this, it would take you roughly 6 million tries.",
+            "Of course, using a 6 digit challenge might slow down the users on a browser down too much, but the nice thing of this approach is, is that it can be modified while running. If you reduce the length of the challenge, the time required to guess drops.\nAdditionally, if you use the answer from the last challenge, and use that for the next one, you would be able to enforce a synchronous session. While this wouldn't bother a bot too much, it does add the need for additional memory to deal with this (not for storing the hashes, but for having to manage the sessions). Thus costing the owner of the bots even more money.\nImplementing this caused a great reduction in the amounts of bots we saw, quite simply because if you spend most of your time solving hashes, you might as well just mine bitcoins."
+          ]
+        }
       }
     }
   },
@@ -90,7 +105,8 @@
           "ja": "日本語",
           "nl": "オランダ語 (Nederlands)",
           "de": "ドイツ語 (Deutsch)"
-        }
+        },
+        "back": "戻る"
       },
       "home": {
         "greeting": "はじめまして",
@@ -142,6 +158,9 @@
         "start": "スタート",
         "cancel": "キャンセル",
         "completed": "Completed!"
+      },
+      "concepts": {
+        "goto": "詳しく見る"
       }
     }
   },
@@ -154,7 +173,8 @@
           "ja": "Japans (日本語)",
           "nl": "Nederlands",
           "de": "Duits (Deutsch)"
-        }
+        },
+        "back": "Terug"
       },
       "home": {
         "greeting": "aangenaam kennis te maken",
@@ -206,6 +226,9 @@
         "start": "Begin",
         "cancel": "Annuleren",
         "completed": "Completed!"
+      },
+      "concepts": {
+        "goto": "Zie details"
       }
     }
   },
@@ -218,7 +241,8 @@
           "ja": "Japanisch (日本語)",
           "nl": "Niederländisch (Nederlands)",
           "de": "Deutsch"
-        }
+        },
+        "back": "Zurück"
       },
       "home": {
         "greeting": "schön, sie kennenzulernen",
@@ -270,6 +294,9 @@
         "start": "Start",
         "cancel": "Abbrechen",
         "completed": "Completed!"
+      },
+      "concepts": {
+        "goto": "Weitere Informationen"
       }
     }
   }

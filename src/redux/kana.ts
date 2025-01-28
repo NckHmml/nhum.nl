@@ -145,8 +145,8 @@ export class KanaStore {
         sameGroup = this._allKana.filter(x => x.group === item.group && x.kana !== item.kana);
         randomKana = this._allKana[Math.floor(Math.random() * this._allKana.length)];
       }
-      const simalarKana = this.getSimilar(this.testItem);
-      const options = ([item, randomKana, simalarKana]
+      const similarKana = this.getSimilar(this.testItem);
+      const options = ([item, randomKana, similarKana]
         .filter(Boolean) as Array<KanaItem>)
         // Remove dupes
         .filter((v, i, a) => a.findIndex(k => k.kana == v.kana) === i);
