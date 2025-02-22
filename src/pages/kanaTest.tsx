@@ -7,7 +7,7 @@ const KanaTest: React.FC = () => {
 
   const onCancel = () => {
     navigate("/kana");
-    umami.track("kana.cancel");
+    umami?.track("kana.cancel");
   };
 
   return (

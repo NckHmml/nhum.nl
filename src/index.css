@@ -60,7 +60,8 @@ html, body, #root {
   padding: 0;
   box-sizing: border-box;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100%;
 }
 
 body { 
@@ -115,12 +116,13 @@ p {
   .content,
   .container {
     max-width: 21cm;
+    padding: 1em 2em;
   }
 }
 
 .content { 
   z-index: 1;
-  padding: 1em 2em;
+  padding: 1em;
   width: 100%;
   box-shadow: 0 0 1em var(--color-shadow);
   background-color: var(--color-white);

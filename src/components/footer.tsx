@@ -15,18 +15,19 @@ const Footer: React.FC = () => {
       <style jsx>{`
         footer {
           font-family: Roboto, TakaoPGothic, "sans-serif" !important;
+          background-color: var(--color-white);
           box-sizing: border-box;
           position: sticky;
           bottom: 0;
           z-index: 1;
+          padding-bottom: env(safe-area-inset-bottom);
+          box-shadow: 0 0 1em var(--color-shadow);
         }
 
         .container {
           padding: 0;
           position: relative;
-          background-color: var(--color-white);
           height: 2em;
-          box-shadow: 0 0 1em var(--color-shadow);
         }
 
         .i18n-select {

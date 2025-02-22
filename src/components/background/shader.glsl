@@ -24,7 +24,7 @@ Zavie / Ctrl-Alt-Test
 #define MAX_RADIUS 2
 
 // Set to 1 to hash twice. Slower, but less patterns.
-#define DOUBLE_HASH 1
+#define DOUBLE_HASH 0
 
 // Hash functions shamefully stolen from:
 // https://www.shadertoy.com/view/4djSRW

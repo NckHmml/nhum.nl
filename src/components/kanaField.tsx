@@ -14,13 +14,13 @@ const KanaField: React.FC = observer(() => {
   const onStart = () => {
     if (!kanaStore.canTest) return;
     kanaStore.initTest();
-    umami.track("kana", { 
+    navigate("/kana/test");
+    umami?.track("kana", { 
       font: kanaStore.font,
       repeat: kanaStore.repeat,
       reverse: kanaStore.reverse,
       count: kanaStore.test.length,
     });
-    navigate("/kana/test");
   };
 
   return (

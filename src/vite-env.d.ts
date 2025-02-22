@@ -7,4 +7,4 @@ interface Umami {
   track: (event: string, properties?: Dictionary) => void;
 }
 
-declare const umami: Umami;
+declare const umami: Umami | undefined;

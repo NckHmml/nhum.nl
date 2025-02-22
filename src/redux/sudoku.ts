@@ -125,7 +125,7 @@ export class SudokuStore {
       this.field.replace(result);
     }
     console.timeEnd("solve");
-    umami.track("sudoku");
+    umami?.track("sudoku");
   }
 
   public setExample(number: 1 | 2 | 3) {
@@ -173,7 +173,7 @@ export class SudokuStore {
         break;
       }
     }
-    umami.track("sudoku.example", { number });
+    umami?.track("sudoku.example", { number });
   }
 }
 
