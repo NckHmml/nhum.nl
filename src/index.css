@@ -64,6 +64,7 @@ html, body, #root {
 }
 
 body { 
+  position: relative;
   background-color: var(--color-background);
 }
 
@@ -118,7 +119,7 @@ p {
 }
 
 .content { 
-  z-index: 0;
+  z-index: 1;
   padding: 1em 2em;
   width: 100%;
   box-shadow: 0 0 1em var(--color-shadow);

@@ -68,6 +68,9 @@ jobs:
           name: build-output
           path: target-repo
 
+      - name: Copy index.html to 404.html
+        run: cp target-repo/index.html target-repo/404.html
+
       - name: Commit and push changes
         run: |
           cd target-repo

@@ -9,7 +9,7 @@ const Navigation: React.FC = () => {
         nav {
           position: sticky;
           top: 0;
-          z-index: 1;
+          z-index: 2;
           border-bottom: 1px solid var(--color-border);
           background-color: var(--color-white);
         }

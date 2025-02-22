@@ -18,6 +18,7 @@ const Footer: React.FC = () => {
           box-sizing: border-box;
           position: sticky;
           bottom: 0;
+          z-index: 1;
         }
 
         .container {
