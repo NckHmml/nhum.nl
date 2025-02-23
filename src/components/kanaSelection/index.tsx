@@ -65,7 +65,7 @@ const KanaSelection: React.FC<{ items: Array<KanaItem> }> = observer(({ items })
   };
 
   return (
-    <div className="root">
+    <div className="root" data-testid="c-kanaselection">
       <style jsx>{`
         .root {
           position: relative;

@@ -26,7 +26,7 @@ const KanaField: React.FC = observer(() => {
   };
 
   return (
-    <div className="root">
+    <div className="root" data-testid="c-kanafield">
       <style jsx>{`
         .root {
           display: grid;
@@ -92,7 +92,7 @@ const KanaField: React.FC = observer(() => {
 
       <div className="double">
         <h2><I18N>kana.hiragana</I18N></h2>
-        <div className="checkbox">
+        <div className="checkbox" data-testid="add-hiragana">
           <Checkbox
             checked={kanaStore.allHiraganaSelected}
             onClick={() => kanaStore.toggleAll(kanaStore.allHiragana, !kanaStore.allHiraganaSelected)}
@@ -102,7 +102,7 @@ const KanaField: React.FC = observer(() => {
       {allHiraganaBlocks}
       <div className="double">
         <h2><I18N>kana.katakana</I18N></h2>
-        <div className="checkbox">
+        <div className="checkbox" data-testid="add-katakana">
           <Checkbox
             checked={kanaStore.allKatakanaSelected}
             onClick={() => kanaStore.toggleAll(kanaStore.allKatakana, !kanaStore.allKatakanaSelected)}
@@ -145,6 +145,7 @@ const KanaField: React.FC = observer(() => {
           </div>
 
           <button
+            data-testid="kana-start"
             className="pure-button button-primary"
             disabled={!kanaStore.canTest}
             onClick={onStart}
