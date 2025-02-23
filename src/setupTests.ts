@@ -1,3 +1,4 @@
+import "./vite-env";
 import "@testing-library/jest-dom/vitest";
 import i18n from "i18next";
 import languageDetector from "i18next-browser-languagedetector";
@@ -8,8 +9,17 @@ import * as i18nJson from "./i18n.json";
 
 import.meta.env.MODE = "test";
 
+declare global {
+  interface Window {
+    $RefreshReg$: () => void;
+    $RefreshSig$: () => (type: unknown) => unknown;
+    __vite_plugin_react_preamble_installed__: boolean;
+    umami: Umami;
+  }
+}
+
 window.$RefreshReg$ = () => { };
-window.$RefreshSig$ = () => (type) => type;
+window.$RefreshSig$ = () => (type: unknown) => type;
 window.__vite_plugin_react_preamble_installed__ = true;
 window.umami = { track: vi.fn() };
 
