@@ -1,7 +1,7 @@
-
 import { observer } from "mobx-react";
 import { KeyboardEvent } from "react";
-import { instance as sudokuStore } from "../redux/sudoku";
+
+import { instance as sudokuStore } from "~/redux/sudoku";
 
 interface CellProps {
   row: number;
@@ -23,7 +23,6 @@ const SudokuCell: React.FC<CellProps> = observer(({ row, cell, value }) => {
       case "enter":
         return;
     }
-
 
     if (newValue === value || isNaN(newValue))
       return;

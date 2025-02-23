@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 
-import Home from "./pages/home";
-import Sudoku from "./pages/sudoku";
-import Kana from "./pages/kana";
-import KanaTest from "./pages/kanaTest";
-import { Concepts, ConceptsBots, ConceptsIndex, ConceptsPassword, ConceptsSearch } from "./pages/concepts";
+import BackgroundComponent from "~/components/background";
+import Footer from "~/components/footer";
+import Navigation from "~/components/navigation";
 
-import Navigation from "./components/navigation";
-import Footer from "./components/footer";
-import BackgroundComponent from "./components/background";
+import { Concepts, ConceptsBots, ConceptsIndex, ConceptsPassword, ConceptsSearch } from "~/pages/concepts";
+import Home from "~/pages/home";
+import Kana from "~/pages/kana";
+import KanaTest from "~/pages/kanaTest";
+import Sudoku from "~/pages/sudoku";
 
 const App: React.FC = () => {
   return (

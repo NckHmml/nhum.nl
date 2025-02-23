@@ -1,14 +1,15 @@
-import { Mesh, MirroredRepeatWrapping, NearestFilter, OrthographicCamera, PlaneGeometry, Scene, ShaderMaterial, TextureLoader, Vector3, WebGLRenderer } from "three";
 import { RefObject, useRef } from "react";
-import fragmentShader from "./shader.glsl?raw";
+import { Mesh, MirroredRepeatWrapping, NearestFilter, OrthographicCamera, PlaneGeometry, Scene, ShaderMaterial, TextureLoader, Vector3, WebGLRenderer } from "three";
 
 import { Props } from ".";
-import { classNames } from "../../helper";
+import fragmentShader from "./shader.glsl?raw";
+
+import { classNames } from "~/helper";
 
 const uniforms = {
   iTime: { value: 0 },
   iResolution: { value: new Vector3() },
-  iMouse: { value: new Vector3(100, 0, 0) }, // Controls the droplet size
+  iScale: { value: new Vector3(100, 0, 0) }, // Controls the droplet size
 };
 const FPS = 30; // FPS Limitation, else it would only be limited by requestAnimationFrame
 
@@ -47,7 +48,8 @@ const initThree = (rendererRef: RefObject<WebGLRenderer | null>, canvas: HTMLCan
 
   // Create shader material
   const material = new ShaderMaterial({ fragmentShader, uniforms });
-  scene.add(new Mesh(plane, material));
+  const mesh = new Mesh(plane, material);
+  scene.add(mesh);
 
   // Canvas resizer
   function resizeRendererToDisplaySize() {
@@ -73,12 +75,14 @@ const initThree = (rendererRef: RefObject<WebGLRenderer | null>, canvas: HTMLCan
 
     delta = time - lastRender;
 
+    // Once per FPS
     if (delta > (1000 / FPS)) {
       delta = 0;
       lastRender = time;
 
       resizeRendererToDisplaySize();
-      uniforms.iTime.value = time / 1000;
+      // Time in ms -> time in seconds
+      uniforms.iTime.value = time / 1e3;
       renderer.render(scene, camera);
     }
 
@@ -112,8 +116,8 @@ const BackgroundComponent: React.FC<Props> = ({ className }) => {
           align-items: center;
 
           /* Make the quality look better than it really is */
-          filter: blur(3px);
-          opacity: 0.4;
+          filter: blur(2px);
+          opacity: 0.6;
         }
 
         canvas {

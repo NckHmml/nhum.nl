@@ -1,9 +1,11 @@
 import { observer } from "mobx-react";
 import { useNavigate } from "react-router";
-import { instance as kanaStore } from "../redux/kana";
-import Checkbox from "./checkbox";
-import KanaSelection from "./kanaSelection";
-import I18N from "./i18n";
+
+import Checkbox from "~/components/checkbox";
+import I18N from "~/components/i18n";
+import KanaSelection from "~/components/kanaSelection";
+
+import { instance as kanaStore } from "~/redux/kana";
 
 const KanaField: React.FC = observer(() => {
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ const KanaField: React.FC = observer(() => {
     if (!kanaStore.canTest) return;
     kanaStore.initTest();
     navigate("/kana/test");
-    umami?.track("kana", { 
+    umami?.track("kana", {
       font: kanaStore.font,
       repeat: kanaStore.repeat,
       reverse: kanaStore.reverse,

@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
-import I18N from "./i18n";
-import { classNames } from "../helper";
+
+import I18N from "~/components/i18n";
+
+import { classNames } from "~/helper";
 
 const Footer: React.FC = () => {
   const { i18n } = useTranslation();
@@ -9,7 +11,7 @@ const Footer: React.FC = () => {
     "pure-menu pure-menu-horizontal": true,
     [i18n.language]: true,
   });
-  
+
   return (
     <footer className={rootClass}>
       <style jsx>{`

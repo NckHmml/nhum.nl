@@ -1,4 +1,5 @@
 import { makeAutoObservable, observable } from "mobx";
+
 import KanaItem from "./kanaItem";
 
 type KanaBuffer = Array<Array<KanaItem>>;
@@ -50,7 +51,7 @@ export class KanaStore {
   }
 
   public get canTest() {
-    return this._allKana.some(x => x.selected);
+    return this._allKana.some((x) => x.selected);
   }
 
   public get allHiragana(): KanaBuffer {
@@ -67,7 +68,7 @@ export class KanaStore {
   }
 
   public get allHiraganaSelected() {
-    return this.allHiragana.every(x => x.every(k => k.selected));
+    return this.allHiragana.every((x) => x.every((k) => k.selected));
   }
 
   public get allKatakana(): KanaBuffer {
@@ -84,7 +85,7 @@ export class KanaStore {
   }
 
   public get allKatakanaSelected() {
-    return this.allKatakana.every(x => x.every(k => k.selected));
+    return this.allKatakana.every((x) => x.every((k) => k.selected));
   }
 
   public get testItem() {
@@ -106,7 +107,7 @@ export class KanaStore {
 
   public initTest() {
     // Prepare the test array of selected items * times to repeat
-    const items = this._allKana.filter(x => x.selected);
+    const items = this._allKana.filter((x) => x.selected);
     const total = items.length * this._repeat;
     const test = new Array<KanaItem>(total);
     for (let i = 0; i < total; i++) {
@@ -131,25 +132,25 @@ export class KanaStore {
     if (this._reverse && item) {
       let sameGroup: Array<KanaItem>;
       let randomKana: KanaItem;
-      if (this._testItems.every(x => x.isHiragana)) {
+      if (this._testItems.every((x) => x.isHiragana)) {
         // Only Hiragana options
-        const kanaOptions = this._allKana.filter(x => x.isHiragana);
-        sameGroup = kanaOptions.filter(x => x.group === item.group && x.kana !== item.kana);
+        const kanaOptions = this._allKana.filter((x) => x.isHiragana);
+        sameGroup = kanaOptions.filter((x) => x.group === item.group && x.kana !== item.kana);
         randomKana = kanaOptions[Math.floor(Math.random() * kanaOptions.length)];
-      } else if (this._testItems.every(x => !x.isHiragana)) {
+      } else if (this._testItems.every((x) => !x.isHiragana)) {
         // Only Katakana options
-        const kanaOptions = this._allKana.filter(x => !x.isHiragana);
-        sameGroup = kanaOptions.filter(x => x.group === item.group && x.kana !== item.kana);
+        const kanaOptions = this._allKana.filter((x) => !x.isHiragana);
+        sameGroup = kanaOptions.filter((x) => x.group === item.group && x.kana !== item.kana);
         randomKana = kanaOptions[Math.floor(Math.random() * kanaOptions.length)];
       } else {
-        sameGroup = this._allKana.filter(x => x.group === item.group && x.kana !== item.kana);
+        sameGroup = this._allKana.filter((x) => x.group === item.group && x.kana !== item.kana);
         randomKana = this._allKana[Math.floor(Math.random() * this._allKana.length)];
       }
       const similarKana = this.getSimilar(this.testItem);
       const options = ([item, randomKana, similarKana]
         .filter(Boolean) as Array<KanaItem>)
         // Remove dupes
-        .filter((v, i, a) => a.findIndex(k => k.kana == v.kana) === i);
+        .filter((v, i, a) => a.findIndex((k) => k.kana == v.kana) === i);
 
       // We need at least four items
       while (options.length < 4 && sameGroup.length > 0) {
@@ -184,10 +185,10 @@ export class KanaStore {
       ["シ", "ツ", "ソ", "ン", "ノ"],
     ];
 
-    const similar = similarities.find(x => x.includes(kana.kana));
+    const similar = similarities.find((x) => x.includes(kana.kana));
     if (similar) {
       // If a similarity is found, grab one random that isn't the current
-      const similarKana = this._allKana.find(x => x.kana === similar.filter(x => x !== kana.kana).sort(() => .5 - Math.random())[0]);
+      const similarKana = this._allKana.find((x) => x.kana === similar.filter((x) => x !== kana.kana).sort(() => .5 - Math.random())[0]);
       return similarKana;
     }
   }

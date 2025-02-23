@@ -10,7 +10,7 @@ const SuspendedBackgroundComponent: React.FC<Props> = (props) => createPortal(
   <Suspense>
     <LazyBackgroundComponent {...props} />
   </Suspense>,
-  document.getElementById("root")!
+  document.getElementById("root")!,
 );
 
 export default SuspendedBackgroundComponent;

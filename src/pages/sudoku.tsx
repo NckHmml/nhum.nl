@@ -1,6 +1,6 @@
-import I18N from "../components/i18n";
-import SudokuButtons from "../components/sudokuButtons";
-import SudokuField from "../components/sudokuField";
+import I18N from "~/components/i18n";
+import SudokuButtons from "~/components/sudokuButtons";
+import SudokuField from "~/components/sudokuField";
 
 const Sudoku: React.FC = () => (
   <>

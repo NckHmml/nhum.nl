@@ -1,8 +1,10 @@
 import { observer } from "mobx-react";
-import { instance as kanaStore } from "../redux/kana";
-import KanaItem from "../redux/kanaItem";
-import Checkbox from "./checkbox";
-import I18N from "./i18n";
+
+import Checkbox from "~/components/checkbox";
+import I18N from "~/components/i18n";
+
+import { instance as kanaStore } from "~/redux/kana";
+import KanaItem from "~/redux/kanaItem";
 
 const KanaCell: React.FC<{ item: KanaItem }> = observer(({ item }) => {
   const { kana, romaji } = item;
@@ -55,8 +57,8 @@ const KanaCell: React.FC<{ item: KanaItem }> = observer(({ item }) => {
 });
 
 const KanaSelection: React.FC<{ items: Array<KanaItem> }> = observer(({ items }) => {
-  const options = items.map(item => <KanaCell key={item.kana} item={item} />);
-  const allSelected = items.every(x => x.selected);
+  const options = items.map((item) => <KanaCell key={item.kana} item={item} />);
+  const allSelected = items.every((x) => x.selected);
 
   const toggle = () => {
     for (const kana of items) kana.selected = !kana.selected;

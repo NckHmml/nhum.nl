@@ -1,9 +1,12 @@
-import { ChangeEvent, useState } from "react";
 import { observer } from "mobx-react";
-import { instance as kanaStore } from "../redux/kana";
-import { classNames } from "../helper";
-import KanaItem from "../redux/kanaItem";
-import I18N from "./i18n";
+import { ChangeEvent, useState } from "react";
+
+import I18N from "~/components/i18n";
+
+import { instance as kanaStore } from "~/redux/kana";
+import KanaItem from "~/redux/kanaItem";
+
+import { classNames } from "~/helper";
 
 const KanaTestField: React.FC = observer(() => {
   const [wrong, setWrong] = useState(new Array<string>());
@@ -24,7 +27,7 @@ const KanaTestField: React.FC = observer(() => {
   );
 
   // Get a matching Kana for the user input
-  const parsedType = kanaStore.allKana.find(x => {
+  const parsedType = kanaStore.allKana.find((x) => {
     const matchType = x.isHiragana === testItem.isHiragana;
     const matchGroup = typed.length === 1 ? x.group === testItem.group : true;
     const matchChars = x.romaji === typed || x.kana === typed;
@@ -120,16 +123,15 @@ const KanaTestField: React.FC = observer(() => {
     const newValue = event.target.value.toLowerCase();
     const isValid = testItem.romaji === newValue || testItem.kana === newValue;
     setTyped(newValue);
-    if (isValid) 
+    if (isValid)
       setTimeout(goStep, 300);
   };
 
-
   if (reverse) {
-    const className1 = classNames({ "kana": true, "invalid": wrong.includes(testOptions[0].kana)});
-    const className2 = classNames({ "kana": true, "invalid": wrong.includes(testOptions[1].kana)});
-    const className3 = classNames({ "kana": true, "invalid": wrong.includes(testOptions[2].kana)});
-    const className4 = classNames({ "kana": true, "invalid": wrong.includes(testOptions[3].kana)});
+    const className1 = classNames({ "kana": true, "invalid": wrong.includes(testOptions[0].kana) });
+    const className2 = classNames({ "kana": true, "invalid": wrong.includes(testOptions[1].kana) });
+    const className3 = classNames({ "kana": true, "invalid": wrong.includes(testOptions[2].kana) });
+    const className4 = classNames({ "kana": true, "invalid": wrong.includes(testOptions[3].kana) });
 
     return (
       <div className="root reverse">

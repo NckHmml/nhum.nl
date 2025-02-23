@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
-import KanaTestField from "../components/kanaTestField";
-import I18N from "../components/i18n";
+
+import I18N from "~/components/i18n";
+import KanaTestField from "~/components/kanaTestField";
 
 const KanaTest: React.FC = () => {
   const navigate = useNavigate();

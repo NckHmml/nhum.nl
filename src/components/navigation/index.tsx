@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import I18N from "./i18n";
+
+import I18N from "~/components/i18n";
 
 const Navigation: React.FC = () => {
 

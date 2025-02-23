@@ -1,5 +1,6 @@
 import { makeAutoObservable, observable } from "mobx";
-import { solveSudoku } from "../solver";
+
+import { solveSudoku } from "~/solver";
 
 export class SudokuStore {
   public field = observable.array<Array<number>>(this.cleanField(), { deep: true });
@@ -55,7 +56,7 @@ export class SudokuStore {
   }
 
   public get fieldValid(): boolean {
-    return !this.validity.some(x => x.some(b => !b));
+    return !this.validity.some((x) => x.some((b) => !b));
   }
 
   public setCell(row: number, col: number, value: number) {

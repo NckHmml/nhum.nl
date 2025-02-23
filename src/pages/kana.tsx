@@ -1,5 +1,5 @@
-import I18N from "../components/i18n";
-import KanaField from "../components/kanaField";
+import I18N from "~/components/i18n";
+import KanaField from "~/components/kanaField";
 
 const Kana: React.FC = () => (
   <>

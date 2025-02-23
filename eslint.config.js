@@ -1,10 +1,11 @@
 import js from "@eslint/js";
-import globals from "globals";
+import stylistic from "@stylistic/eslint-plugin";
+import tseslintParser from "@typescript-eslint/parser";
+import importPlugin from "eslint-plugin-import";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import globals from "globals";
 import tseslint from "typescript-eslint";
-import tseslintParser from "@typescript-eslint/parser";
-import stylistic from "@stylistic/eslint-plugin";
 
 export default tseslint.config(
   { ignores: ["dist"] },
@@ -24,6 +25,7 @@ export default tseslint.config(
       "stylistic": stylistic,
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
+      "import": importPlugin,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -68,6 +70,75 @@ export default tseslint.config(
           allowNullableEnum: true,
         },
       ],
+      "array-bracket-spacing": "error",
+      "arrow-parens": ["error", "always"],
+      "arrow-spacing": "error",
+      "brace-style": ["off", "off"],
+      "comma-dangle": ["error", "always-multiline"],
+      "comma-spacing": "error",
+      "computed-property-spacing": "error",
+      "id-match": "error",
+      "import/order": ["error", {
+        "newlines-between": "always",
+        "distinctGroup": true,
+        "alphabetize": {
+          order: "asc",
+          caseInsensitive: true,
+        },
+        "pathGroups": [
+          {
+            pattern: "{./*,.}",
+            group: "internal",
+            position: "before",
+          },
+          {
+            pattern: "~/components/**",
+            group: "internal",
+            position: "after",
+          },
+          {
+            pattern: "~/pages/**",
+            group: "internal",
+            position: "after",
+          },
+          {
+            pattern: "~/redux/**",
+            group: "internal",
+            position: "after",
+          },
+          {
+            pattern: "~/**",
+            group: "internal",
+            position: "after",
+          },
+        ],
+        "pathGroupsExcludedImportTypes": [],
+      }],
+      "indent": ["error", 2, {
+        SwitchCase: 1,
+        FunctionDeclaration: { body: 1, parameters: 2 },
+        flatTernaryExpressions: true,
+      }],
+      "key-spacing": "error",
+      "keyword-spacing": "error",
+      "no-console": ["warn", { allow: ["error"] }],
+      "no-eval": "error",
+      "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 1, maxBOF: 0 }],
+      "no-nested-ternary": "warn",
+      "no-param-reassign": "off",
+      "no-restricted-imports": ["error", {
+        patterns: [{
+          group: ["..*"],
+          message: "Use non-relative imports that start with `~/`",
+        }],
+        patterns: [{
+          regex: "^\\.\\/[^\\/]*\\/",
+          message: "Use non-relative imports that start with `~/`",
+        }],
+      }],
+      "no-trailing-spaces": "error",
+      "no-underscore-dangle": "off",
+      "no-unused-vars": "off",
       "stylistic/member-delimiter-style": ["error",
         {
           multiline: {

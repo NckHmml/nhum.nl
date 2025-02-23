@@ -1,8 +1,8 @@
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { Link, Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Link, Outlet } from "react-router-dom";
+import SyntaxHighlighter from "react-syntax-highlighter";
 
-import I18N from "../components/i18n";
+import I18N from "~/components/i18n";
 
 export const ConceptsBots: React.FC = () => {
   const { t } = useTranslation();

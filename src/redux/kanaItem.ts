@@ -211,6 +211,6 @@ export default class KanaItem {
   }
 
   public static getAllItems(): Array<KanaItem> {
-    return Object.keys(dictionary).map(kana => new KanaItem(kana));
+    return Object.keys(dictionary).map((kana) => new KanaItem(kana));
   }
 }

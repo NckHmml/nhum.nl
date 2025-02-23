@@ -1,6 +1,8 @@
 import { observer } from "mobx-react";
-import SudokuCell from "./sudokuCell";
-import { instance as sudokuStore } from "../redux/sudoku";
+
+import SudokuCell from "~/components/sudokuCell";
+
+import { instance as sudokuStore } from "~/redux/sudoku";
 
 const SudokuField: React.FC = observer(() => {
   const rows = sudokuStore.field.map((rowCells, row) => (

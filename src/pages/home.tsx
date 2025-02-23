@@ -1,5 +1,4 @@
-import I18N from "../components/i18n";
-
+import I18N from "~/components/i18n";
 
 const Home: React.FC = () => {
   return (
