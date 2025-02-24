@@ -14,7 +14,8 @@ const KanaField: React.FC = observer(() => {
   const allKatakanaBlocks = kanaStore.allKatakana.map((agr, i) => (<KanaSelection key={`k${i}`} items={agr} />));
 
   const onStart = () => {
-    if (!kanaStore.canTest) return;
+    if (!kanaStore.canTest)
+      return;
     kanaStore.initTest();
     navigate("/kana/test");
     umami?.track("kana", {
@@ -119,6 +120,7 @@ const KanaField: React.FC = observer(() => {
           <label><I18N>kana.repeat</I18N></label>
           <div className="pure-form">
             <input
+              data-testid="kana-repeat"
               type="number"
               min={1}
               value={kanaStore.repeat}

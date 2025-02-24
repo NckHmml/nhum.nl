@@ -51,7 +51,7 @@ const KanaCell: React.FC<{ item: KanaItem }> = observer(({ item }) => {
           content: "${kanaStore.reverse ? kana : romaji}";
         }
       `}</style>
-      <div><span></span></div>
+      <div data-testid={kana}><span></span></div>
     </>
   );
 });

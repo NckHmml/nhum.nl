@@ -123,8 +123,13 @@ const KanaTestField: React.FC = observer(() => {
     const newValue = event.target.value.toLowerCase();
     const isValid = testItem.romaji === newValue || testItem.kana === newValue;
     setTyped(newValue);
-    if (isValid)
-      setTimeout(goStep, 300);
+    if (isValid) {
+      if (import.meta.env.MODE === "test")
+        goStep();
+      else
+        /* v8 ignore next */
+        setTimeout(goStep, 300);
+    }
   };
 
   if (reverse) {
@@ -134,7 +139,7 @@ const KanaTestField: React.FC = observer(() => {
     const className4 = classNames({ "kana": true, "invalid": wrong.includes(testOptions[3].kana) });
 
     return (
-      <div className="root reverse">
+      <div className="root reverse" data-testid="c-kanatestfield-reverse">
         {style}
         <div className="main">{testItem.romaji}</div>
         <div className={className1} onClick={() => clickKana(testOptions[0])}>{testOptions[0].kana}</div>
@@ -151,7 +156,7 @@ const KanaTestField: React.FC = observer(() => {
       "valid": isValid,
     });
     return (
-      <div className="root">
+      <div className="root" data-testid="c-kanatestfield">
         {style}
         <div className={kanaClassname}>
           <span>{testItem.kana}</span>

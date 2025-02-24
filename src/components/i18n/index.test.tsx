@@ -7,12 +7,12 @@ test("Component renders", () => {
   render(<I18N>nav.home</I18N>);
 
   const text = i18n.t("nav.home");
-  expect(screen.getByText(text)).toBeDefined();
+  expect(screen.queryByText(text)).toBeInTheDocument();
 });
 
 test("Passes key as text if key doesn't exist", () => {
   render(<I18N>key.that.doesnt.exist</I18N>);
-  expect(screen.getByText("key.that.doesnt.exist")).toBeDefined();
+  expect(screen.queryByText("key.that.doesnt.exist")).toBeInTheDocument();
 });
 
 test("Renders whitelisted HTML tags when flag enabled", () => {

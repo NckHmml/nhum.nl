@@ -5,5 +5,5 @@ import BackgroundComponent from "./component";
 test("Component renders", () => {
   render(<BackgroundComponent />);
 
-  expect(screen.getByTestId("c-background")).toBeDefined();
+  expect(screen.queryByTestId("c-background")).toBeInTheDocument();
 });

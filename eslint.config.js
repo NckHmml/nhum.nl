@@ -123,6 +123,7 @@ export default tseslint.config(
       "keyword-spacing": "error",
       "no-console": ["warn", { allow: ["error"] }],
       "no-eval": "error",
+      "no-extra-boolean-cast": "off",
       "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 1, maxBOF: 0 }],
       "no-nested-ternary": "warn",
       "no-param-reassign": "off",

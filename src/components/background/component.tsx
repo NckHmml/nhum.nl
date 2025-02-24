@@ -13,6 +13,7 @@ const uniforms = {
 };
 const FPS = 30; // FPS Limitation, else it would only be limited by requestAnimationFrame
 
+/* v8 ignore start */
 const initThree = (rendererRef: RefObject<WebGLRenderer | null>, canvas: HTMLCanvasElement | null) => {
   if (canvas === null || import.meta.env.MODE === "test") return;
 
@@ -90,6 +91,7 @@ const initThree = (rendererRef: RefObject<WebGLRenderer | null>, canvas: HTMLCan
   }
   requestAnimationFrame(render);
 };
+/* v8 ignore end */
 
 const BackgroundComponent: React.FC<Props> = ({ className }) => {
   const renderer = useRef<WebGLRenderer>(null);
