@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 public/umami.js
+coverage
 
 # Editor directories and files
 .vscode/*

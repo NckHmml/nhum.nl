@@ -87,7 +87,7 @@ const SudokuCell: React.FC<CellProps> = observer(({ row, cell, value }) => {
           box-sizing: border-box;
         }
       `}</style>
-      <div onClick={onClick} className={valid ? "valid" : "invalid"}>
+      <div onClick={onClick} className={valid ? "valid" : "invalid"} data-testid="c-sudokucell">
         <input onKeyDown={onChange} ref={(ref) => { input = ref; }} />
         <span>{value ? value : ""}</span>
       </div>

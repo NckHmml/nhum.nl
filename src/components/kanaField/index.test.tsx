@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 
@@ -22,14 +22,14 @@ beforeAll(() => {
   });
 });
 
-afterAll(() => {
+afterEach(() => {
   vi.resetAllMocks();
 });
 
 test("Component renders", () => {
   render(<KanaField />);
 
-  expect(screen.getByTestId("c-kanafield")).toBeDefined();
+  expect(screen.queryByTestId("c-kanafield")).toBeDefined();
 });
 
 test("Add all correctly adds all to redux store", async () => {
@@ -58,8 +58,29 @@ test("Add all correctly adds all to redux store", async () => {
 test("Can start a test", async () => {
   render(<KanaField />);
   expect(kanaStore.test.length).toEqual(0);
+
+  await userEvent.type(screen.getByTestId("kana-repeat"), "{backspace}");
+  await userEvent.type(screen.getByTestId("kana-repeat"), "2");
+  expect(kanaStore.repeat).toBe(2);
+
   await userEvent.click(screen.getByTestId("add-hiragana").firstChild as Element);
   await userEvent.click(screen.getByTestId("kana-start"));
-  expect(mockNavigate).toHaveBeenCalled();
-  expect(kanaStore.test.length).toEqual(69);
+
+  expect(mockNavigate).toHaveBeenCalledWith("/kana/test");
+  expect(kanaStore.test.length).toEqual(69 * 2);
+});
+
+test("Can't start a test if nothing is selected", async () => {
+  render(<KanaField />);
+
+  act(() => {
+    kanaStore.toggleAll(kanaStore.allHiragana, false);
+    kanaStore.toggleAll(kanaStore.allKatakana, false);
+    kanaStore.initTest();
+  });
+  expect(kanaStore.test.length).toEqual(0);
+  expect(kanaStore.canTest).toBeFalsy();
+
+  await userEvent.click(screen.getByTestId("kana-start"));
+  expect(mockNavigate).not.toHaveBeenCalled();
 });

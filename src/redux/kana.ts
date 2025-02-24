@@ -97,6 +97,10 @@ export class KanaStore {
     return this._testOptions;
   }
 
+  public get testStep() {
+    return this._testStep;
+  }
+
   public toggleAll(buffer: KanaBuffer, toggle: boolean) {
     for (const items of buffer) {
       for (const kana of items) {
@@ -185,10 +189,10 @@ export class KanaStore {
       ["シ", "ツ", "ソ", "ン", "ノ"],
     ];
 
-    const similar = similarities.find((x) => x.includes(kana.kana));
+    const similar = similarities.find((x) => x.includes(kana.kana))?.sort(() => .5 - Math.random()).filter((x) => x !== kana.kana);
     if (similar) {
       // If a similarity is found, grab one random that isn't the current
-      const similarKana = this._allKana.find((x) => x.kana === similar.filter((x) => x !== kana.kana).sort(() => .5 - Math.random())[0]);
+      const similarKana = this._allKana.find((x) => x.kana === similar.at(0));
       return similarKana;
     }
   }

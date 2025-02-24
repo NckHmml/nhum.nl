@@ -67,8 +67,8 @@ const Checkbox: React.FC<PropsWithChildren<Props>> = ({ checked, onClick, childr
         readOnly
       />
       <label>
-        {children != false ? <span>{children}&nbsp;</span> : undefined}
-        <span className="toggle"/>
+        {Boolean(children) ? <span data-testid="c-checkbox-label">{children}&nbsp;</span> : undefined}
+        <span className="toggle" />
       </label>
     </div>
   );
