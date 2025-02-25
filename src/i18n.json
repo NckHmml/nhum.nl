@@ -18,7 +18,7 @@
       "home": {
         "greeting": "nice to meet you",
         "name": "I am Nick Hummel",
-        "description": "I have a passion for coding and solving complex problems. A creative, abstract and theoretical thinker and have the ability to turn ideas into solutions. And have extensive development experience with Web Technologies, amongst others.",
+        "description": "I have a passion for coding and solving complex problems and am always on the lookout to learn new things. A creative, abstract, and theoretical thinker with the ability to turn ideas into solutions. With extensive experience in web development, having programmed since I was 13 years old.",
         "intro": "Preface",
         "experience": "Experience",
         "year_one": "{{count}} year",
@@ -27,7 +27,8 @@
         "yearWithPlus_other": "{{count}}<sup>+</sup> years",
         "more": "To keep this list short and relevant, not everything has been listed",
         "star": "* including hobby, part-time work, etc",
-        "plus": "+ relevant to my current position"
+        "plus": "+ relevant to my current position",
+        "explore": "Explore"
       },
       "sudoku": {
         "title": "Sudoku solver",
@@ -120,14 +121,15 @@
       "home": {
         "greeting": "はじめまして",
         "name": "I am Nick Hummel",
-        "description": "私はコーディングや複雑な問題を解決することに情熱を持っています。創造的で抽象的、かつ理論的な思考を得意とし、アイデアを解決策に変える能力があります。また、多くのウェブ技術に関する開発経験を持っています。",
+        "description": "私はコーディングや複雑な問題を解決することに情熱を持っています、常に新しいことを学ぶことに目を光らせています。創造的で抽象的、かつ理論的な思考を得意とし、アイデアを解決策に変える能力があります。Web 開発の豊富な経験があり、13 歳の頃からプログラミングをしてきました。",
         "intro": "はじめに",
         "experience": "経験",
         "year": "{{count}}年",
         "yearWithPlus": "{{count}}年<sup>+</sup>",
         "more": "このリストを短くするために、すべてをリストしたわけではありません。",
         "star": "* 趣味、アルバイト、その他",
-        "plus": "+ 現在の会社に使っているもの"
+        "plus": "+ 現在の会社に使っているもの",
+        "explore": "詳しく見る"
       },
       "sudoku": {
         "title": "Sudoku solver",
@@ -188,14 +190,15 @@
       "home": {
         "greeting": "aangenaam kennis te maken",
         "name": "Ik ben Nick Hummel",
-        "description": "Ik heb een passie voor programmeren en het oplossen van complexe problemen. Een creatieve, abstracte en theoretische denker en heb het vermogen om ideeën om te zetten in oplossingen. En heb uitgebreide ervaring met vele webtechnologieën.",
+        "description": "Ik heb een passie voor programmeren en het oplossen van complexe problemen, en ben altijd op zoek naar nieuwe dingen om te leren. Een creatieve, abstracte en theoretische denker met het vermogen om ideeën om te zetten in oplossingen. Met uitgebreide ervaring in webontwikkeling, programmerend sinds ik 13 jaar oud was.",
         "intro": "Voorwoord",
         "experience": "Ervaring",
         "year": "{{count}} jaar",
         "yearWithPlus": "{{count}}<sup>+</sup> jaar",
         "more": "Om deze lijst kort en relevant te houden, staat niet alles op deze lijst",
         "star": "* inclusief hobby, part-time, etc",
-        "plus": "+ relevant voor mijn huidige functie"
+        "plus": "+ relevant voor mijn huidige functie",
+        "explore": "Ontdek"
       },
       "sudoku": {
         "title": "Sudoku solver",
@@ -256,14 +259,15 @@
       "home": {
         "greeting": "schön, sie kennenzulernen",
         "name": "Ich bin Nick Hummel",
-        "description": "Ich hab eine Leidenschaft für das Programmieren un das Lösen komplexer Probleme. Ein kreativer, abstrakter un theoretisch denkender Mensch mit der Fähigkeit, Ideen in Lösungen umzusetzen. Und verfügen über umfangreiche Erfahrung mit vielen Arten von Webtechnologien.",
+        "description": "Ich habe eine Leidenschaft für das Programmieren und das Lösen komplexer Probleme und bin immer auf der Suche nach neuen Dingen. Ich bin ein kreativer, abstrakter und theoretisch denkender Mensch mit der Fähigkeit, Ideen in Lösungen umzusetzen. Ich verfüge über umfangreiche Erfahrung in der Webentwicklung und programmiere seit meinem 13. Lebensjahr.",
         "intro": "Vorwort",
         "experience": "Erfahrung",
         "year": "{{count}} Jahre",
         "yearWithPlus": "{{count}}<sup>+</sup> Jahre",
         "more": "Um diese Liste kurz und relevant zu halten, steht nicht alles auf dieser Liste",
         "star": "* einschließlich Hobby, Teilzeit usw.",
-        "plus": "+ relevant für meine aktuelle Position"
+        "plus": "+ relevant für meine aktuelle Position",
+        "explore": "Entdecken"
       },
       "sudoku": {
         "title": "Sudoku solver",

@@ -11,7 +11,7 @@ const uniforms = {
   iResolution: { value: new Vector3() },
   iScale: { value: new Vector3(100, 0, 0) }, // Controls the droplet size
 };
-const FPS = 30; // FPS Limitation, else it would only be limited by requestAnimationFrame
+const FPS = 40; // FPS Limitation, else it would only be limited by requestAnimationFrame
 
 /* v8 ignore start */
 const initThree = (rendererRef: RefObject<WebGLRenderer | null>, canvas: HTMLCanvasElement | null) => {
@@ -119,7 +119,7 @@ const BackgroundComponent: React.FC<Props> = ({ className }) => {
 
           /* Make the quality look better than it really is */
           filter: blur(2px);
-          opacity: 0.6;
+          opacity: 0.7;
         }
 
         canvas {
