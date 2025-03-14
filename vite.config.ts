@@ -14,7 +14,7 @@ export default defineConfig({
         // A bit cheeky, this will bypass most adblockers
         const script = await fetch("https://cloud.umami.is/script.js");
         const body = await script.blob();
-        await fs.writeFile("./public/umami.js", body.stream());
+        await fs.writeFile("./public/script.js", body.stream());
       },
     },
     react({
