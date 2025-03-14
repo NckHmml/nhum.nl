@@ -24,6 +24,8 @@ const App: React.FC = () => {
             box-sizing: border-box;
             animation: content-opacity 3s;
             animation-timing-function: ease-in;
+            display: flex;
+            align-items: center;
           }
 
           @keyframes content-opacity {

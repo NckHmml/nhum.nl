@@ -40,22 +40,25 @@
 
   --color-text: #333;
   --color-text-light: #777;
-  
+
   --color-shadow: var(--color-text-light);
   --color-background: #DDD;
   --color-border: var(--color-primary);
 
   /* Sizes */
   --size-fz: 16px;
+  /* Fonts act weird with decimal px sizes, so we round them */
   --size-h1: round(nearest, 2em, 1px);
-  --size-h2: round(nearest, 1.6em, 1px); /* Fonts act weird with decimal px sizes, so we round them */
+  --size-h2: round(nearest, 1.6em, 1px);
   --size-h3: round(nearest, 1.2em, 1px);
   --size-h4: round(nearest, 1em, 1px);
   --size-h5: round(nearest, .8em, 1px);
 }
 
 
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -64,7 +67,7 @@ html, body, #root {
   max-height: 100%;
 }
 
-body { 
+body {
   position: relative;
   background-color: var(--color-background);
 }
@@ -75,7 +78,13 @@ body {
   grid-template-rows: auto 1fr;
 }
 
-h1, h2, h3, h4, h5, h6, button {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
   font-weight: 400;
   font-family: Roboto, TakaoPGothic, "sans-serif" !important;
 }
@@ -113,6 +122,7 @@ p {
 }
 
 @media screen and (min-width: 21cm) {
+
   .content,
   .container {
     max-width: 21cm;
@@ -120,16 +130,17 @@ p {
   }
 }
 
-.content { 
+.content {
   z-index: 1;
   padding: 1em;
   width: 100%;
   box-shadow: 0 0 1em var(--color-shadow);
   background-color: var(--color-white);
-  margin-bottom: 2em;
+  margin: 2em auto;
 }
 
 @media print {
+
   .content,
   .container {
     width: 20cm;
@@ -157,9 +168,10 @@ p {
 }
 
 .pure-button.button-primary:hover {
-  background-image: linear-gradient(transparent,rgba(255,255,255,.1) 40%,rgba(255,255,255,.1));
+  background-image: linear-gradient(transparent, rgba(255, 255, 255, .1) 40%, rgba(255, 255, 255, .1));
 }
 
-a:not(.pure-menu-link), a:visited:not(.pure-menu-link) {
+a:not(.pure-menu-link),
+a:visited:not(.pure-menu-link) {
   color: var(--color-link);
 }
