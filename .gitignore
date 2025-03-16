@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-public/*.js
+public/script.js
 coverage
 
 # Editor directories and files

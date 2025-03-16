@@ -178,3 +178,31 @@ export const solveSudoku = (field: IObservableArray<Array<number>>) => {
   const result = backTrack(workField, possibilities);
   return result ? workField : null;
 };
+
+/* Go based solver, it however isn't any faster, so it's disabled */
+/**
+const go = new window.Go();
+WebAssembly.instantiateStreaming(fetch("/gosudoku.wasm"), go.importObject).then((result) => {
+  go.run(result.instance);
+});
+
+export const solveSudoku = (field: IObservableArray<Array<number>>) => {
+  const workField = toJS(field).reduce((agr, cur, col) => {
+    for (let i = 0; i < cur.length; i++)
+      agr[col * 9 + i] = cur[i];
+    return agr;
+  }, new Int8Array(81));
+
+  const result = window.solveSudoku(workField) as boolean | Int8Array;
+  const outField = new Array<Array<number>>(9);
+  if (typeof result !== "boolean") {
+    for (let ix = 0; ix < 9; ix++) {
+      outField[ix] = new Array<number>(9);
+      for (let iy = 0; iy < 9; iy++) {
+        outField[ix][iy] = result[ix * 9 + iy];
+      }
+    }
+  }
+  return Boolean(result) ? outField : field;
+};
+*/
