@@ -9,17 +9,14 @@ type Field [9][9]int8
 type PossibilitySet uint16
 type Possibilities [9][9]PossibilitySet
 
-//go:inline
 func (p PossibilitySet) Has(val int8) bool {
 	return p&(1<<(val-1)) != 0
 }
 
-//go:inline
 func (p *PossibilitySet) Set(val int8) {
 	*p |= 1 << (val - 1)
 }
 
-//go:inline
 func (p *PossibilitySet) Clear(val int8) {
 	*p &^= 1 << (val - 1)
 }

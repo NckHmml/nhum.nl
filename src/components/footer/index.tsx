@@ -6,6 +6,10 @@ import { classNames } from "~/helper";
 
 const Footer: React.FC = () => {
   const { i18n } = useTranslation();
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    umami?.track("language", { language: lng });
+  };
 
   const rootClass = classNames({
     "pure-menu pure-menu-horizontal": true,
@@ -108,7 +112,7 @@ const Footer: React.FC = () => {
         <div className="i18n-select pure-form">
           <label><I18N>nav.languages.label</I18N></label>
           <select
-            onChange={(event) => i18n.changeLanguage(event.target.value)}
+            onChange={(event) => changeLanguage(event.target.value)}
             value={i18n.language}
           >
             <option value="en"><I18N>nav.languages.en</I18N></option>

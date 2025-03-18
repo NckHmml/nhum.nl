@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import BackgroundComponent from "~/components/background";
 import Footer from "~/components/footer";
@@ -10,7 +11,17 @@ import Kana from "~/pages/kana";
 import KanaTest from "~/pages/kanaTest";
 import Sudoku from "~/pages/sudoku";
 
+let pathname: string;
+
 const App: React.FC = () => {
+  const location = useLocation();
+  useEffect(() => {
+    // Custom pageviews as the hashrouter doesn't seem to work properly by default
+    if (pathname === location.pathname) return;
+    pathname = location.pathname;
+    umami?.track((props) => ({ ...props, url: pathname }));
+  }, [location]);
+
   return (
     <>
       <BackgroundComponent />
