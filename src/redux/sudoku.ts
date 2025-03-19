@@ -1,12 +1,15 @@
-import { makeAutoObservable, observable } from "mobx";
+import { makeAutoObservable, observable, runInAction, toJS } from "mobx";
 
 import { solveSudoku } from "~/solver";
+import SudokuWorker from "~/sudokuWorker?worker&inline";
 
 export class SudokuStore {
   public field = observable.array<Array<number>>(this.cleanField(), { deep: true });
+  private _worker: Worker;
 
   public constructor() {
     makeAutoObservable(this);
+    this._worker = new SudokuWorker();
   }
 
   public cleanField() {
@@ -117,13 +120,23 @@ export class SudokuStore {
     this.field.replace(this.cleanField());
   }
 
-  public solve() {
+  public async solve() {
     console.time("solve");
-    const result = solveSudoku(this.field);
+    const workField = toJS(this.field);
+    let result: Array<Array<number>> | null;
+    if (Boolean(window.Worker)) {
+      const promise = new Promise<MessageEvent>((resolve, _reject) => {
+        this._worker.addEventListener("message", resolve, { once: true });
+      }).then((ev) => ev.data);
+      this._worker.postMessage(workField);
+      result = await promise;
+    } else {
+      result = solveSudoku(workField);
+    }
     if (!result) {
       // ToDo: display error?
     } else {
-      this.field.replace(result);
+      runInAction(() => this.field.replace(result));
     }
     console.timeEnd("solve");
     umami?.track("sudoku");

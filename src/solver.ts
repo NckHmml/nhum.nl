@@ -1,5 +1,3 @@
-import { IObservableArray, toJS } from "mobx";
-
 interface CellValues {
   1: boolean;
   2: boolean;
@@ -172,11 +170,10 @@ const backTrack = (field: Field, possibilities: Possibilities, col = 0, row = 0)
  * @param field field observable
  * @returns if solution found, field buffer, else null
  */
-export const solveSudoku = (field: IObservableArray<Array<number>>) => {
-  const workField = toJS(field);
+export const solveSudoku = (field: Field) => {
   const possibilities = createPossibilities(field);
-  const result = backTrack(workField, possibilities);
-  return result ? workField : null;
+  const result = backTrack(field, possibilities);
+  return result ? field : null;
 };
 
 /* Go based solver, it however isn't any faster, so it's disabled */
